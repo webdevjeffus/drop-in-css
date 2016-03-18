@@ -1,17 +1,7 @@
 # CURRENTLY EDITING THIS FILE - 3/18/16
 <hr>
 
-# Drop-In CSS
-#### Drop-In CSS Stylesheets for Web App MVPs
-
-The **drop-in.css** project offers web developers a ready-made CSS stylesheet that can be dropped in on any web app at the beginning of the development process, instantly applying a "good-enough" set of styling rules that make the app easier to look at and use, without adding any classes, ids, divs, or other non-semantic elements. For some development projects, **drop-in.css** may be all the styling you ever need; for others, you may ultimately add to it or replace it with custom stylesheets. But in either case, the **drop-in.css** stylesheet will carry the project through the early phases of development, while the basic features and functionality of the app are being implemented.
-
-#### DIY, or Pret-a-Porter?
-This repo can be used in either of two ways. Front-end developers who are so inclined can follow the tutorial to build their own reusable stylesheet following **drop-in.css** principles, and use it as the foundation for styling their app. Full-stack or back-end developers, on the other hand, may wish to simply download and install the ready-to-go **drop-in.css**, to use with their existing HTML template, or with the provided **layout.html** file.
-
-#### Origin of the Drop-In CSS project
-This project was originally prepared as a tutorial to support a "lightning-talk" presentation on quickly styling MVP web apps, to be presented to the Phase 2 students at [Dev Bootcamp NYC](http://devbootcamp.com/). The original incarnation of this repo, which was aimed specifically at Ruby/Sinatra and Ruby/Rails apps, can still be found at my [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra) repo, though as of March 18, 2016, it will no longer be updated. All future development on the Drop-In project will occur in this repo.
-
+# DIY: Create your own drop-in.css
 
 ## What this How-to is, and what it isn't
 The purpose of this how-to is to help you develop a flexible CSS stylesheet that can be dropped into any Sinatra-based web app, instantly applying "good-enough" styling to the entire website. This is accomplished using type-based CSS selectors along with simple semantic HTML structure. When properly executed, the final stylesheet should work on _any_ Sinatra web app, as well as most Rails-based apps, without adding any classes to the HTML, or any additional styling rules to the CSS file.
@@ -365,66 +355,3 @@ footer {
 ```
 
 This rule is intended to style a single line of credits, something like: "Created by Jeff George for Dev Bootcamp Phase 2," or whatever. The rule centers the text, sets it to 80% of the default font size, and adds 1rem of padding to all sides of the footer. If you add **\<a>** tags to the footer text, to link to your Github or website, the stylesheet will apply the standard link color and styling to them, which should look fine if you chose your colors carefully at the top of the stylesheet.
-
-## The HTML Head element
-
-At the beginning of this tutorial, I showed you how to set up the **\<body>** element of your **layout.erb** file, so that you could use semantic HTML tags as CSS selectors to style the page as intended. In this section, we double back and create the **\<head>** element, with the appropriate stylesheet links so that everything works properly. Here is the content for the **\<head>** element:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <link href='https://fonts.googleapis.com/css?family=Bangers|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/drop-in.css">
-  <link rel="stylesheet" href="/css/application.css">
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title>APP NAME</title>
-</head>
-```
-
-Our **\<head>** element includes four **\<link>** tags that are essential to the styling of the app, and they need to be included in the order shown to make sure they work properly.
-
-#### Font link
-The first link makes a call to [Google's free webfont service](https://www.google.com/fonts), to load our preferred fonts for the app. The link in the example uses Bangers&mdash;a brash, all-caps display font&mdash;for the headlines, and Open Sans&mdash;a clean, simple sans-serif font&mdash;for everything else, including paragraph text. If you decide to change the fonts, just go to Google fonts and select an attractive pair of typefaces; you just need one version of the display font used for headers, but you'll want to select four versions&mdash;normal, italic, bold, and bold italic&mdash;of the body font. Once you've made your choices, Google will provide you with the text for a single link that serves them all up, which you can copy and paste into your **\<head>** element. Be sure to delete the default Google fonts link, if you're changing the font choices.
-
-#### Stylesheet links
-You're probably going to need three CSS stylesheets. The first of these is **normalize.css**, which smooths out the differences in how various browsers render web pages; download and include [the latest version of **normalize**](https://necolas.github.io/normalize.css/).
-
-The next link calls the Sinatra-styling CSS file you created in this tutorial, **drop-in.css**. The final stylesheet you should link in is **application.css**, which includes any style rules you've created specifically for the app you're working on. This is where you'd put any rules you needed to handle special cases in this particular app, most likely using classes as CSS selectors. As a general rule of thumb, if you needed a class to style an element, put it in **application.css**; if you used HTML tags as selectors, it goes in your version of **drop-in.css**.
-
-#### Scripts
-The **\<head>** element is also where you link to your Javascript libraries and files. In this example, we call for a recent version of **jQuery**, served by Google's CDN (content delivery network), as well as **application.js**, which includes any specific JavaScript you've written for this app.
-
-#### Title
-The text you enter into the **\<title>** element appears on the browser tab that holds your app. Entering your app name here is a subtle but impressive touch, and shows attention to detail.
-
-## Putting it in place
-Once you have created your drop-in CSS-for-Sinatra stylesheet, you'll want to use it. First I'll explain how to drop it in on an existing, unstyled app, then I'll talk about how to use it from the beginning with a new app. Although I'm assuming you're creating a Sinatra app, using the stylesheet for MVP styling on a Rails or other app won't be much different.
-
-### Adding the stylesheet to an existing Sinatra app
-First, you'll need to save your stylesheet to the folder in the app where you keep your stylesheets; in an app based on the Dev-Bootcamp-style Sinatra skeleton, that folder is **/public/css**. Then you simply add a link to the stylesheet in your app's **layout.erb** file (**layout.html.erb** for a Rails app). The link should come _after_ the link to **normalize.css**, but _before_ the link to the app-specific stylesheet, if there is one. You'll also need to insert the Google Fonts link _before_ all the stylesheet links.
-
-Once you've saved drop-in.css in the right folder, and added the necessary links to your **layout** file, fire up your server and open the app in the browser, and marvel at the instant styling goodness!
-
-### Starting from scratch
-If you're using this drop-in stylesheet from the beginning of your development process, you'll begin by saving **drop-in.css**, along with the current version of **normalize.css**, in the appropriate folder in your app repo. Again, for a DBC-style Sinatra app, that's **/public/css**.
-
-Then you'll want to replace the contents of the **layout.erb** file with the **\<body>** and **\<head>** elements shown in the examples, above. Alternately, you can use the **layout.erb** file included in this repo. The **layout** file in this repo assumes you're implementing user authentication and sessions, and includes the HTML for sign-up, login, logout, and user profile links in the nav bar. If you're not using user authentication, just replace the code inside the **\<nav>** element with simple navigation links, as in the code snippet in the example on this page, above.
-
-In the **\<head>** element, be sure you've included a Google Font link to serve your chosen fonts, and stylesheet links to **normalize.css** and your version of **drop-in.css**.
-
-<hr>
-
-#### Licenses
-
-This tutorial is Copyright &copy; 2016 by Jeff George.
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Drop-In CSS for Sinatra Tutorial</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="webdevjeffus.github.io/css-for-sinatra" property="cc:attributionName" rel="cc:attributionURL">Jeff George</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-The other files in this repo, **drop-in.css** and **layout.erb**, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
