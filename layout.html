@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link href='https://fonts.googleapis.com/css?family=Bangers|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/drop-in.css">
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title><!-- APP NAME --></title>
+</head>
+
+<body class="container">
+
+  <header>
+    <h1><a href="/">App Name</a></h1>
+    <nav>
+      <ul>
+        <% if current_user %>
+          <li>
+            Welcome, <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>!
+          </li>
+          <li>
+            <form method="POST" action="/sessions" />
+              <input type="hidden" name="_method" value="DELETE" />
+              <input type="submit" value="Logout" />
+            </form>
+          </li>
+
+        <% else %>
+          <li>
+            <a href="/users/new">Sign Up</a>
+          </li>
+          <li>
+            <a href="/sessions/new">Login</a>
+          </li>
+        <% end %>
+
+        <li>
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <p><!-- FOOTER TEXT --></p>
+  </footer>
+</body>
+</html>
