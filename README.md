@@ -5,7 +5,7 @@
 #### A drop-in CSS stylesheet to instantly style any web app MVP
 
 ## Contents
-#### [Introduction to the Drop-In CSS project](Introduction-to-the-Drop-In-CSS-project)
+#### [Introduction to the Drop-In CSS project](#Introduction-to-the-Drop-In-CSS-project)
 
 #### [DIY: Create your own drop-in.css stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
 
