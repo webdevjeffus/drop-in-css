@@ -5,10 +5,9 @@
 
 ## Contents
 ### On this page...
-* [Introduction to the Drop-In CSS project](#Introduction-to-the-Drop-In-CSS-project)
-* [TL;DR](#TL;DR)
-* [Basic semantic HTML5](#Basic-semantic-HTML5)
-* The drop-in.css stylesheet
+* [Introduction to the Drop-In CSS project](#introduction-to-the-drop-in-css-project)
+* [TL;DR](#tl;dr)
+* [Basic semantic HTML5](#basic-semantic-html5)
 * Linking it up
 
 ### Elsewhere in this repo...
