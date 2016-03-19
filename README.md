@@ -7,7 +7,7 @@
 ### On this page...
 * [Introduction to the Drop-In CSS project](#Introduction-to-the-Drop-In-CSS-project)
 * [TL;DR](#TL;DR)
-* [Basic semantic HTML5](Basic-semantic-HTML5)
+* [Basic semantic HTML5](#Basic-semantic-HTML5)
 * The drop-in.css stylesheet
 * Linking it up
 
