@@ -69,7 +69,7 @@ The **drop-in.css** stylesheet expects that your HTML is organized semantically,
 
 If you follow this structure, the **drop-in.css** stylesheet will be able to tell the difference between, for example, an \<h1> heading in the \<header> element&mdash;which will be styled as a logo for the site&mdash;and an \<h1> in the \<main> element, which will appear as a prominent headline. It will also know to display text in \<p> elements in the \<footer> at a smaller size than \<p> text in the \<main> section.
 
-#### CSS Specifity
+#### CSS Specificity
 The magic happens because CSS lets you build selectors using multiple tags to create increasingly specific rules. CSS's principle of _specifity_ states that a rule with a _more specific_ selector always overrides a rule with a _less specific_ one. Simply put, the more tags named in a CSS selector, the more specific it is. A rule with two tags in its selector will override a rule built with only one tag, and a rule with three tags in its selector will trump them both. Here are some examples:
 
 ```css
