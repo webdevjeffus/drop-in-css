@@ -1,16 +1,28 @@
-# CURRENTLY EDITING THIS FILE - 3/18/16
-<hr>
+# <i>CURRENTLY EDITING THIS FILE - 3/18/16</i>
 
 # Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
 
 ## Contents
-#### [Introduction to the Drop-In CSS project](#Introduction-to-the-Drop-In-CSS-project)
+### On this page...
+* [Introduction to the Drop-In CSS project](#Introduction-to-the-Drop-In-CSS-project)
+* [TL;DR](#TL;DR)
+* [Basic semantic HTML5](Basic-semantic-HTML5)
+* The drop-in.css stylesheet
+* Linking it up
 
-#### [DIY: Create your own drop-in.css stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+### Elsewhere in this repo...
+* [DIY: Create your own drop-in.css stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+* Drop-In CSS themes
+* Contribute to the Drop-In CSS project
 
 ## Introduction to the Drop-In CSS project
 The **drop-in.css** project offers web developers a ready-made CSS stylesheet that can be dropped in on any web app at the beginning of the development process, instantly applying a "good-enough" set of styling rules that make the app easier to look at and use, without adding any classes, ids, divs, or other non-semantic elements. For some development projects, **drop-in.css** may be all the styling you ever need; for others, you may ultimately add to it or replace it with custom stylesheets. But in either case, the **drop-in.css** stylesheet will carry the project through the early phases of development, while the basic features and functionality of the app are being implemented.
+
+#### What is the Drop-In stylesheet for?
+The original purpose for the **drop-in.css** stylesheet is to provide new web apps "good-enough" styling during the early phases of their development, so the developers can concentrate on implementing app's database, models, and functionality without having to spend thinking time on CSS. It is designed to handle the most commonly-encountered HTML code in typical web apps, regardless of the framework being used to create them.
+
+Once the app is at a point that it requires custom styling, the developers have a decision to make. They can either repeal-and-replace the **drop-in.css** stylesheet with a custom stylesheet created by their own front-end devs, or use **drop-in.css** as the foundation for further, customized styling. Since **drop-in.css** relies entirely upon HTML elements as selectors, it will not interfere with styling rules that use classes or id's as selectors. Frameworks like Bootstrap and Foundation, which use class-based selectors, will easily override the rules in **drop-in.css** whenever conflicts arise.
 
 #### DIY, or Pret-a-Porter?
 This repo can be used in two ways. Front-end developers who are so inclined can follow the tutorial to build their own reusable stylesheet following **drop-in.css** principles, and use it as the foundation for styling their app. Full-stack or back-end developers, on the other hand, may wish to simply download and install the ready-to-go **drop-in.css**, to use with their existing HTML template, or with the provided **layout.html** file.
@@ -18,14 +30,108 @@ This repo can be used in two ways. Front-end developers who are so inclined can 
 #### Origin of the Drop-In CSS project
 This project was originally prepared as a tutorial to support a "lightning-talk" presentation on quickly styling MVP web apps, to be presented to the Phase 2 students at [Dev Bootcamp NYC](http://devbootcamp.com/). The original incarnation of this repo, which was aimed specifically at Ruby/Sinatra and Ruby/Rails apps, can still be found at my [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra) repo, though as of March 18, 2016, it will no longer be updated. All future development on the Drop-In project will occur in this repo.
 
+## TL;DR
+This page provides in-depth coverage of what **drop-in.css** does, how it does it, and why; the [DIY tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md) breaks down the entire **drop-in.css** file line by line. If you are in a hurry, you can skip down to the ["Linking it up"](#Linking-it-up) section and follow the instructions there to link pre-generated .css and .html files into your app in just a few minutes. The pre-generated files will work fine, but you won't learn as much doing it that way. Your call.
 
-## What this How-to is, and what it isn't
-The purpose of this how-to is to help you develop a flexible CSS stylesheet that can be dropped into any Sinatra-based web app, instantly applying "good-enough" styling to the entire website. This is accomplished using type-based CSS selectors along with simple semantic HTML structure. When properly executed, the final stylesheet should work on _any_ Sinatra web app, as well as most Rails-based apps, without adding any classes to the HTML, or any additional styling rules to the CSS file.
 
-However, this strategy is _not_ appropriate for styling anything beyond the MVP stage. Type-based selectors are measurably less performant than class-based or id-based selectors. While this isn't likely to noticeably affect performance on a locally-hosted app in development, it could have a perceivable impact on the performance of a large, publicly-deployed app served over the internet.
+## Basic semantic HTML5
+The **drop-in.css** stylesheet is able to instantly style almost any HTML document without the addition of any id's, classes, divs, or other special code. It does this by using HTML element tags to build its CSS selectors. In order for this to work, it relies upon you to write clean, semantic HTML5 code&mdash;which is fine, 'cause you're doing it already anyway, right?
 
-### TL;DR
-If you read this tutorial from beginning to end, you'll learn how to set up your own drop-in stylesheet and the compatible **layout** view. I'll explain what each CSS rule does, and why it does it. If you are in a hurry, you can skip down to the ["Putting it in place"](#putting-it-in-place) section and follow the instructions there to drop-in pre-generated .css and .erb files onto your app in just a few minutes. The pre-generated files will work fine, but you won't learn as much doing it that way. Your call.
+#### Semantic tags
+The **drop-in.css** stylesheet expects that your HTML is organized semantically, using HTML5 tags including \<header>, \<nav>, \<main>, \footer>, \<section>, \<article> and \<aside>. The general structure it expects is something like this:
+
+```html
+<body>
+  <header>
+    <h1>APP NAME</h1>
+    <nav>
+      <!-- Nav links organized as an unordered list -->
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <!-- First section content - Full-page width -->
+    </section>
+    <section>
+      <article>
+        <!-- Second section article content - wide column on left side -->
+      </article>
+      <aside>
+        <!-- Second section sidebar content - narrow column on right side -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+</body>
+```
+
+If you follow this structure, the **drop-in.css** stylesheet will be able to tell the difference between, for example, an \<h1> heading in the \<header> element&mdash;which will be styled as a logo for the site&mdash;and an \<h1> in the \<main> element, which will appear as a prominent headline. It will also know to display text in \<p> elements in the \<footer> at a smaller size than \<p> text in the \<main> section.
+
+#### CSS Specifity
+The magic happens because CSS lets you build selectors using multiple tags to create increasingly specific rules. CSS's principle of _specifity_ states that a rule with a _more specific_ selector always overrides a rule with a _less specific_ one. Simply put, the more tags named in a CSS selector, the more specific it is. A rule with two tags in its selector will override a rule built with only one tag, and a rule with three tags in its selector will trump them both. Here are some examples:
+
+```css
+/* CSS Rules Examples */
+
+/* Rule 1 */
+p { color: black; }
+
+/* Rule 2 */
+main p { color: blue; }
+
+/* Rule 3 */
+main aside p { color: green }
+
+/* Rule 4 */
+footer p { font-size: 75% }
+```
+
+Using these style rules, paragraph text (the text within \<p> tags) throughout the document will be displayed as black, following Rule 1, with its one-tag selector, "p". Rule 2, with the selector "main p", overrides that first rule, changing all paragraphs in the \<main> element to display with blue text. Rule 3, "main aside p", trumps Rule 2 for any paragraph that is in a sidebar within the main element, making those paragraphs red. Rule 4, "footer p", applies only paragraph text within the footer section. They will appear as the default color for \<p> elements (black) because they are _not_ inside the \<main> element, but this rule sets them to be 25% smaller than the page's default font size.
+
+Let's consider what happens when we apply the styling rules in the CSS example above to the HTML code below:
+
+```html
+<!-- HTML Document Example -->
+
+<body>
+  <main>
+    <h1>This is the main heading!</h1>
+    <p>This paragraph "A". It will be blue.</p><!-- Rule 2 applies -->
+
+    <section>
+      <article>
+        <h2>This is an article heading</h2>
+        <p>This is paragraph "B". It will also be blue.</p><!-- Rule 2 applies -->
+      </article>
+      <aside>
+        <h2>This is the sidebar heading</h2>
+        <p>This is paragraph "C". It will be red.</p><!-- Rule 3 applies -->
+      </aside>
+    </section>
+  </main>
+
+  <p>This is paragraph "D". It will be black.</p><!-- Rule 1 applies -->
+
+  <footer>
+    <p>This is paragraph "E". It will be black, but smaller.</p><!-- Rule 4 applies -->
+  </footer>
+</body>
+```
+
+Paragraphs A and B would both print as blue text&mdash;they are both \<p> elements within the \<main> element (Rule 2). Paragraph C would display as green text (Rule 3); C _is_ a \<p> element within the \<main> (Rule 2), but it's also a \<p> inside an \<aside> inside the \<main>. Since Rule 3 is more specific than Rule 2 (three tags in the selector, as opposed to just two), it is the one that wins. Paragraph D prints as black text, according to Rule 1&mdash;it's a \<p> element that isn't a descendant of anything but the body, so only Rule 1 applies to it. Finally, paragraph E shows up as black text at 3/4 the size of the other \<p> elements, since it's a \<p> inside the \<footer>, and therefore subject to Rule 4.
+
+#### Descendants vs. Direct Children
+Note that when more than one tag is included in a CSS selector, and the tag names are separated by **blank spaces**, the browser understands that each element is a descendant of the element to its left. That is to say, in the selector "main p", we are selecting _all_ \<p> elements found _anywhere within_ the \<main> element. If the tags in the selector were separated by a **greater than** character, as in "main**&gt;**p", the \<p> element would have to be a _direct child_ of the \<main> element&mdash;further down the DOM tree wouldn't qualify. If we changed the selector for Rule 2 from "main p" to "main&gt;p", then it would only apply to paragraph A, which is a direct child of the \<main> element; paragraph B&mdash;merely a descendant of \<main>, and not a _direct_ child&mdash;would be styled by Rule 1, and would appear as black text. Paragraph C would still print as red text, since the selector for Rule 3&mdash;"main aside p"&mdash;is still more specific than Rule 1, which is the only other rule which might apply.
+
+Note that at the present time, to assure maximum flexibility, the **drop-in.css** stylesheet does not use direct-child selectors.
+
+
+
+<hr>
+#_Text not updated beyond this point - 3/18/16_
 
 ## Setting up your HTML file
 For this to work, you need to set up your **layout.erb** (or **layout.html.erb**, in Rails) following some basic best-practices for semantic HTML. We'll be relying on HTML semantics to differentiate between tags of the same type in different areas of the page. For example, our stylesheet will handle an **\<h1>** tag differently if it appears in the app's **\<header>** element than if it is in the **\<main>**.
