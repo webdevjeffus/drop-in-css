@@ -8,8 +8,7 @@
 - [Introduction](#introduction)
 - [TLDR](#tldr)
 - [Basic semantic HTML5](#basic-semantic-html5)
-- [The drop-in.css stylesheet](#the-drop-in.css-stylesheet)
-- [The drop-in.css stylesheet](#the-drop-in-css-stylesheet)
+- [The Drop-In stylesheet](#the-drop-in-stylesheet)
 - Linking it up
 
 ### Elsewhere in this repo...
