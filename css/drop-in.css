@@ -118,9 +118,9 @@ header nav li {
   padding: 0 1rem;
 }
 
-header nav li:last-child { padding-right: 0;}
+header nav li:nth-last-of-type(1) { padding-right: 0;}
 
-header nav li:first-child { border-left: 0;}
+header nav li:nth-of-type(1) { border-left: 0;}
 
 header nav input[type="submit"] {
   overflow: visible;
@@ -145,7 +145,7 @@ section:nth-of-type(1) {
   padding-top: 0;
 }
 
-section:last-child {
+section:nth-last-of-type(1) {
   padding-bottom: 0;
   border: none;
 }
