@@ -128,7 +128,7 @@ Note that when more than one tag is included in a CSS selector, and the tag name
 
 Note that at the present time, to assure maximum flexibility, the **drop-in.css** stylesheet does not use direct-child selectors.
 
-## The drop-in.css stylesheet
+## The Drop-In stylesheet
 The drop-in.css stylesheet is organized into five main sections. The first two sections&mdash;Resets and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five sections, and explain generally how they display your HTML document; for a detailed, rule-by-rule breakdown, refer to the [tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
 
 ### Resets
