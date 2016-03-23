@@ -9,7 +9,7 @@
 - [TLDR](#tldr)
 - [Basic semantic HTML5](#basic-semantic-html5)
 - [The Drop-In stylesheet](#the-drop-in-stylesheet)
-- Linking it up
+- [Linking it all up](#linking-it-all-up)
 
 ### Elsewhere in this repo...
 * [DIY: Create your own drop-in.css stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
@@ -184,6 +184,37 @@ By default, tables take up 100% of the available width. That width will be divid
 ### Footer Styles
 All text in the footer will be centered, and displayed at 80% of the size it would appear in the \<main> element. You can use heading elements (\<h1>, \<h2>, etc.) as well as paragraphs; they will be scaled down to 80% of their regular size as well.
 
+## Linking it all up
+Just like any stylesheet, you'll need to \<link> to **drop-in.css** in the \<head> of your HTML file in order for the browser to apply the stylesheet when displaying your app. You'll also need to include the link to Google Fonts **drop-in** needs to serve its fonts.
+
+### Folder organization
+The HTML templates provided with **drop-in.css** expect assets to be stored in folders within the root directory, sorted by type (html, css, js, img, etc.). This is almost certainly _not_ the way you will need or want to organize the assets in your app repository. You'll need to adjust the paths described in the links to find the appropriate files within your folder structure.
+
+### Font link
+If you are satisfied with fonts **drop-in.css** uses by default, just copy the following link into the \<head> of your HTML file:
+
+```html
+<link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+```
+
+If you want to change the fonts in your app, navigate to [Google Fonts](https://www.google.com/fonts) and follow the instructions there to create the link to copy-paste into your app. You'll need to pick two fonts&mdash;an easy-to-read font as a default font, which will be used for paragraphs, buttons, links, and minor headings, and a display font, which will be used for major headings, including the app logo in the header. The best combination for clarity and readability is usually a sans-serif font for general text, and a complimentary display or serif font for major headings. Be sure to include normal, bold, italic and bold italic versions of the general font, but you'll only need one version of the display font (usually bold, if the font comes in different weights). Adding more versions will only slow down your load times, and they are not needed by **drop-in.css**.
+
+Since the **drop-in.css** stylesheet refers to the fonts in the link to Google Fonts, be sure to put the Google Font link _before_ the **drop-in** link in the \<head> of your HTML document.
+
+### Stylesheet links
+You'll need to include three stylesheet links in your document's \<head>, in this order: **normalize.css**, **drop-in.css**, and **application.css** (or whatever you've named the file that holds your custom styles for the app). The links will look _something_ like this, although you will probably need to change the paths to suit your folder structure:
+
+```html
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/drop-in.css">
+<link rel="stylesheet" href="../css/application.css">
+```
+
+**drop-in.css** will not display properly without **normalize.css** (which you should be using anyway, even without **drop-in**). The **css/** folder in this repo includes a copy of normalize.css v4.0.0, which is the latest version available as of March, 2016. For the very latest verstion, go to [**normalize.css**](https://necolas.github.io/normalize.css/).
+
+Try not to make changes to **drop-in.css**, and if you must, try to use HTML tags as CSS selectors. If you've found a problem or a bug in **drop-in.css** please make a pull request to this repo, so that it can be fixed for all users. Changes to **drop-in.css** that require classes or id's as selectors will be rejected.
+
+If you need to add or change CSS styling to meet specific needs in your app, make the changes by adding CSS rules to the custom **application.css** file for the project. If you use class- or id-based selectors in the CSS rules in your application stylesheet, you can be confident that they will override the tag-selected rules in **drop-in.css** and **normalize.css**.
 
 <hr>
 #_Text not updated beyond this point - 3/22/16_
