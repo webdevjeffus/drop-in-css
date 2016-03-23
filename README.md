@@ -1,4 +1,13 @@
-# <i>CURRENTLY REVISING THIS REPO - 3/22/16</i>
+# _REPO CURRENTLY UNDER DEVELOPMENT/REVISION_
+State of the files in this repo, as of 3/23/16
+- README: main content in near-final condition; links to be edited upon revisions to other files.
+- drop-in.css: stable and usable.
+- normalize.css: most current version, from [**normalize.css**](https://necolas.github.io/normalize.css/)
+- layout.html: ready for Sinatra projects as-is, and with minor revisions for Rails projects
+- index.html: currently being used to test, verify and demonstrate **drop-in.css**
+- specificity.md: currently being adapted and expanded from a section in README; incomplete.
+- tutorial.md: cloned from [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra), doesn't cover use of \<section>, \<article> and \<aside> elements; will be revised for this framework-agnostic version of **drop-in.css**
+<hr>
 
 # Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
