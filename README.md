@@ -8,6 +8,7 @@
 * [Introduction to the Drop-In CSS project](#introduction-to-the-drop-in-css-project)
 * [TL;DR](#tl;dr)
 * [Basic semantic HTML5](#basic-semantic-html5)
+* [The drop-in.css stylesheet](#the-drop-in.css-stylesheet)
 * Linking it up
 
 ### Elsewhere in this repo...
@@ -37,7 +38,7 @@ This page provides in-depth coverage of what **drop-in.css** does, how it does i
 The **drop-in.css** stylesheet is able to instantly style almost any HTML document without the addition of any id's, classes, divs, or other special code. It does this by using HTML element tags to build its CSS selectors. In order for this to work, it relies upon you to write clean, semantic HTML5 code&mdash;which is fine, 'cause you're doing it already anyway, right?
 
 #### Semantic tags
-The **drop-in.css** stylesheet expects that your HTML is organized semantically, using HTML5 tags including \<header>, \<nav>, \<main>, \footer>, \<section>, \<article> and \<aside>. The general structure it expects is something like this:
+The **drop-in.css** stylesheet expects that your HTML is organized semantically, using HTML5 tags including \<header>, \<nav>, \<main>, \<footer>, \<section>, \<article> and \<aside>. The general structure it expects is something like this:
 
 ```html
 <body>
@@ -67,7 +68,7 @@ The **drop-in.css** stylesheet expects that your HTML is organized semantically,
 </body>
 ```
 
-If you follow this structure, the **drop-in.css** stylesheet will be able to tell the difference between, for example, an \<h1> heading in the \<header> element&mdash;which will be styled as a logo for the site&mdash;and an \<h1> in the \<main> element, which will appear as a prominent headline. It will also know to display text in \<p> elements in the \<footer> at a smaller size than \<p> text in the \<main> section.
+If you follow this structure, the **drop-in.css** stylesheet will be able to tell the difference between, for example, an \<h1> heading in the \<header> element&mdash;which will be styled as a logo for the site&mdash;and an \<h1> in the \<main> element, which will appear as a prominent headline. Similarly, it will also know to display text in \<p> elements in the \<footer> at a smaller size than \<p> text in the \<main> section.
 
 #### CSS Specificity
 The magic happens because CSS lets you build selectors using multiple tags to create increasingly specific rules. CSS's principle of _specifity_ states that a rule with a _more specific_ selector always overrides a rule with a _less specific_ one. Simply put, the more tags named in a CSS selector, the more specific it is. A rule with two tags in its selector will override a rule built with only one tag, and a rule with three tags in its selector will trump them both. Here are some examples:
@@ -126,6 +127,32 @@ Paragraphs A and B would both print as blue text&mdash;they are both \<p> elemen
 Note that when more than one tag is included in a CSS selector, and the tag names are separated by **blank spaces**, the browser understands that each element is a descendant of the element to its left. That is to say, in the selector "main p", we are selecting _all_ \<p> elements found _anywhere within_ the \<main> element. If the tags in the selector were separated by a **greater than** character, as in "main**&gt;**p", the \<p> element would have to be a _direct child_ of the \<main> element&mdash;further down the DOM tree wouldn't qualify. If we changed the selector for Rule 2 from "main p" to "main&gt;p", then it would only apply to paragraph A, which is a direct child of the \<main> element; paragraph B&mdash;merely a descendant of \<main>, and not a _direct_ child&mdash;would be styled by Rule 1, and would appear as black text. Paragraph C would still print as red text, since the selector for Rule 3&mdash;"main aside p"&mdash;is still more specific than Rule 1, which is the only other rule which might apply.
 
 Note that at the present time, to assure maximum flexibility, the **drop-in.css** stylesheet does not use direct-child selectors.
+
+## The drop-in.css stylesheet
+The drop-in.css stylesheet is organized into five main sections. The first two sections&mdash;Resets and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five sections, and explain generally how they display your HTML document; for a detailed, rule-by-rule breakdown, refer to the [tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
+
+### Resets
+Resets standardize the rendering of HTML elements by different browsers. **Drop-in.css** relies upon [**normalize.css**](https://necolas.github.io/normalize.css/) for general consistency, and adds a few more reset rules of its own. It is recommended that you include **normalize.css** in your project along with **drop-in.css**; download the **normalize.css** file, and link it in the \<head> element of your HTML file, just before the link to **drop-in.css**.
+
+In its own Resets section, **drop-in.css** includes a few style rules that simplify various browsers' default element-rendering, to make styling more designer-friendly:
+* Use box-sizing: border-box on all block elements.
+* Assign min- and max-widths to be the body, and set the margins to center the body in the browser window.
+* Remove margins and padding from all elements, then set a standard bottom margin of 0.5rem to all header and paragraph elements.
+
+### Design Styles
+In its Design Styles section, **drop-in.css** collects all the rules that specify the font and colors used throughout the site. By keeping these rules together, near the top of the file, **drop-in.css** makes it easy for developers to change the look and feel of their app by making minor changes to just a few CSS rules.
+
+#### Fonts
+**Drop-in.css** relies upon [Google Fonts](https://www.google.com/fonts) to serve its fonts. It uses only two fonts&mdash;a simple, highly legible font for general text, and a fancier display font for major headers, including the app title/logo. By default, **drop-in.css** uses Open Sans as its general text font, and Alegreya as its display font. These fonts are declared in the first two rules in the Design Styles section of **drop-in.css**, and nowhere else, so they are easy to replace.
+
+#### Colors
+By default, **drop-in.css** uses several shades of gray for background and font colors, and two highly-contrasting red shades for inactive and active links. This color scheme was chosen for maximum contrast and readability, but it may be a bit bold for some projects. If you want to use a different set of colors, change out the colors assigned in this section, following the comments for each color declaration.
+
+### Header Styles
+The section of **drop-in.css** that styles the app's header will give you a logo in the form of the app's name in the site's display font, in very large type, at the left edge of the header section. The nav element will display as a horizontal series of links, separated by vertical bars, at the right edge of the header. In your HTML file, follow these guidelines to be certain everything displays properly:
+* Create the logo by putting the name of the app in an \<h1> element; this should be the first element in the \<header>.
+* Inside the nav element, mark-up your links as list elements ( \<li> ) in an unordered list ( \<ul> ).
+* If you have a subhead under the \<h1>, mark it up as a \<p> element, and wrap the \<h1> and the \<p> inside a \<div> to properly position the \<p>. (If you don't have a subhead, you don't need the \<div> around the \<h1>.)
 
 
 
