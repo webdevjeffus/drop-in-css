@@ -13,7 +13,8 @@
 - [Licenses](#licenses)
 
 ### Elsewhere in this repo...
-* [DIY: Create your own drop-in.css stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+- [CSS Specificity and _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
+* [DIY: Create your own _drop-in.css_ stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
 * Drop-In CSS themes
 * Contribute to the Drop-In CSS project
 
@@ -72,7 +73,7 @@ The **drop-in.css** stylesheet expects that your HTML is organized semantically,
 If you follow this structure, the **drop-in.css** stylesheet will be able to tell the difference between, for example, an \<h1> heading in the \<header> element&mdash;which will be styled as a logo for the site&mdash;and an \<h1> in the \<main> element, which will appear as a prominent headline. Similarly, it will also know to display text in \<p> elements in the \<footer> at a smaller size than \<p> text in the \<main> section.
 
 #### Under the hood
-For more information about how **drop-in.css** uses the rules and conventions of CSS to select and style the elements in your HTML document, refer to the [CSS Specifity]() page in the **drop-in.css** documentation.
+For more information about how **drop-in.css** uses the rules and conventions of CSS to select and style the elements in your HTML document, refer to the [CSS Specificity and _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md) page in the **drop-in.css** documentation.
 
 
 ## The Drop-In stylesheet

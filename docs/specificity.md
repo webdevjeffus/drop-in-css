@@ -1,9 +1,54 @@
-# CSS Specificity
+# _WORK IN PROGRESS - 3/23/19_
+
+# CSS Specificity and _drop-in.css_
 
 **drop-in.css** is able to instantly style an HTML document without any classes or id's by taking advantage of the CSS principle of **specifity**. Simply put, the more specific the selector of a CSS rule, the more powerful that rule is. For a complete discussion of specificity, visit the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) page on the subject; I'll cover just enough here to explain how and why **drop-in.css** works.
 
 ## Weighting selector types
-The CSS
+CSS can use several kinds of selectors to target an element for styling, and each kind is assigned a weight. When more than one CSS rule targets a given element, the one with the greatest weight is applied in preference to the others.
+
+<table>
+  <tr>
+    <th>Selector type</th>
+    <th>Weight</th>
+  </tr>
+  <tr>
+    <td>Element tag (eg: &lt;h1&gt;, &lt;p&gt;, &lt;li&gt;)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Pseudo-element (eg: :before, :after)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Class (eg: .example-class)</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Attribute (eg: [type="text"], [type="password"])</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Pseudo-class (eg: :hover, :first-child)</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>ID (eg: #example-id)</td>
+    <td>100</td>
+  </tr>
+</table>
+
+Thus, a rule with a selector that includes a single element tag, such as "p", has a weight of 1. It will be overridden by any rule with greater selector weight, such as "main p" (weight: 2), ".example-class" (weight: 10), "main .example-class" (weight: 11), or "#example-id" (weight: 100).
+
+### Ties go to the last rule
+When the weight of two rules is _exactly_ the same, the browser will apply the rule that appears _last_ in the stylesheets. Because of this, it's important to link the stylesheets in the proper order in the \<head> of your HTML file: **normalize.css**, then **drop-in.css**, then **application.css**. This way, in the few cases where **drop-in.css** actually does use a single-tag selector, it's rule will take precedence over any applicable rule in **normalize.css**.
+
+## Specifity, semantics, and Drop-In CSS
+The magic of **drop-in.css** happens because it selects elements using only HTML tags, taking advantage of the CSS specifity rules and semantic HTML to tell the browser which similar rule to apply to each element.
+
+Virtually all of the rules in **normalize.css** have single-tag selectors (weight: 1), while the rules in **drop-in.css** almost all use two or three tags in their selectors (weight: 2 or 3). Thus, any time rules in both **normalize.css** and **drop-in.css** target the same element, the element will be styled according to the more heavily-weighted rule in **drop-in.css**.
+
+Similarly,
 
 The magic of **drop-in.css** happens because CSS lets you build selectors using multiple tags to create increasingly specific rules. CSS's principle of _specifity_ states that a rule with a _more specific_ selector always overrides a rule with a _less specific_ one. Simply put, the more tags named in a CSS selector, the more specific it is. A rule with two tags in its selector will override a rule built with only one tag, and a rule with three tags in its selector will trump them both. Here are some examples:
 
