@@ -50,6 +50,9 @@ Virtually all of the rules in **normalize.css** have single-tag selectors (weigh
 
 Similarly,
 
+<hr>
+# _All text below this line is under revision_
+
 The magic of **drop-in.css** happens because CSS lets you build selectors using multiple tags to create increasingly specific rules. CSS's principle of _specifity_ states that a rule with a _more specific_ selector always overrides a rule with a _less specific_ one. Simply put, the more tags named in a CSS selector, the more specific it is. A rule with two tags in its selector will override a rule built with only one tag, and a rule with three tags in its selector will trump them both. Here are some examples:
 
 ```css

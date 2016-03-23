@@ -1,4 +1,5 @@
-# CURRENTLY EDITING THIS FILE - 3/18/16
+# _WORK ON HOLD - 3/23/19_
+Contents are valid as far as they go, but some new functionality added to **drop-in.css** has not yet been covered in this tutorial.
 <hr>
 
 # DIY: Create your own drop-in.css
