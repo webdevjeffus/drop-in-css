@@ -18,7 +18,15 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
+}
+
+header:after,
+main:after,
+section:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 
@@ -29,24 +37,24 @@ h1, h2, h3, h4, h5, h6, p {
 html { font-family: 'Open Sans', sans-serif; }
 
 h1, h2, h3, h4 {
-  font-family: 'Bangers', sans-serif;
+  font-family: 'Alegreya', serif;
 }
 
 /* Colors */
 
 html {
-  background-color: #888;   /* medium gray */
-  color: #ddd;              /* dark gray */
+  background-color: #888;   /* medium background color, eg: 50% gray */
+  color: #ddd;              /* light font color, eg: 15% gray */
 }
 
 body,
 header nav input[type="submit"] {
-  background-color: #222;    /* dark gray */
+  background-color: #222;    /* dark background color, eg: 85% gray */
 }
 
 main {
-  background-color: #ddd;   /* light gray */
-  color: #222;              /* dark gray */
+  background-color: #ddd;   /* light backround color, eg: 15% gray */
+  color: #222;              /* dark font color, eg: 85% gray */
 }
 
 a:link,
@@ -65,25 +73,40 @@ header nav input[type="submit"]:active {
 }
 
 header nav li {
-  border-left: 3px solid #888;    /* match html background-color */
+  border-left: 3px solid #888;    /* this should match html background-color */
 }
 
 main table,
 main th,
 main td {
-  border: 1px solid #222;         /* match body background-color */
-  background-color: #eee;         /* lighter than main background-color */
+  border: 1px solid #222;     /* this should match main font color */
+  background-color: #eee;     /* this should be lighter than main background-color */
 }
+
+section { border-bottom: 2px solid #888; }
+  /* this should match html background-color */
+
+aside { background-color: #bbb; }
+  /* this should be slightly darker than main background-color, eg: 25% gray */
 
 
 /* HEADER STYLES */
 
 header { padding: 1rem; }
 
-header h1 {
-  margin: 0 0 1rem;
-  font-size: 3rem;
+header div {
   float: left;
+}
+
+header h1 {
+  float: left;
+  line-height: 1;
+  font-size: 3rem;
+}
+
+header p {
+  font-style: italic;
+  margin-bottom: 0;
 }
 
 header nav { float: right; }
@@ -111,7 +134,32 @@ header nav input[type="submit"] {
 
 main {
   padding: 1rem;
-  clear: both;
+  /*clear: both;*/
+}
+
+section {
+  padding: 1rem 0;
+}
+
+section:first-child {
+  padding-top: 0;
+}
+
+section:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+
+article {
+  width: 65%;
+  float: left;
+}
+
+aside {
+  padding: 1rem;
+  font-size: 0.8rem;
+  width: 30%;
+  float: right;
 }
 
 /* Lists */
@@ -121,7 +169,6 @@ main ul { margin: 0 auto 1.5rem; }
 main ul li {
   list-style: none;
   margin: 0.5rem 0 1rem;
-  font-size: 1.25rem;
 }
 
 /* Forms */
@@ -132,10 +179,26 @@ main input {
   width: 100%;
 }
 
-main input[type="text"],
+main input[type="date"],
+main input[type="datetime"],
+main input[type="datetime-local"],
+main input[type="email"],
+main input[type="month"],
+main input[type="number"],
 main input[type="password"],
-main input[type="email"] {
+main input[type="search"],
+main input[type="tel"],
+main input[type="text"],
+main input[type="time"],
+main input[type="week"] {
   padding: 0 0.5rem;
+}
+
+main input[type="checkbox"],
+main input[type="radio"],
+main input[type="range"] {
+  display: inline;
+  width: 1.5rem;
 }
 
 main textarea {
@@ -145,11 +208,6 @@ main textarea {
   padding: 0.5rem;
 }
 
-main input[type="radio"],
-main input[type="checkbox"] {
-  display: inline;
-  width: 1.5rem;
-}
 
 main input[type="submit"] { width: 12rem; }
 
