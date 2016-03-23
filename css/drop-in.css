@@ -141,7 +141,7 @@ section {
   padding: 1rem 0;
 }
 
-section:first-child {
+section:nth-of-type(1) {
   padding-top: 0;
 }
 
