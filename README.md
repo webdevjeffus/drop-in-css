@@ -1,4 +1,4 @@
-# <i>CURRENTLY EDITING THIS FILE - 3/18/16</i>
+# <i>CURRENTLY REVISING THIS REPO - 3/22/16</i>
 
 # Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
@@ -154,10 +154,22 @@ The section of **drop-in.css** that styles the app's header will give you a logo
 * Inside the nav element, mark-up your links as list elements ( \<li> ) in an unordered list ( \<ul> ).
 * If you have a subhead under the \<h1>, mark it up as a \<p> element, and wrap the \<h1> and the \<p> inside a \<div> to properly position the \<p>. (If you don't have a subhead, you don't need the \<div> around the \<h1>.)
 
+### Main Styles
+Because the \<main> element is where the real action in your app is displayed, _where_ you put your HTML code for \<main> can get a bit complex, depending on what back-end framework you're using. I developed the **drop-in.css** while working on Ruby/Sinatra and Ruby on Rails projects, so the \<main> element in my layout.erb (or layout.html.erb, for Rails) often contained a simple \<%= yield %> method; the actual layout of the pages would be determined by erb templates in my views folder or folders. In such cases, the use of semantic HTML tags within the \<main> element, including \<section>, \<article>, and \<element>, would often happen in those templates. No matter where the mark-up happens, though, **drop-in.css** will display it all correctly, so long as semantic HTML5 best practices are followed in structuring your pages.
+
+#### Semantic HTML in the \<main> element: \<section>, \<article>, and \<aside>
+**Drop-in.css** will handle some fairly complex structuring of content using the HTML5 semantic elements \<section>, \<article>, and \<aside>. Here are guidelines on how **drop-in.css** treats these elements:
+
+* **\<article>** elements will take up 65% of the available width, and be floated to the left margin.
+* **\<aside>** elements will take up 30% of the available width, and be floated to the right. Thus, using an \<article> element along with an \<aside> element will produce the main-column/sidebar format so familiar on the internet.
+* To help distinguish between main and sidebar content, all text within an **\<aside>** will be displayed at 80% of its normal font-size; this affects all sizes of headers, as well as paragraphs. Also, \<aside> content will appear within a box with a distinctive background color.
+* **\<section>** elements will take up 100% of the available width. A horizontal rule (automatically created by drop-in.css as a border&mdash;no \<hr> element required) will separate one section from the next.
+* **\<section>** elements can be used to sub-divide content in the \<main> element, within \<article> elements, and even within \<aside> elements.
+
 
 
 <hr>
-#_Text not updated beyond this point - 3/18/16_
+#_Text not updated beyond this point - 3/22/16_
 
 ## Setting up your HTML file
 For this to work, you need to set up your **layout.erb** (or **layout.html.erb**, in Rails) following some basic best-practices for semantic HTML. We'll be relying on HTML semantics to differentiate between tags of the same type in different areas of the page. For example, our stylesheet will handle an **\<h1>** tag differently if it appears in the app's **\<header>** element than if it is in the **\<main>**.
