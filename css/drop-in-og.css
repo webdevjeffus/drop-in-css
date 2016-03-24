@@ -101,9 +101,9 @@ main button {
 
 main input[type="submit"],
 main button {
-  background-color: rgb(216,217,193);   /* light-med orange, matches aside bg-color */
+  background-color: rgb(216,217,193);   /* almond, matches aside bg-color */
   color: rgb(61,61,42);                 /* dark gray-brown, matches main text color */
-  padding-top: 0.25rem;
+  padding-top: 0.07rem;
 }
 
 
