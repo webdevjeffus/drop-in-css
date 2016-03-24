@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0 0 0.5rem;
 }
 
+p:last-child {
+  margin-bottom: 0rem;
+}
+
 header:after,
 main:after,
 section:after {
@@ -167,11 +171,11 @@ main aside {
 
 /* Lists */
 
-main ul { margin: 0 auto 1.5rem; }
+main ul { margin: 0 1rem 1.25rem; }
 
 main ul li {
   list-style: none;
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0;
 }
 
 /* Forms */

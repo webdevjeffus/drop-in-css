@@ -1,17 +1,7 @@
-# _REPO CURRENTLY UNDER DEVELOPMENT/REVISION_
-State of the files in this repo, as of 3/23/16
-- **README**: main content in near-final condition; links to be edited upon revisions to other files.
-- **drop-in.css**: stable and usable.
-- **normalize.css**: most current version, from [**normalize.css**](https://necolas.github.io/normalize.css/)
-- **layout.html**: ready for Sinatra projects as-is, and with minor revisions for Rails projects
-- **index.html**: currently being used to test, verify and demonstrate **drop-in.css**
-- **specificity.md**: complete.
-- **themes.md**: complete, though more themes will be added.
-- **tutorial.md**: cloned from [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra), doesn't cover use of \<section>, \<article> and \<aside> elements; will be revised for this framework-agnostic version of **drop-in.css**
-<hr>
-
 # Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
+
+![Drop-In CSS](https://github.com/webdevjeffus/drop-in-css/blob/master/img/readme_splash.png "Style your app in 60 seconds!")
 
 ## Contents
 ### On this page...
@@ -24,9 +14,9 @@ State of the files in this repo, as of 3/23/16
 
 ### Elsewhere in this repo...
 - [CSS Specificity and _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
-* [DIY: Create your own _drop-in.css_ stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+* [DIY: Create your own _drop-in.css_ stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)&mdash;
 * [Themes for _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
-* Contribute to the Drop-In CSS project
+* Contribute to the Drop-In CSS project&mdash;coming soon.
 
 ## Introduction
 The **drop-in.css** project offers web developers a ready-made CSS stylesheet that can be dropped in on any web app at the beginning of the development process, instantly applying a "good-enough" set of styling rules that make the app easier to look at and use, without adding any classes, ids, divs, or other non-semantic elements. For some development projects, **drop-in.css** may be all the styling you ever need; for others, you may ultimately add to it or replace it with custom stylesheets. But in either case, the **drop-in.css** stylesheet will carry the project through the early phases of development, while the basic features and functionality of the app are being implemented.

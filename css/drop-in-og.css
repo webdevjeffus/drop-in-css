@@ -1,0 +1,109 @@
+/*! drop-in-gp.css | "Old Glory" theme by Jeff George */
+/*! MIT License | github.com/webdevjeffus/drop-in-css */
+
+/******************** INSTALLING THIS DROP-IN THEME *********************\
+
+STEP ONE - Delete any existing Google Font link from the HTML <head> element.
+
+STEP TWO - Insert this Google Font link into the HTML <head> element:
+
+<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+STEP THREE - Link this file in the HTML <head> element, IMMEDIATELY AFTER
+the core drop-in.css file:
+
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/drop-in.css">
+  <link rel="stylesheet" href="../css/drop-in-og.css">
+  <link rel="stylesheet" href="../css/application.css">
+
+OPTIONAL CLEAN-UP STEPS (perform AFTER the theme is installed and working):
+  * Delete the "DESIGN STYLES" section in the core drop-in.css file;
+    this file replaces that section entirely.
+  * Delete these commented instructions.
+
+\***********************************************************************/
+
+/* DESIGN STYLES */
+
+/* Fonts */
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display SC', serif;
+  line-height: 1;
+}
+
+
+/* Colors */
+
+html {
+  background-color: rgb(216,217,193);   /* almond */
+  color: rgb(216,217,193);              /* almond */
+}
+
+body,
+header nav input[type="submit"] {
+  background-color: rgb(2,35,64);    /* dark blue */
+}
+
+main {
+  background-color: rgb(240,241,230);   /* antique white */
+  color: rgb(61,61,42);                 /* dark gray-brown */
+}
+
+a:link,
+a:visited,
+header nav input[type="submit"] {
+  color: rgb(212,60,60);    /* stop sign red */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+header nav input[type="submit"]:hover,
+header nav input[type="submit"]:active { color: rgb(240,70,70); }
+  /* bright red */
+
+main a:link,
+main a:visited { color: rgb(30,107,185); }   /* medium blue; inactive links in main */
+
+main a:hover,
+main a:active { color: rgb(40,130,230); }    /* brighter blue; active links in main */
+
+header nav li { border-left: 3px solid rgb(216,217,193); }
+  /* almond, matches html background-color */
+
+main table,
+main th,
+main td {
+  border: 1px solid rgb(61,61,42);     /* dark gray-brown, matches main text color */
+  background-color: rgb(250,251,238);  /* off-white, lighter than main bg-color */
+}
+
+main section { border-bottom: 2px solid rgb(166,46,46); }   /* schoolhouse red */
+
+main aside {
+  background-color: rgb(216,217,193);   /* almond */
+  border: 1px solid rgb(61,61,42);      /* dark gray-brown, matches main text color */
+}
+
+main input,
+main button {
+  border: 1px solid rgb(61,61,42);   /* dark gray-brown, matches main text color */
+  color: rgb(61,61,42);              /* dark gray-brown, matches main text color */
+}
+
+main input[type="submit"],
+main button {
+  background-color: rgb(216,217,193);   /* almond, matches aside bg-color */
+  color: rgb(61,61,42);                 /* dark gray-brown, matches main text color */
+  padding-top: 0.07rem;
+}
+
+
