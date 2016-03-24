@@ -6,6 +6,7 @@ State of the files in this repo, as of 3/23/16
 - **layout.html**: ready for Sinatra projects as-is, and with minor revisions for Rails projects
 - **index.html**: currently being used to test, verify and demonstrate **drop-in.css**
 - **specificity.md**: complete.
+- **themes.md**: complete, though more themes will be added.
 - **tutorial.md**: cloned from [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra), doesn't cover use of \<section>, \<article> and \<aside> elements; will be revised for this framework-agnostic version of **drop-in.css**
 <hr>
 
@@ -24,7 +25,7 @@ State of the files in this repo, as of 3/23/16
 ### Elsewhere in this repo...
 - [CSS Specificity and _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
 * [DIY: Create your own _drop-in.css_ stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
-* Drop-In CSS themes
+* [Themes for _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
 * Contribute to the Drop-In CSS project
 
 ## Introduction
