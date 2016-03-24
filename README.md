@@ -1,12 +1,12 @@
 # _REPO CURRENTLY UNDER DEVELOPMENT/REVISION_
 State of the files in this repo, as of 3/23/16
-- README: main content in near-final condition; links to be edited upon revisions to other files.
-- drop-in.css: stable and usable.
-- normalize.css: most current version, from [**normalize.css**](https://necolas.github.io/normalize.css/)
-- layout.html: ready for Sinatra projects as-is, and with minor revisions for Rails projects
-- index.html: currently being used to test, verify and demonstrate **drop-in.css**
-- specificity.md: currently being adapted and expanded from a section in README; incomplete.
-- tutorial.md: cloned from [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra), doesn't cover use of \<section>, \<article> and \<aside> elements; will be revised for this framework-agnostic version of **drop-in.css**
+- **README**: main content in near-final condition; links to be edited upon revisions to other files.
+- **drop-in.css**: stable and usable.
+- **normalize.css**: most current version, from [**normalize.css**](https://necolas.github.io/normalize.css/)
+- **layout.html**: ready for Sinatra projects as-is, and with minor revisions for Rails projects
+- **index.html**: currently being used to test, verify and demonstrate **drop-in.css**
+- **specificity.md**: complete.
+- **tutorial.md**: cloned from [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra), doesn't cover use of \<section>, \<article> and \<aside> elements; will be revised for this framework-agnostic version of **drop-in.css**
 <hr>
 
 # Drop-In CSS
@@ -179,6 +179,6 @@ If you need to add or change CSS styling to meet specific needs in your app, mak
 
 The documentation in this repo is Copyright &copy; 2016 by Jeff George.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Documentation for the <b>Drop-in CSS</b></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="webdevjeffus.github.io/css-for-sinatra" property="cc:attributionName" rel="cc:attributionURL">Jeff George</a> is distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Documentation for <b>Drop-in CSS</b></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="webdevjeffus.github.io/drop-in-css" property="cc:attributionName" rel="cc:attributionURL">Jeff George</a> is distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 The code files in this repo, including **drop-in.css**, **index.html** and **layout.html**, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
