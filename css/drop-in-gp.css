@@ -1,0 +1,107 @@
+/*! drop-in-gp.css | "Great Pumpkin" theme by Jeff George */
+/*! MIT License | github.com/webdevjeffus/drop-in-css */
+
+/******************** INSTALLING THIS DROP-IN THEME *********************\
+
+STEP ONE - Delete any existing Google Font link from the HTML <head> element.
+
+STEP TWO - Insert this Google Font link into the HTML <head> element:
+
+<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+STEP THREE - Link this file in the HTML <head> element, IMMEDIATELY AFTER
+the core drop-in.css file:
+
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/drop-in.css">
+  <link rel="stylesheet" href="../css/drop-in-gp.css">
+  <link rel="stylesheet" href="../css/application.css">
+
+OPTIONAL CLEAN-UP STEPS (perform AFTER the theme is installed and working):
+  * Delete the "DESIGN STYLES" section in the core drop-in.css file;
+    this file replaces that section entirely.
+  * Delete these commented instructions.
+
+\***********************************************************************/
+
+/* DESIGN STYLES */
+
+/* Fonts */
+
+html {
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1.2;   /* Josefin needs slightly more line-height than normal */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Amatic SC', serif;
+}
+
+
+/* Colors */
+
+html {
+  background-color: #284;   /* medium green */
+  color: #2b6;              /* brighter green */
+}
+
+body,
+header nav input[type="submit"] {
+  background-color: #142;    /* dark green */
+}
+
+main {
+  background-color: #fd8;   /* light orange */
+  color: #842;              /* dark orange-brown */
+}
+
+a:link,
+a:visited,
+header nav input[type="submit"] {
+  color: #f80;    /* pumpkin orange; inactive links in header, footer */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+header nav input[type="submit"]:hover,
+header nav input[type="submit"]:active { color: #fb2; }
+  /* brighter orange; active links in header, footer */
+
+main a:link,
+main a:visited { color: #142; }   /* dark green; inactive links in main */
+
+main a:hover,
+main a:active { color: #2a6; }    /* brighter green; active links in main */
+
+header nav li { border-left: 3px solid #284; }
+  /* md green, matches html background-color */
+
+main table,
+main th,
+main td {
+  border: 1px solid #842;     /* orange-brown, matches main font color */
+  background-color: #feb;     /* very light orange, lighter than main bg-color */
+}
+
+main section { border-bottom: 2px solid #284; }
+  /* medium green; matches html background-color */
+
+main aside { background-color: #fb6; }
+  /* orange slightly darker than main background-color */
+
+main input,
+main button {
+  border: 1px solid #842;   /* orange-brown, matches main text color */
+  color: #842;              /* orange-brown, matches main text color */
+}
+
+main input[type="submit"],
+main button {
+  background-color: #fb6;   /* light-med orange, matches aside bg-color */
+  padding-top: 0.25rem;
+  color: #842;              /* orange-brown, matches main text color */
+}
+
+
