@@ -89,10 +89,10 @@ main td {
   background-color: #eee;     /* this should be lighter than main background-color */
 }
 
-section { border-bottom: 2px solid #888; }
+main section { border-bottom: 2px solid #888; }
   /* this should match html background-color */
 
-aside { background-color: #bbb; }
+main aside { background-color: #bbb; }
   /* this should be slightly darker than main background-color, eg: 25% gray */
 
 
@@ -100,12 +100,10 @@ aside { background-color: #bbb; }
 
 header { padding: 1rem; }
 
-header div {
-  float: left;
-}
+header>h1,
+header div { float: left; }
 
 header h1 {
-  float: left;
   line-height: 1;
   font-size: 3rem;
 }
@@ -142,25 +140,25 @@ main {
   padding: 1rem;
 }
 
-section {
+main section {
   padding: 1rem 0;
 }
 
-section:nth-of-type(1) {
+main section:nth-of-type(1) {
   padding-top: 0;
 }
 
-section:nth-last-of-type(1) {
+main section:nth-last-of-type(1) {
   padding-bottom: 0;
   border: none;
 }
 
-article {
+main article {
   width: 65%;
   float: left;
 }
 
-aside {
+main aside {
   padding: 1rem;
   font-size: 0.8rem;
   width: 30%;
