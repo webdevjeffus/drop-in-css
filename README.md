@@ -1,6 +1,8 @@
 # Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
 
+![Drop-In CSS](https://github.com/webdevjeffus/drop-in-css/blob/master/img/readme_splash.png "Style your app in 60 seconds!")
+
 ## Contents
 ### On this page...
 - [Introduction](#introduction)
