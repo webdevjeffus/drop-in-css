@@ -4,9 +4,11 @@ Because developers get tired of looking at the same design project after project
 
 ## Installing a _drop-in.css_ theme
 It's easy to install a new theme for **drop-in.css** by following these simple steps:
+
+
 1. Fully install the core **drop-in.css** files:
-  * Save copies of **normalize.css** and **drop-in.css** in the appropriate folders in your app.
-  * Insert the necessary links to Google Fonts, **normalize.css** and **drop-in.css**.
+    * Save copies of **normalize.css** and **drop-in.css** in the appropriate folders in your app.
+    * Insert the necessary links to Google Fonts, **normalize.css** and **drop-in.css**.
 2. Save the Drop-In theme file in your app's css folder. Theme files are named **drop-in-XX.css**, where "XX" is replaced by initials that identify the particular theme.
 3. Replace the default Google Fonts link with the Google Fonts link for the theme you've chosen.
 4. Link in the theme stylesheet (**drop-in-XX.css**) _immediately after_ the regular **drop-in.css** stylesheet in the \<head> element of your HTML file, and before your **application.css** file.
