@@ -59,3 +59,12 @@ Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus
 
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 ```
+
+
+#### Licenses
+
+The documentation in this repo is Copyright &copy; 2016 by Jeff George.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Documentation for <b>Drop-In CSS</b></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="webdevjeff.us" property="cc:attributionName" rel="cc:attributionURL">Jeff George</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+The code files in this repo, including **drop-in.css**, **demo.html**, and all **drop-in.css** themes, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
