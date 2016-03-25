@@ -61,6 +61,7 @@ The **drop-in.css** stylesheet expects that your HTML is organized semantically,
       </article>
       <aside>
         <!-- Second section sidebar content - narrow column on right side -->
+      </aside>
     </section>
   </main>
 
