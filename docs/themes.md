@@ -4,12 +4,12 @@ Because developers get tired of looking at the same design project after project
 
 ## Contents
 
-- [Installing a _drop-in.css_ theme](#installing-a-drop-in.css-theme)
+- [Installing a theme](#installing-a-theme)
 - [Default theme](#default)
 - [Great Pumpkin](#great-pumpkin)
 - [Old Glory](#old-glory)
 
-## Installing a _drop-in.css_ theme
+## Installing a theme
 It's easy to install a new theme for **drop-in.css** by following these simple steps:
 
 
