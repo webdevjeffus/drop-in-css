@@ -74,62 +74,33 @@ section:after {
 This rule automatically applies a "clearfix" immediately after \<header>, \<main> and \<section> elements, since these elements are likely to contain elements that are floated left or right. It has no effect if nothing inside the element is floated, but they don't hurt anything by being there.
 
 ### Design Styles
+The rules in the Design Styles section determine the look of the app. It is here that we specify the fonts and the colors for the site. These are the _only_ CSS rules that are changed to create a new **drop-in** theme; they are collected here, rather than being split up among the Header, Main and Footer Styles sections, to make it more convenient and manageable to change the appearance of the app. If you are tinkering with the styles in **drop-in.css**, and you want to change a font or a color, you _must_ make those changes inside the Design Styles section, or subsequent users won't be able to find them.
+
+#### Fonts
+```css
+/* DESIGN STYLES *************************************************************/
+
+/* Fonts */
+
+html { font-family: 'Open Sans', sans-serif; }
+
+h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
+```
+
+These two rules are the _only_ rules in the **drop-in.css** stylesheet that declare fonts. If you need to make additional font declarations, we recommend that you do that with class-selected rules in your application.css file.
+
+The first rule here, with the selector "html", declares the font that will be used by default through out the site&mdash;in the default **drop-in** theme, I've chosen Open Sans, an easy-to-read font that was designed for screen viewing. The second rule declares the display font to be used for larger headings, including the \<h1> in the \<header> element that serves as the site logo. A carefully-selected display font goes a long way in establishing the "attitude" of the app, so you can afford to sacrifice a little bit of legibility for the sake of coolness.
+
+It's not difficult to change the fonts used by **drop-in.css**. Just go to Google Fonts and pick two fonts that look good together. The general font should be an easily-read serif or sans-serif font; the display font can be a bit fancier. When choosing the font package for your site, select the normal, bold, italic, and bold italic versions of the general font, and the bold version of the display font. (Some display fonts are only available in a single version, which they call "normal"; if that's the case, use that version.) Once you have chosen your fonts, click the "Use" button at the lower right hand corner of the Google Fonts page, and the site will automagically generate the link you need to include in the head of your HTML document, as well as the proper "font-family" information to put into the font rules in the Design Styles section of **drop-in.css**.
 
 
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
-### Resets
-In this section, we'll add style rules that simplify various browsers' default element-rendering, to make styling more designer-friendly. This includes setting the document to size all block elements, including the header, main, footer and any divs, using **border-box** sizing, instead of the frustrating default, **content-box**. We'll also set all **margins** and **padding** to 0, since different browsers use different defaults for these properties. When we want margins or padding, we'll add them explicitly, so we get what we're expecting.
-
-```css
-/* RESETS */
-
-html { box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0 auto;
-  min-width: 600px;
-  max-width: 800px;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 0.5rem;
-}
-
-```
-
-In the **body** rule, we first set the left and right **margin** to **auto**, so that the app content will be centered on the page. We'll also set **min-width** and **max-width** values to keep our page within a range in which our styling works. If you want a fully-responsive site, you'll need to add media queries&mdash;but that's a separate tutorial.
-
-Finally, we'll add a bottom margin of 0.5rem to our headers and paragraphs, to put just a bit of vertical whitespace between elements on the page. (I'll talk more about rems in the ["Header Styles"](#header-styles) section, below.)
-
 
 ### Design Styles
-Design styles apply throughout the website, across all pages and in all sections; they determine the look of the app. Here, we'll set our font choices, as well as the colors for everything in the site. Fonts and colors are all we need to change to completely alter the look from one project to the next. By pulling those rules together at the top of the file, we make it easy to make changes.
 
-```css
-/* DESIGN STYLES */
-
-/* Fonts */
-
-html { font-family: 'Open Sans', sans-serif; }
-
-h1, h2, h3, h4 {
-  font-family: 'Bangers', sans-serif;
-}
-```
-
-#### Fonts
-In the Fonts section, we'll be specifying two fonts&mdash;one display font and one body font&mdash;and we have only need two rules to assign them throughout the app. The first rule, declared for the **\<html>** element, assigns our body font (Open Sans, in this case) as the default font for the site. The only elements that will use the display font we've chosen (Bangers, for this app) are the larger heading elements: **\<h1>** down through **\<h4>**. Chances are we won't even need any headings smaller than **\<h4>**, and if we do, we'll just leave them as bold-face Open Sans.
-
-We'll be using Google Fonts to serve our chosen fonts; we set that up in the **\<head>** element, which I'll cover below.
 
 ```css
 
