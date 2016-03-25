@@ -6,34 +6,79 @@ The content on this page is incomplete and under revision; links may be temporar
 
 This document goes under the hood to explore the function of each section and rule in the **drop-in.css** stylesheet. It's aimed at front-end devs who want to deconstruct the **drop-in.css** file, to customize it or create their own version. You don't need to read it in order to use **drop-in.css** in your project.
 
+## Organization of the _drop-in_ stylesheet
+
+The default _drop-in.css_ is organized into six sections:
+
+- [**Google Font Link:**](#google-font-link) a commented-out copy of the link to the fonts used by **drop-in.css**, served by **googleapis.com**, to be copy-pasted into the \<head> of the HTML document for the app.
+- [**Utility Styles:**](#utility-styles) a catch-all category for rules that apply throughout the document.
+- [**Design Styles:**](#design-styles) all the rules pertaining to fonts and colors are collected here.
+- [**Header Styles:**](#header-styles) rules that style the header for the page, including the logo and nav links.
+- [**Main Styles:**](#main-styles) rules that style the main content of the site, including sections, articles, asides, lists, forms and tables.
+- [**Footer Styles:**](#footer-styles) rules that style the footer for the page.
+
+We'll go through each section rule-by-rule.
+
+### Google Font Link
+The first section of the **drop-in.css** file contains a commented-out copy of the link to the fonts used by the stylesheet. The link is created by the Google Fonts website when you select a set of fonts for use in a website; this copy is saved here for convenience, to keep it handy when linking the **drop-in.css** stylesheet into a project. This entire section can be deleted from the CSS file without affecting the functionality of the stylesheet, once you're sure the font link is working properly.
+
+Instructions for choosing fonts for use with **drop-in.css** are included in the [Design Styles](#design-styles) section of this document, below.
+
+### Utility Styles
+This section includes an assortment of rules that **drop-in.css** applies throughout your app to display it properly. For the most part, they use single-tag selectors; apart from that, they don't have anything to do with one another.
+
+```css
+/* UTILITY STYLES ************************************************************/
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+```
+
+These rules set all block elements to use **border-box** sizing, instead of the frustrating default, **content-box**. For a full explanation of why border-box rocks and content-box sucks, read this article at [CSS-Tricks](https://css-tricks.com/box-sizing/).
+
+The "\*" rule also sets all **margins** and **padding** to 0, since different browsers use different defaults for these properties. When we want margins or padding, we'll add them explicitly, so we get what we're expecting.
+
+```css
+body {
+  margin: 0 auto;
+  min-width: 600px;
+  max-width: 800px;
+}
+```
+
+The body rule includes a margin declaration that causes the body of the app (which includes all the visible content) to be centered left-to-right in the browser window. The min- and max-widths are good values for an app in development; you'll want to override them with media queries when you're ready to make your site fully responsive to screens of all sizes.
+
+```css
+h1, h2, h3, h4, h5, h6, p { margin: 0 0 0.5rem; }
+
+p:last-child { margin-bottom: 0rem; }
+```
+
+The first of these two rules removes the top, right and left margin set for headings and paragraphs in normalize.css. It sets the bottom margin to 0.5rem, so that there's a little whitespace between elements, and especially between paragraphs. The second rule (p:last-child) removes the bottom margin from a paragraph if it's the last element within the parent element (usually the \<main> element or a \<section>), since the padding of the outer element already handles adding whitespace after the last element.
+
+```css
+header:after,
+main:after,
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+```
+
+This rule automatically applies a "clearfix" immediately after \<header>, \<main> and \<section> elements, since these elements are likely to contain elements that are floated left or right. It has no effect if nothing inside the element is floated, but they don't hurt anything by being there.
+
+### Design Styles
+
+
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
-
-## What this How-to is, and what it isn't
-The purpose of this how-to is to help you develop a flexible CSS stylesheet that can be dropped into any Sinatra-based web app, instantly applying "good-enough" styling to the entire website. This is accomplished using type-based CSS selectors along with simple semantic HTML structure. When properly executed, the final stylesheet should work on _any_ Sinatra web app, as well as most Rails-based apps, without adding any classes to the HTML, or any additional styling rules to the CSS file.
-
-However, this strategy is _not_ appropriate for styling anything beyond the MVP stage. Type-based selectors are measurably less performant than class-based or id-based selectors. While this isn't likely to noticeably affect performance on a locally-hosted app in development, it could have a perceivable impact on the performance of a large, publicly-deployed app served over the internet.
-
-
-## Organization of the _drop-in_ stylesheet
-
-I'll begin by creating and saving a new **drop-in.css** file, and setting up some commented-out section heads to help organize it. Here's how it looks at first:
-
-```css
-/* drop-in.css */
-
-/* RESETS */
-
-/* DESIGN STYLES  */
-
-/* HEADER STYLES */
-
-/* MAIN STYLES - Yield Block */
-
-/* FOOTER STYLES */
-
-```
 
 ### Resets
 In this section, we'll add style rules that simplify various browsers' default element-rendering, to make styling more designer-friendly. This includes setting the document to size all block elements, including the header, main, footer and any divs, using **border-box** sizing, instead of the frustrating default, **content-box**. We'll also set all **margins** and **padding** to 0, since different browsers use different defaults for these properties. When we want margins or padding, we'll add them explicitly, so we get what we're expecting.
