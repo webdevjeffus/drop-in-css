@@ -42,7 +42,8 @@ Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevje
 ```
 
 ### Old Glory
-Old-fashioned red, white and blue, like a Memorial Day parade.
+
+![Old Glory Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/old_glory_theme.png "Old Glory theme screenshot")
 
 Old Glory theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css "Old Glory theme screenshot")
 
