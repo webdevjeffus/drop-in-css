@@ -1,5 +1,5 @@
 # _WORK ON HOLD - 3/23/19_
-Contents are valid as far as they go, but some new functionality added to **drop-in.css** has not yet been covered in this tutorial.
+Contents are valid as far as they go, but some new functionality added to **drop-in.css** has not yet been covered in this tutorial. Much of the general-use instructions for **drop-in.css** has been moved to the README for the repo, but has not yet been deleted from this document. Links may be temporarily broken. Pardon the mess - I'll clean it up soon. &mdash;_Jeff_
 <hr>
 
 # DIY: Create your own drop-in.css
