@@ -30,13 +30,24 @@ Black and white with splashes of red (inspired by Edward Gorey's design for the 
 ```
 
 ### Great Pumpkin
-Orange with green, reminding one of a big, old pumpkin.
 
+![Great Pumpkin Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/great_pumpkin_theme.png "Great Pumpkin theme screenshot")
 
-Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
+Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css "Great Pumpkin theme screenshot")
 
 ```html
 <!-- Google Fonts link for Great Pumpkin theme -->
 
 <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+```
+
+### Old Glory
+Old-fashioned red, white and blue, like a Memorial Day parade.
+
+Old Glory theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css "Old Glory theme screenshot")
+
+```html
+<!-- Google Fonts link for Old Glory theme -->
+
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 ```
