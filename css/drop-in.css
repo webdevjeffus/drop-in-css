@@ -1,6 +1,6 @@
 /*! drop-in.css | MIT License | github.com/webdevjeffus/drop-in-css */
 
-/*********************************** IMPORTANT!!!! **********************************\
+/* GOOGLE FONT LINK **********************************************************\
 
 To serve the default fonts for drop-in.css,
 paste this link into the <head> of your HTML document:
@@ -10,10 +10,10 @@ paste this link into the <head> of your HTML document:
 If you are using a drop-in.css theme other than default, use the link in the comment
 of the drop-in-XX.css theme file instead of the link above.
 
-\***********************************************************************************/
+\*****************************************************************************/
 
 
-/* RESETS */
+/* UTILITY STYLES ************************************************************/
 
 html { box-sizing: border-box; }
 
@@ -46,7 +46,7 @@ section:after {
 }
 
 
-/* DESIGN STYLES  */
+/* DESIGN STYLES *************************************************************/
 
 /* Fonts */
 
@@ -55,11 +55,6 @@ html { font-family: 'Open Sans', sans-serif; }
 h1, h2, h3, h4 {
   font-family: 'Alegreya', serif;
 }
-
-/* Google Font link for these fonts--insert into <head> of HTML file:
-
-
-*/
 
 /* Colors */
 
@@ -111,7 +106,7 @@ main aside { background-color: #bbb; }
   /* this should be slightly darker than main background-color, eg: 25% gray */
 
 
-/* HEADER STYLES */
+/* HEADER STYLES *************************************************************/
 
 header { padding: 1rem; }
 
@@ -149,7 +144,7 @@ header nav input[type="submit"] {
 }
 
 
-/* MAIN STYLES - Yield Block */
+/* MAIN STYLES ***************************************************************/
 
 main {
   padding: 1rem;
@@ -254,7 +249,7 @@ main td {
 }
 
 
-/* FOOTER STYLES */
+/* FOOTER STYLES *************************************************************/
 
 footer {
   text-align: center;
