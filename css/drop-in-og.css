@@ -7,7 +7,7 @@ STEP ONE - Delete any existing Google Font link from the HTML <head> element.
 
 STEP TWO - Insert this Google Font link into the HTML <head> element:
 
-<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 STEP THREE - Link this file in the HTML <head> element, IMMEDIATELY AFTER
 the core drop-in.css file:
