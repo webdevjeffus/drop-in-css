@@ -18,6 +18,9 @@ It's easy to install a new theme for **drop-in.css** by following these simple s
 ## The themes
 
 ### Default, aka "Dracula on Broadway"
+
+![Default Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/default_theme.png "Default theme screenshot")
+
 Black and white with splashes of red (inspired by Edward Gorey's design for the 1977 Broadway production of _Dracula_). The color scheme is built into the basic **drop-in.css** file, so no **drop-in-XX.css** file is necessary.
 
 ```html
