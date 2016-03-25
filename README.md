@@ -109,18 +109,18 @@ Because the \<main> element is where the real action in your app is displayed, _
 **Drop-in.css** will handle some fairly complex structuring of content using the HTML5 semantic elements \<section>, \<article>, and \<aside>. Here are guidelines on how **drop-in.css** treats these elements:
 
 * **\<article>** elements will take up 65% of the available width, and be floated to the left margin.
-* **\<aside>** elements will take up 30% of the available width, and be floated to the right. Thus, using an \<article> element along with an \<aside> element will produce the main-column/sidebar format so familiar on the internet.
-* To help distinguish between main and sidebar content, all text within an **\<aside>** will be displayed at 80% of its normal font-size; this affects all sizes of headers, as well as paragraphs. Also, \<aside> content will appear within a box with a distinctive background color.
+* **\<aside>** elements will take up 30% of the available width, and be floated to the right. Thus, using an \<article> element alongside an \<aside> element will produce the main-column/sidebar format so familiar on the internet.
+* To help distinguish between main-column and sidebar content, all text within an **\<aside>** will be displayed at 80% of its normal font-size; this affects all sizes of headers, as well as paragraphs. Also, \<aside> content will appear within a box with a distinctive background color.
 * **\<section>** elements will take up 100% of the available width. A horizontal rule (automatically created by drop-in.css as a border&mdash;no \<hr> element required) will separate one section from the next.
 * **\<section>** elements can be used to sub-divide content in the \<main> element, within \<article> elements, and even within \<aside> elements.
 
 #### Lists
-Unordered lists are very common in web apps. **Drop-in.css** displays unordered lists flush left, without bullets.
+Unordered lists are very common in web apps. **Drop-in.css** displays unordered lists with the title flush left, and list items indented 1rem, without bullets.
 
 #### Forms
 Forms are even more common in web apps than are lists. **Drop-in.css** styles forms in a generic way that emphasizes readability over compactness; you will probably want to restyle your forms with classes once you are past the MVP stage. Here is how *drop-in.css** handles form elements by default:
 * Most **\<input>** elements&mdash;including text, email, url, password, and many more&mdash;will take 100% of the available width, as will **\<textarea>** elements.
-* **\<label>** elements are displayed on their own lines. If you put a \<label> in the HTML immediately before the \<input> element it labels, it will appear on the line right before the \<input>.
+* **\<label>** elements are displayed on their own lines. If you put a \<label> in the HTML immediately before the \<input> element it labels, it will appear on the line right above the \<input>.
 * **Checkboxes** and **radio buttons** display inline; that is to say, if your HTML calls for have three radio buttons in a row, all three buttons will appear (with their labels) on the same line. Use \<div> elements to separate checkboxes and radio buttons that should go on different lines, or to group ones that should appear on the same line.
 * **Buttons** will be 12rem wide and centered, whether they are created as \<button> elements, or \<input type="submit">.
 

@@ -1,62 +1,22 @@
-# _WORK ON HOLD - 3/23/19_
-Contents are valid as far as they go, but some new functionality added to **drop-in.css** has not yet been covered in this tutorial. Much of the general-use instructions for **drop-in.css** has been moved to the README for the repo, but has not yet been deleted from this document. Links may be temporarily broken. Pardon the mess - I'll clean it up soon. &mdash;_Jeff_
+# _WORK IN PROGRESS - 3/25/19_
+The content on this page is incomplete and under revision; links may be temporarily broken. Pardon the mess - I'll have it cleaned up soon. &mdash;_Jeff_
 <hr>
 
-# DIY: Create your own drop-in.css
+# _Drop-in.css_, line by line
+
+This document goes under the hood to explore the function of each section and rule in the **drop-in.css** stylesheet. It's aimed at front-end devs who want to deconstruct the **drop-in.css** file, to customize it or create their own version. You don't need to read it in order to use **drop-in.css** in your project.
+
+# _Everything above this line is REVISED as of 3/25/16_
+<hr>
+### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
 ## What this How-to is, and what it isn't
 The purpose of this how-to is to help you develop a flexible CSS stylesheet that can be dropped into any Sinatra-based web app, instantly applying "good-enough" styling to the entire website. This is accomplished using type-based CSS selectors along with simple semantic HTML structure. When properly executed, the final stylesheet should work on _any_ Sinatra web app, as well as most Rails-based apps, without adding any classes to the HTML, or any additional styling rules to the CSS file.
 
 However, this strategy is _not_ appropriate for styling anything beyond the MVP stage. Type-based selectors are measurably less performant than class-based or id-based selectors. While this isn't likely to noticeably affect performance on a locally-hosted app in development, it could have a perceivable impact on the performance of a large, publicly-deployed app served over the internet.
 
-### TL;DR
-If you read this tutorial from beginning to end, you'll learn how to set up your own drop-in stylesheet and the compatible **layout** view. I'll explain what each CSS rule does, and why it does it. If you are in a hurry, you can skip down to the ["Putting it in place"](#putting-it-in-place) section and follow the instructions there to drop-in pre-generated .css and .erb files onto your app in just a few minutes. The pre-generated files will work fine, but you won't learn as much doing it that way. Your call.
 
-## Setting up your HTML file
-For this to work, you need to set up your **layout.erb** (or **layout.html.erb**, in Rails) following some basic best-practices for semantic HTML. We'll be relying on HTML semantics to differentiate between tags of the same type in different areas of the page. For example, our stylesheet will handle an **\<h1>** tag differently if it appears in the app's **\<header>** element than if it is in the **\<main>**.
-
-To begin, set up the **\<body>** element in your **layout.erb** as in this example. We'll cover the contents of [the **\<head>** element](#the-html-head-element) later in the tutorial.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <!-- Discussed in "The HTML <head> element", below -->
-</head>
-
-<body>
-  <header>
-    <h1><a href="/">APP NAME</a></h1>
-    <nav>
-      <ul>
-        <li><a href="#">LINK 1</a></li>
-        <li><a href="#">LINK 2</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <%= yield %>
-  </main>
-
-  <footer>
-    <p>FOOTER TEXT</p>
-  </footer>
-</body>
-</html>
-```
-
-The "yield," wrapped in a printing erb tag, will tell Sinatra (or Rails) to render each view inside the **\<main>** element; you don't need to do anything else to this section. The **\<footer>** tag is even less complex&mdash;just drop your own footer text into the **\<p>** element.
-
-The **\<header>** element has a bit more going on, but it's easy enough to understand. First is the **\<h1>** element that will serve as the logo for your MVP version. The **\<a>** link to the root route will make the logo a link back to the home page from any place in your app, so be sure you've defined the root among the routes in your controllers.
-
-We'll set up the header so that the logo displays at the left edge, and the nav links appear lined up on the right. To make this happen, we'll put the links inside list items (**\<li>**), which are included in a single unordered list (**\<ul>**). The list is held within a semantic **\<nav>** element, so we can select it easily for styling.
-
-Again, we'll loop back around and cover [the **\<head>** element](#the-html-head-element) of your **layout.erb** file after we've talked about the contents of the CSS file.
-
-## Creating the CSS file
-In this tutorial, we'll actually be employing _three_ CSS files: **normalize.css** (more on this in [the **\<head>** element](#the-html-head-element), below); **application.css** (where you'll put any specific styling for this particular app; again, more in the **\<head>** session); and this type-based stylesheet, which I'll call **drop-in.css**.
+## Organization of the _drop-in_ stylesheet
 
 I'll begin by creating and saving a new **drop-in.css** file, and setting up some commented-out section heads to help organize it. Here's how it looks at first:
 
