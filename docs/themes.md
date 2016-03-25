@@ -2,6 +2,13 @@
 
 Because developers get tired of looking at the same design project after project, **drop-in.css** now offers themes&mdash;prepared combinations of fonts and colors that change up the look of your app without changing the layout. Essentially, a **drop-in.css** theme simply overrides the font and color choices in the Design Styles section of the **drop-in** stylesheet.
 
+## Contents
+
+- [Installing a _drop-in.css_ theme](#installing-a-drop-in.css-theme)
+- [Default theme](#default)
+- [Great Pumpkin](#great-pumpkin)
+- [Old Glory](#old-glory)
+
 ## Installing a _drop-in.css_ theme
 It's easy to install a new theme for **drop-in.css** by following these simple steps:
 
@@ -17,11 +24,11 @@ It's easy to install a new theme for **drop-in.css** by following these simple s
 
 ## The themes
 
-### Default, aka "Dracula on Broadway"
+### Default
 
 ![Default Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/default_theme.png "Default theme screenshot")
 
-Black and white with splashes of red (inspired by Edward Gorey's design for the 1977 Broadway production of _Dracula_). The color scheme is built into the basic **drop-in.css** file, so no **drop-in-XX.css** file is necessary.
+The color scheme is built into the basic **drop-in.css** file, so no **drop-in-XX.css** file is necessary.
 
 ```html
 <!-- Google Fonts link for default theme -->
@@ -45,7 +52,7 @@ Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevje
 
 ![Old Glory Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/old_glory_theme.png "Old Glory theme screenshot")
 
-Old Glory theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css "Old Glory theme screenshot")
+Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css "Old Glory theme screenshot")
 
 ```html
 <!-- Google Fonts link for Old Glory theme -->
