@@ -94,7 +94,9 @@ The first rule here, with the selector "html", declares the font that will be us
 It's not difficult to change the fonts used by **drop-in.css**. Just go to Google Fonts and pick two fonts that look good together. The general font should be an easily-read serif or sans-serif font; the display font can be a bit fancier. When choosing the font package for your site, select the normal, bold, italic, and bold italic versions of the general font, and the bold version of the display font. (Some display fonts are only available in a single version, which they call "normal"; if that's the case, use that version.) Once you have chosen your fonts, click the "Use" button at the lower right hand corner of the Google Fonts page, and the site will automagically generate the link you need to include in the head of your HTML document, as well as the proper "font-family" information to put into the font rules in the Design Styles section of **drop-in.css**.
 
 #### Colors
-The Colors sub-section of the Design Styles section is the _only_ place where colors are declared in **drop-in.css**. Again, if you need to make more specific rules for color styling, do so using classes, and save them in your **application.css** file.
+The Colors sub-section of the Design Styles section is the _only_ place where colors are declared in **drop-in.css**. If you want to use a different color scheme and can't find an existing theme in the [**drop-in.css** themes](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md) collection, you can replace the color specifications in this section line by line; the comments in the code will help you figure out what each line does, and what kind of color to use.
+
+Again, if you need to add _more_ or _more specific_ rules for color styling, do so using classes, and save them in your **application.css** file.
 
 ```css
 /* Colors */
