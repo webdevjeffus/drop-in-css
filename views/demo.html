@@ -73,25 +73,31 @@
     <section>
       <h2>Tousled dreamcatcher blog</h2>
       <form>
-        <label name="text_input">Occupy waistcoat:</label>
+        <label for="text_input">Occupy waistcoat:</label>
         <input name="text_input" type="text">
-        <label name="password_input">Gentrify pitchfork:</label>
+        <label for="password_input">Gentrify pitchfork:</label>
         <input name="password_input" type="password">
+        <h3>Hipster things (choose one):</h3>
         <div>
-          <label name="check_this">Blue bottle:</label>
-          <input name="check_this" type="checkbox">
-          <label name="and_check_this">Paleo cred:</label>
-          <input name="and_check_this" type="checkbox">
-          <label name="and_check_this">Typewriter pork belly:</label>
-          <input name="and_check_this" type="checkbox">
+          <label for="blue_bottle">Blue bottle</label>
+          <input type="radio" name="hipster_thing" value="blue_bottle">
+          <label for="paleo_cred">Paleo cred</label>
+          <input type="radio" name="hipster_thing" value="paleo_cred">
+          <label for="narwal">Tattooed narwhal</label>
+          <input type="radio" name="hipster_thing" value="narwal">
+        </div>
+        <h3>More hipster things (choose many):</h3>
+        <div>
+          <label for="more_things">Wolf moon</label>
+          <input type="checkbox" name="more_things" value="wolf_moon">
         </div>
         <div>
-          <label name="select_this">Wolf moon:</label>
-          <input name="select_this" type="radio">
-          <label name="select_this">Vegan thundercats:</label>
-          <input name="select_this" type="radio">
-          <label name="select_this">Church-key ramps:</label>
-          <input name="select_this" type="radio">
+          <label for="vegan cats">Vegan thundercats</label>
+          <input type="checkbox" name="more_things" value="vegan_cats">
+        </div>
+        <div>
+          <label for="ck_ramps">Church-key ramps</label>
+          <input type="checkbox" name="more_things" value="ck_ramps">
         </div>
         <input type="submit" value="YOLO death">
       </form>
