@@ -13,9 +13,9 @@
 - [Licenses](#licenses)
 
 ### Elsewhere in this repo...
-- [CSS Specificity and _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
-* [DIY: Create your own _drop-in.css_ stylesheet](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)&mdash;
-* [Themes for _drop-in.css_](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
+- [CSS Specificity and **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
+* [**Drop-in.css**, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+* [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
 * Contribute to the Drop-In CSS project&mdash;coming soon.
 
 ## Introduction
@@ -78,15 +78,16 @@ For more information about how **drop-in.css** uses the rules and conventions of
 
 
 ## The Drop-In stylesheet
-The drop-in.css stylesheet is organized into five main sections. The first two sections&mdash;Resets and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five sections, and explain generally how they display your HTML document; for a detailed, rule-by-rule breakdown, refer to the [tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
+The **drop-in.css** stylesheet is organized into five major groups of CSS rules. The first two groups&mdash;Utility Styles and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five groups, and explain generally how they display your HTML document. For a detailed, rule-by-rule breakdown of the entire **drop-in.css** file, refer to [Drop-in.css, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
 
-### Resets
-Resets standardize the rendering of HTML elements by different browsers. **Drop-in.css** relies upon [**normalize.css**](https://necolas.github.io/normalize.css/) for general consistency, and adds a few more reset rules of its own. It is recommended that you include **normalize.css** in your project along with **drop-in.css**; download the **normalize.css** file, and link it in the \<head> element of your HTML file, just before the link to **drop-in.css**.
+### Utility Styles
+**Drop-in.css** relies upon [**normalize.css**](https://necolas.github.io/normalize.css/) to eliminate inconsistencies in how different browsers render certain HTML elements by default, and adds a few more general-purpose rules of its own. It is recommended that you include **normalize.css** in your project along with **drop-in.css**; download the **normalize.css** file, and link it in the \<head> element of your HTML file, just before the link to **drop-in.css**.
 
-In its own Resets section, **drop-in.css** includes a few style rules that simplify various browsers' default element-rendering, to make styling more designer-friendly:
+In its Utility Styles section, **drop-in.css** includes a few style rules that simplify various browsers' default element-rendering, to make styling more designer-friendly. Specifically, these rules:
 * Use box-sizing: border-box on all block elements.
 * Assign min- and max-widths to be the body, and set the margins to center the body in the browser window.
-* Remove margins and padding from all elements, then set a standard bottom margin of 0.5rem to all header and paragraph elements.
+* Resets the margins and padding for all elements to zero, so that we can set our own margins and paddings to the exact values we want.
+* Adds 0.5rem of margin to the bottom of all headings ( \<h1> to \<h6> ), as well as paragraphs ( \<p> ).
 
 ### Design Styles
 In its Design Styles section, **drop-in.css** collects all the rules that specify the font and colors used throughout the site. By keeping these rules together, near the top of the file, **drop-in.css** makes it easy for developers to change the look and feel of their app by making minor changes to just a few CSS rules.
@@ -95,16 +96,37 @@ In its Design Styles section, **drop-in.css** collects all the rules that specif
 **Drop-in.css** relies upon [Google Fonts](https://www.google.com/fonts) to serve its fonts. It uses only two fonts&mdash;a simple, highly legible font for general text, and a fancier display font for major headers, including the app title/logo. By default, **drop-in.css** uses Open Sans as its general text font, and Alegreya as its display font. These fonts are declared in the first two rules in the Design Styles section of **drop-in.css**, and nowhere else, so they are easy to replace.
 
 #### Colors
-By default, **drop-in.css** uses several shades of gray for background and font colors, and two highly-contrasting red shades for inactive and active links. This color scheme was chosen for maximum contrast and readability, but it may be a bit bold for some projects. If you want to use a different set of colors, change out the colors assigned in this section, following the comments for each color declaration.
+By default, **drop-in.css** uses several shades of gray for background and font colors, and two highly-contrasting red shades for inactive and active links. This color scheme was chosen for maximum contrast and readability, but it may be a bit bold for some projects. If you want to use a different set of colors, change out the colors assigned in this section, following the comments for each color declaration&mdash;or just go to the [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md) library and pick out an existing theme that strikes your fancy.
 
 ### Header Styles
 The section of **drop-in.css** that styles the app's header will give you a logo in the form of the app's name in the site's display font, in very large type, at the left edge of the header section. The nav element will display as a horizontal series of links, separated by vertical bars, at the right edge of the header. In your HTML file, follow these guidelines to be certain everything displays properly:
 * Create the logo by putting the name of the app in an \<h1> element; this should be the first element in the \<header>.
 * Inside the nav element, mark-up your links as list elements ( \<li> ) in an unordered list ( \<ul> ).
-* If you have a subhead under the \<h1>, mark it up as a \<p> element, and wrap the \<h1> and the \<p> inside a \<div> to properly position the \<p>. (If you don't have a subhead, you don't need the \<div> around the \<h1>.)
+* If you have a subhead under the \<h1>, mark it up as a \<p> element, and wrap the \<h1> and the \<p> inside a \<div> to properly position the \<p>. The \<div> lets **drop-in.css** style the logo \<h1> and the subhead \<p> to be floated left together. Refer to the snippets below for logos with and without a subhead. (As shown in the examples, if you don't have a subhead, you don't need the \<div> around the \<h1>.)
+
+```html
+<!-- LOGO WITHOUT A SUBHEAD: No <div> required -->
+<body>
+  <header>
+    <h1>Appmazing!</h1>
+    <nav>
+      <ul>
+        ...
+
+<!-- LOGO WITH A SUBHEAD: Wrap them together in a <div> element -->
+<body>
+  <header>
+    <div>
+      <h1>Appmazing!</h1>
+      <p>The Amazingest App Ever!</p>
+    </div>
+    <nav>
+      <ul>
+        ...
+```
 
 ### Main Styles
-Because the \<main> element is where the real action in your app is displayed, _where_ you put your HTML code for \<main> can get a bit complex, depending on what back-end framework you're using. I developed the **drop-in.css** while working on Ruby/Sinatra and Ruby on Rails projects, so the \<main> element in my layout.erb (or layout.html.erb, for Rails) often contained a simple \<%= yield %> method; the actual layout of the pages would be determined by erb templates in my views folder or folders. In such cases, the use of semantic HTML tags within the \<main> element, including \<section>, \<article>, and \<element>, would often happen in those templates. No matter where the mark-up happens, though, **drop-in.css** will display it all correctly, so long as semantic HTML5 best practices are followed in structuring your pages.
+Because the \<main> element is where the real action in your app is displayed, _where_ you put your HTML code for \<main> can get a bit complex, depending on what back-end framework you're using. **Drop-in.css** originally evolved while I was working on Ruby/Sinatra and Ruby on Rails projects at Dev Bootcamp, so the \<main> element in my layout.erb (or layout.html.erb, for Rails) often contained nothing more than a simple \<%= yield %> method; the actual layout of the pages would be determined by erb templates in my views folder or folders. In such cases, the use of semantic HTML tags within the \<main> element, including \<section>, \<article>, and \<element>, would often happen in those templates. No matter where the mark-up happens, though, **drop-in.css** will display it all correctly, so long as semantic HTML5 best practices are followed in structuring your pages.
 
 #### Semantic HTML in the \<main> element: \<section>, \<article>, and \<aside>
 **Drop-in.css** will handle some fairly complex structuring of content using the HTML5 semantic elements \<section>, \<article>, and \<aside>. Here are guidelines on how **drop-in.css** treats these elements:
@@ -114,16 +136,45 @@ Because the \<main> element is where the real action in your app is displayed, _
 * To help distinguish between main-column and sidebar content, all text within an **\<aside>** will be displayed at 80% of its normal font-size; this affects all sizes of headers, as well as paragraphs. Also, \<aside> content will appear within a box with a distinctive background color.
 * **\<section>** elements will take up 100% of the available width. A horizontal rule (automatically created by drop-in.css as a border&mdash;no \<hr> element required) will separate one section from the next.
 * **\<section>** elements can be used to sub-divide content in the \<main> element, within \<article> elements, and even within \<aside> elements.
+* _**Final note:** Don't use **\<section>**, **\<article>**, or **\<aside>** elements if you don't **need** them!_
+    * Use **\<section>** elements only if your content has multiple distinct sections which need to be separated semantically and visually. If you only have one section, you don't need \<section> tags.
+    * Never use an **\<article>** element without a matching **\<aside>**, and vice versa. **drop-in.css** uses these elements to set up a main-column-and-sidebar layout; using one without the other just wastes space.
 
 #### Lists
-Unordered lists are very common in web apps. **Drop-in.css** displays unordered lists with the title flush left, and list items indented 1rem, without bullets.
+Unordered lists are very common in web apps. **Drop-in.css** displays unordered lists within the \<main> element with the list items indented 1rem from the left margin, without bullets.
 
 #### Forms
-Forms are even more common in web apps than are lists. **Drop-in.css** styles forms in a generic way that emphasizes readability over compactness; you will probably want to restyle your forms with classes once you are past the MVP stage. Here is how *drop-in.css** handles form elements by default:
+Forms are even more common in web apps than are lists. **Drop-in.css** styles forms in a generic way that emphasizes readability over compactness; you will probably want to restyle your forms with classes once you are past the MVP stage. Here is how **drop-in.css** handles form elements by default:
 * Most **\<input>** elements&mdash;including text, email, url, password, and many more&mdash;will take 100% of the available width, as will **\<textarea>** elements.
 * **\<label>** elements are displayed on their own lines. If you put a \<label> in the HTML immediately before the \<input> element it labels, it will appear on the line right above the \<input>.
-* **Checkboxes** and **radio buttons** display inline; that is to say, if your HTML calls for have three radio buttons in a row, all three buttons will appear (with their labels) on the same line. Use \<div> elements to separate checkboxes and radio buttons that should go on different lines, or to group ones that should appear on the same line.
-* **Buttons** will be 12rem wide and centered, whether they are created as \<button> elements, or \<input type="submit">.
+* **Buttons** will be 12rem wide and centered, whether they are created as \<button> elements, or \<input type="submit">. (If the text on your buttons doesn't fit in 12rem, go into **drop-in.css** and make the buttons wider.)
+* **Checkboxes** and **radio buttons** display inline; that is to say, if your HTML calls for three radio buttons in sequence, all three buttons will appear (with their labels) on the same line. Use \<div> elements to separate checkboxes and radio buttons that should go on different lines, or to group ones that should appear on the same line. Refer to the code snippet below for examples:
+
+```html
+<!-- These radio buttons will display on a single line: -->
+<div>
+  <label for="grape">Grape</label>
+  <input type="radio" name="flavor" id="grape" value="grape">
+  <label for="strawberry">Strawberry</label>
+  <input type="radio" name="flavor" id="strawberry" value="strawberry">
+  <label for="plum">Plum</label>
+  <input type="radio" name="flavor" id="plum" value="plum">
+</div>
+
+<!-- These checkboxes will display on separate lines: -->
+<div>
+  <label for="condiment">Ketchup</label>
+  <input type="checkbox" name="condiment" value="ketchup">
+</div>
+<div>
+  <label for="condiment">Mustard</label>
+  <input type="checkbox" name="condiment" value="mustard">
+</div>
+<div>
+  <label for="condiment">Mayonnaise</label>
+  <input type="checkbox" name="condiment" value="mayo">
+</div>
+```
 
 #### Tables
 Tables should only be used to display data that is best understood in table form&mdash;don't use tables for page layout purposes. Tables in **drop-in.css** display with a lighter background color than the \<main> background-color. Table borders match the \<main> font color. Text in each cell of a table is centered.
