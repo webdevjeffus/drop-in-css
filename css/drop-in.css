@@ -29,7 +29,18 @@ body {
   max-width: 800px;
 }
 
-h1, h2, h3, h4, h5, h6, p { margin: 0 0 0.5rem; }
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.1rem; }
+h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+h1, h2, h3, h4, p { margin: 0 0 0.5rem; }
+h5, h6 { margin: 0 0 0.2rem; }
 
 p:last-child { margin-bottom: 0rem; }
 
@@ -109,10 +120,11 @@ header div { float: left; }
 
 header h1 {
   line-height: 1;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 header p {
+  font-size: 1.25rem;
   font-style: italic;
   margin-bottom: 0;
 }
