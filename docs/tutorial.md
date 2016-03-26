@@ -77,6 +77,8 @@ This rule automatically applies a "clearfix" immediately after \<header>, \<main
 The rules in the Design Styles section determine the look of the app. It is here that we specify the fonts and the colors for the site. These are the _only_ CSS rules that are changed to create a new **drop-in** theme; they are collected here, rather than being split up among the Header, Main and Footer Styles sections, to make it more convenient and manageable to change the appearance of the app. If you are tinkering with the styles in **drop-in.css**, and you want to change a font or a color, you _must_ make those changes inside the Design Styles section, or subsequent users won't be able to find them.
 
 #### Fonts
+These two rules in the Fonts sub-section are the _only_ rules in the **drop-in.css** stylesheet that declare fonts. If you need to make additional font declarations, we recommend that you do that with class-selected rules in your **application.css** file.
+
 ```css
 /* DESIGN STYLES *************************************************************/
 
@@ -87,11 +89,94 @@ html { font-family: 'Open Sans', sans-serif; }
 h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
 ```
 
-These two rules are the _only_ rules in the **drop-in.css** stylesheet that declare fonts. If you need to make additional font declarations, we recommend that you do that with class-selected rules in your application.css file.
-
 The first rule here, with the selector "html", declares the font that will be used by default through out the site&mdash;in the default **drop-in** theme, I've chosen Open Sans, an easy-to-read font that was designed for screen viewing. The second rule declares the display font to be used for larger headings, including the \<h1> in the \<header> element that serves as the site logo. A carefully-selected display font goes a long way in establishing the "attitude" of the app, so you can afford to sacrifice a little bit of legibility for the sake of coolness.
 
 It's not difficult to change the fonts used by **drop-in.css**. Just go to Google Fonts and pick two fonts that look good together. The general font should be an easily-read serif or sans-serif font; the display font can be a bit fancier. When choosing the font package for your site, select the normal, bold, italic, and bold italic versions of the general font, and the bold version of the display font. (Some display fonts are only available in a single version, which they call "normal"; if that's the case, use that version.) Once you have chosen your fonts, click the "Use" button at the lower right hand corner of the Google Fonts page, and the site will automagically generate the link you need to include in the head of your HTML document, as well as the proper "font-family" information to put into the font rules in the Design Styles section of **drop-in.css**.
+
+#### Colors
+The Colors sub-section of the Design Styles section is the _only_ place where colors are declared in **drop-in.css**. Again, if you need to make more specific rules for color styling, do so using classes, and save them in your **application.css** file.
+
+```css
+/* Colors */
+
+html {
+  background-color: #888;   /* medium background color, eg: 50% gray */
+  color: #ddd;              /* light font color, eg: 15% gray */
+}
+
+body,
+header nav input[type="submit"] {
+  background-color: #222;    /* dark background color, eg: 85% gray */
+}
+
+main {
+  background-color: #ddd;   /* light backround color, eg: 15% gray */
+  color: #222;              /* dark font color, eg: 85% gray */
+}
+```
+
+The first three Colors rules establish the basic color palette of the site:
+
+In the "html" color rule, the "background-color" declaration sets the color that will appear in the right and left margins, outside the centered body of the app; in the default theme, this is a medium gray. The "color" declaration sets the font color that will be used within the \<header> and \<footer> elements; since the default theme uses a near-black gray for the header and footer, it uses a near-white gray for the font color in those areas.
+
+The "body" rule specifies the background color that will be used in the header and footer. The "input[type='submit']" selector is there to set the background color of any buttons in the header or footer to match the background of those elements; this is part of the process of styling the Logout button&mdash;which must be a button, since it's a "delete" route&mdash;to _look like_ a regular link. (The rest of the CSS to accomplish this is found in the Header Styles section, below).
+
+The "main" rule sets the "background-color" of the \<main> element to something that will contrast clearly with the background in the rest of the \<body> element (which is to say, the \<header> and the \<footer>). Since the header and footer are dark in the default theme, we've made the main content background a very light gray. The "color" declaration in the "main" rule sets the default font color throughout the main content of the site&mdash;in this case, we used the same near-black gray as the header and footer background color. We've deliberately chosen near-black text on a near-white background for everything that goes in the \<main> element, because this combination is less stressful to read than either light text on a dark background, or pure black text on a white background.
+
+```css
+a:link,
+a:visited,
+header nav input[type="submit"] {
+  color: #c00;           /* darker contrasting color; inactive links */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+header nav input[type="submit"]:hover,
+header nav input[type="submit"]:active {
+  color: #f22;          /* brighter contrasting color; active links */
+}
+```
+
+The next two rules, which start with "a:link" and "a:hover", set the colors for the links. The first rule sets the appearance of inactive links; in the default theme, they appear as bold type, without any underline ("text-decoration: none"), in a brick-red color. The second rule changes the color of the link text to a bright, fire-engine red when the mouse passes over them and when they are clicked. The "input[type='submit']" selectors are included to make the text on the Logout button behave like regular link text, another part of styling it to _not_ look like a button.
+
+If the theme requires different colors for links in the \<main> element than elsewhere on the page, you will have to add separate rules (eg., "main a:link", "main a:hover") for \<a> tags in the \<main> element. Look at the Design Styles section of the stylesheet for the [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css) theme for an example.
+
+```css
+header nav li {
+  border-left: 3px solid #888;    /* this should match html background-color */
+}
+```
+
+This rule creates the vertical bars that separate the links in the nav bar within the \<header> element.
+
+```css
+main table,
+main th,
+main td {
+  border: 1px solid #222;     /* this should match main font color */
+  background-color: #eee;     /* this should be lighter than main background-color */
+}
+```
+
+As you probably guess, this rule sets the background color for any tables with the \<main> element, and puts a border around all table cells in the same color as the text within the main element.
+
+```css
+main section { border-bottom: 2px solid #888; }
+  /* this should match html background-color */
+
+main aside { background-color: #bbb; }
+  /* this should be slightly darker than main background-color, eg: 25% gray */
+```
+
+These last two rules give visual clues to support the semantic organization of the content in your \<main> element. The first adds a border to the bottom edge of each \<section> element, and the second puts a contrasting background behind the text in any sidebars (coded in HTML as \<aside> elements). Some **drop-in.css** themes, like [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css), add a border around \<aside> elements as well.
+
+
+
+
+
 
 
 # _Everything above this line is REVISED as of 3/25/16_
@@ -101,33 +186,6 @@ It's not difficult to change the fonts used by **drop-in.css**. Just go to Googl
 
 ### Design Styles
 
-
-```css
-
-/* Colors */
-
-html {
-  background-color: #888;   /* medium gray */
-  color: #ddd;              /* dark gray */
-}
-
-body,
-header nav input[type="submit"] {
-  background-color: #222;    /* dark gray */
-}
-
-main {
-  background-color: #ddd;   /* light gray */
-  color: #222;              /* dark gray */
-}
-```
-
-#### Colors
-We're using a deliberately simple color scheme here&mdash;four shades of gray for our backgrounds and font colors, and two tones of red for links, which contrasts well with both light and dark shades of gray. Even so, there are several CSS rules that need to include color properties, so this section _looks_ kind of long. That's because I've moved _all_ the rules which specify color to this section, for ease of maintenance. This probably isn't how you'd set up a stylesheet for the production version, but it makes this drop-in stylesheet easier to customize.
-
-The **html** and **body** rules set up the background-color and font color for the site. The **html** background is a medium shade that contrasts with both the dark color of the **header** and **footer**, and the light shade in the **main** element. The **body** rule assigns a near-black gray as the background, and a near-white gray as the font color. These colors will appear in everything _except_ the **\<main>** element, which is to say the **\<header>** and **\<footer>** elements. I've added the **header nav input[type="submit"]** selector to the **body** rule, since we will want the background color for the "Logout" button on our nav bar to match the surrounding header. More on the "Logout" button in the ["Header Styles"](#header-styles) section, below.
-
-The **main** rule sets the light background and dark font color for the **\<main>** element, which includes everything _except_ the **header** and **footer** of the app.
 
 ```css
 /* Colors, con't. */
