@@ -184,46 +184,6 @@ These last two rules give visual clues to support the semantic organization of t
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
 
-### Design Styles
-
-
-```css
-/* Colors, con't. */
-
-a:link,
-a:visited,
-header nav input[type="submit"] {
-  color: #c00;              /* darker contrasting color; inactive links */
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:hover,
-a:active,
-header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active {
-  color: #f22;              /* brighter contrasting color; active links */
-}
-
-header nav li {
-  border-left: 3px solid #888;    /* match html background-color */
-}
-
-main table,
-main th,
-main td {
-  border: 1px solid #222;   /* border should match body background-color */
-  background-color: #eee;   /* even lighter than main background-color */
-}
-
-```
-
-The next two rules, which start with **a:link** and **a:hover**, style the links throughout the page. The first rule, for inactive links, assigns a rich, dark red which contrasts nicely with both the light and dark backgrounds in the site. This rule also sets link text to bold, with no underline; these properties are inherited by active links as well. The second link rule highlights active links a vivid red, which is noticeably brighter than the dark red of the inactive links. The other selectors in these rules, which include **input[type="submit"]**, style the "Logout" button to use the same colors as other links.
-
-Since the logo **\<h1>** in the header is also a link, it will automatically be styled with the red link color, helping it grab the user's attention. If red is too bold a choice for your contrasting color, try two shades of turquoise, gold, blue, green, or even pink. Just be sure that both shades contrast well with both the light and dark shades in your background. Readability trumps aesthetics for an MVP.
-
-The last rule in the "Colors" section assigns the colors for any tables that are included in the **\<main>** element. The table borders should be the same color as the **background-color** of the **body**; the background-color for the table elements should be a shade lighter than the **\<main>** background, so the table stands out on the page.
-
 ### Header Styles
 In this section, we'll set up the rules for the elements in our **\<header>** section. It is here that we see the flexibility of our type-based CSS selectors coming into play.
 
