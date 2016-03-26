@@ -70,14 +70,14 @@ header nav input[type="submit"]:hover,
 header nav input[type="submit"]:active { color: rgb(240,70,70); }
   /* bright red */
 
+header nav li { border-left: 3px solid rgb(216,217,193); }
+  /* almond, matches html background-color */
+
 main a:link,
 main a:visited { color: rgb(30,107,185); }   /* medium blue; inactive links in main */
 
 main a:hover,
 main a:active { color: rgb(40,130,230); }    /* brighter blue; active links in main */
-
-header nav li { border-left: 3px solid rgb(216,217,193); }
-  /* almond, matches html background-color */
 
 main table,
 main th,
