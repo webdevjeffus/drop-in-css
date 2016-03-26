@@ -69,14 +69,14 @@ header nav input[type="submit"]:hover,
 header nav input[type="submit"]:active { color: #fb2; }
   /* brighter orange; active links in header, footer */
 
+header nav li { border-left: 3px solid #284; }
+  /* md green, matches html background-color */
+
 main a:link,
 main a:visited { color: #142; }   /* dark green; inactive links in main */
 
 main a:hover,
 main a:active { color: #2a6; }    /* brighter green; active links in main */
-
-header nav li { border-left: 3px solid #284; }
-  /* md green, matches html background-color */
 
 main table,
 main th,
