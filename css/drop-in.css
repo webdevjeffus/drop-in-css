@@ -175,10 +175,10 @@ main article {
 }
 
 main aside {
-  padding: 1rem;
-  font-size: 0.8rem;
   width: 30%;
   float: right;
+  padding: 1rem;
+  font-size: 0.8rem;
 }
 
 /* Lists */
