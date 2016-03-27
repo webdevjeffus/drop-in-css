@@ -236,14 +236,60 @@ The next two rules handle the edge-cases in the nav-link list: the first of thes
 
 The final rule in the Header Styles section, applied to "header nav input[type='submit']", finishes the job of styling the Logout button to look like any other link, which we started in the Design Section. Altogether, to make a button look like a link, we need to set the background-color and font color the same as the links we're matching (we did this in the Colors subsection of the Design Styles section); set the overflow to visible and center-align the text; set the width to auto, so it conforms to the length of the text in the button-link, and get rid of the button border.
 
+### Main Styles
+In the Main Styles section, **drop-in**'s type-based selectors really pay off: they let you (or your web dev framework) create an unlimited number of pages, partials, and forms which look decent (maybe not great, but certainly decent) with absolutely zero time spent on styling. The Main Styles section handles \<section>, \<article>, and \<aside> elements first, then deals with lists, forms, and tables in separate subsections.
+
+```css
+/* MAIN STYLES ***************************************************************/
+
+main {
+  padding: 1rem;
+}
+
+main section {
+  padding: 1rem 0;
+}
+
+main section:nth-of-type(1) {
+  padding-top: 0;
+}
+
+main section:nth-last-of-type(1) {
+  padding-bottom: 0;
+  border: none;
+}
+```
+
+As in the Header Styles section, the first rule simply puts 1rem of padding around the \<main> element, to keep the text and other elements off of the margins.
+
+The next three rules style the \<section> elements. The "main section" rule adds 1rem of padding to the top and bottom of each section, but none to the sides, since we don't want it doubling up with the \<main> element padding on the sides. The second section rule, with the ":nth-of-type(1)" selector, removes the top padding from the first section element, to avoid doubling the top padding inside the \<main> element. The ":nth-last-of-type" rule selects the _last_ \<section> within the \<main>, and does two things: first, it removes the bottom padding, again to avoid double-padding at the bottom of the \<main>; and second, it removes the border we assigned in the Design Styles/Colors subsection, that appears at the bottom of each section.
+
+```css
+main article {
+  width: 65%;
+  float: left;
+}
+
+main aside {
+  padding: 1rem;
+  font-size: 0.8rem;
+  width: 30%;
+  float: right;
+}
+```
+
+The next two rules in the Main Styles section style the \<article> and \<aside> elements. Articles will form the main column of a main-column/sidebar layout, floated to the left and occupying 65% of the available width. Asides will form the sidebar; they are floated to the right, and occupy 30% of the available width. This leaves 5% of the available width as a margin between the \<article> and its \<aside>.
+
+The last two declarations in the "main aside" rule put 1rem of padding on all sides of the sidebar, and reduce the font by 20%, to make it more visually distinct from the text in the article. Also, remember that we gave \<aside> elements a contrasting background color in the Design Styles/Colors subsection.
+
+
 
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
 
-### Main Styles
-In **main** styles section, we see our type-based selectors really pay off: they let us write an unlimited number of pages, partials, and forms which look decent (maybe not great, but certainly decent) with absolutely zero time spent on styling. Again, I'll show you the basic CSS code first, then break it down rule by rule.
+Again, I'll show you the basic CSS code first, then break it down rule by rule.
 
 ```css
 /* MAIN STYLES - Yield Block */
