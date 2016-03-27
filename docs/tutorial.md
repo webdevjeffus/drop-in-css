@@ -177,8 +177,64 @@ These last two rules give visual clues to support the semantic organization of t
 
 
 
+### Header Styles
+The rules in the Header Styles section style a simple header that should appear on every page of the app. The styles are designed to create a large app title or logo in the display font at the left-hand end of the \<header> element, with an optional line of copy beneath it. Site navigation is handled by a horizontal row of nav links at the right-hand edge of the \<header>.
 
+```css
+/* HEADER STYLES *************************************************************/
 
+header { padding: 1rem; }
+
+header>h1,
+header div { float: left; }
+
+header h1 {
+  line-height: 1;
+  font-size: 4rem;
+}
+
+header p {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 0;
+}
+```
+
+The first rule just sets a 1rem padding on all sides of the \<header>, to keep the type from bumping against the margins.
+
+The second rule applies the left float that puts the app title at the left edge of the \<header>. The float needs to be applied either to the logo, which is coded as an \<h1> that is a direct child of the \<header> element ("header h1"), or to a \<div> that holds both the \<h1> _and_ the \<p> that holds the site's motto or slogan ("header div"). As mentioned in the instructions on the README page, if you don't have a \<p> element beneath your \<h1> logo, you don't need to wrap the \<h1> in a \<div>.
+
+The "header h1" and "header p" rules just describe the appearance of the font in the logo and slogan. If you change the fonts, you may need to tweak these values to make the header look the way you want.
+
+```css
+header nav { float: right; }
+
+header nav ul { list-style: none; }
+
+header nav li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+```
+
+The next three rules set up the nav links. The "header nav" rule applies a right float to the entire \<nav> element, so that it is displayed at the right end of the \<header>, opposite the flush-left logo. The "header nav ul" rule removes the bullets that browsers apply to unordered lists by default. The "header nav li" rule sets the list items&mdash;which will be the links in the nav bar&mdash;to inline-block, which makes them display on a horizontal line, instead of stacked up vertically. It also applies 1 rem of padding to the right and left sides of the list items, to spread them out a bit, without adding any padding to their top or bottom.
+
+```css
+header nav li:nth-last-of-type(1) { padding-right: 0;}
+
+header nav li:nth-of-type(1) { border-left: 0;}
+
+header nav input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+}
+```
+
+The next two rules handle the edge-cases in the nav-link list: the first of these removes the right padding from the last list item, so it's not double-spaced from the right edge of the header, and the second turns _off_ the left border we applied to the nav links in the Design Styles section, so that the borders only appear _between_ links.
+
+The final rule in the Header Styles section, applied to "header nav input[type='submit']", finishes the job of styling the Logout button to look like any other link, which we started in the Design Section. Altogether, to make a button look like a link, we need to set the background-color and font color the same as the links we're matching (we did this in the Colors subsection of the Design Styles section); set the overflow to visible and center-align the text; set the width to auto, so it conforms to the length of the text in the button-link, and get rid of the button border.
 
 
 # _Everything above this line is REVISED as of 3/25/16_
