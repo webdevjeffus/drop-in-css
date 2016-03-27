@@ -242,53 +242,6 @@ The final rule in the Header Styles section, applied to "header nav input[type='
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
 
-### Header Styles
-In this section, we'll set up the rules for the elements in our **\<header>** section. It is here that we see the flexibility of our type-based CSS selectors coming into play.
-
-```css
-header { padding: 1rem; }
-
-header h1 {
-  font-size: 3rem;
-  float: left;
-}
-
-header nav { float: right; }
-
-header nav ul { list-style: none; }
-
-header nav li {
-  display: inline-block;
-  padding-left: 1rem;
-}
-
-header nav li:first-child { border-left: 0;}
-
-header nav input[type="submit"] {
-  overflow: visible;
-  text-align: center;
-  font-weight: bold;
-  width: auto;
-  border: none;
-}
-```
-
-#### header
-The general **header** rule just puts 1rem of padding around all four sides of the header, to keep the text from banging against the edges. I prefer rems ("root ems") for most CSS measurements because they scale smoothly if you make the site responsive. By default, 1rem = 16 pixels; if you want to change that value, just set a **font-size** property to some value other than 16 pixels in the style for the root element, **\<html>**. If you later change the root em value, then every font-size or element dimension that is sized in rems will scale with the root em.
-
-#### header h1
-In the **header h1** rule, we specify that any and all **\<h1>** elements in the **\<header>** should be rendered at a size of 3rems. Our CSS selector for the rule, "header h1", won't touch **\<h1>**s in any other element of the app&mdash;for example, an **\<h1>** in the **\<main>** element will be displayed at its default size, not at the 3rems specified in this rule. We also set the **header h1** to **float: left**, so that it displays against the left margin of the header section.
-
-#### header nav
-The rest of the styles in the "Header Styles" section deal with the components of the header's **\<nav>** element. To be sure that we don't affect list or nav elements elsewhere in the app, we begin each selector with a mention of both the **\<header>** and the **\<nav>** types. The **header nav** rule, which specifies **float: right**, pushes the nav links to the right-hand margin of the header. The **header nav ul** rule eliminates the bullet points that appear by default on unordered lists.
-
-In the **header nav li** rule, **display: inline-block;** changes the links in the nav bar to appear as a horizontal row, instead of a vertical list. The **border-left** property establishes a vertical border between each pair of links, and the **header nav li:first-child** rule _turns off_ that border for the first link on the nav bar.
-
-#### header nav input[type="submit"]
-The last rule in this section, which styles **header nav input[type="submit"]** elements, is necessary because HTML and Sinatra all but _require_ the "logout" link to be created as a button. Since ending the current session requires a POST route with a hidden input to carry the "delete" action, it is usually created as a single-button form, rather than as a simple link. This rule removes the border and background from the button, so that it looks and behaves like the other links in the nav bar; recall that we set the colors for this input in the "Colors" section, above.
-
-**Performance Note:** A selector like this one, that depends on the value of an attribute of an html tag, is just about the slowest possible CSS selector. We use it here because we are deliberately trying _not_ to have to add classes to our html file; in the deployed version of an app, you'd be better off to use a class as a selector, even if it's only used that once.
-
 ### Main Styles
 In **main** styles section, we see our type-based selectors really pay off: they let us write an unlimited number of pages, partials, and forms which look decent (maybe not great, but certainly decent) with absolutely zero time spent on styling. Again, I'll show you the basic CSS code first, then break it down rule by rule.
 
