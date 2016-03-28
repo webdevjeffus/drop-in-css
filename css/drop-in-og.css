@@ -81,10 +81,10 @@ main a:active { color: rgb(40,130,230); }    /* brighter blue; active links in m
 
 main table,
 main th,
-main td {
-  border: 1px solid rgb(61,61,42);     /* dark gray-brown, matches main text color */
-  background-color: rgb(250,251,238);  /* off-white, lighter than main bg-color */
-}
+main td { border-color: rgb(61,61,42); }  /* dark gray-brown, matches main text color */
+
+main tr:nth-of-type(odd)  {background-color: rgb(250,251,238);}  /* lighter than main bg-color */
+main tr:nth-of-type(even) {background-color: rgb(230,231,222);}  /* darker than main bg-color */
 
 main section { border-bottom: 2px solid rgb(166,46,46); }   /* schoolhouse red */
 

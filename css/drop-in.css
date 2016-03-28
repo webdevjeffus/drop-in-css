@@ -99,10 +99,10 @@ header nav li {
 
 main table,
 main th,
-main td {
-  border: 1px solid #222;     /* this should match main font color */
-  background-color: #eee;     /* this should be lighter than main background-color */
-}
+main td { border-color: #222; }   /* this should match main font color */
+
+main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
+main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
 
 main section { border-bottom: 2px solid #888; }
   /* this should match html background-color */
