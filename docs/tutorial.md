@@ -371,7 +371,7 @@ This final rule in the Main Styes/Forms subsection sets the width of all buttons
 
 #### Tables
 
-The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the color for table borders in the Colors subsection of Design Styles.
+The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the colors for table borders and backgrounds in the [Colors](#colors) subsection of Design Styles, above.
 
 ```css
 /* Tables */
@@ -395,40 +395,10 @@ The first rule, for "main table", tells the browser to make tables the full widt
 
 The rule for table cells (\<th> and \<td> elements) puts just a bit of top and bottom padding in each cell, center-aligns the text within each cell, and sets the borders within the table, between cells, to just 1 pixel.
 
-# _Everything above this line is REVISED as of 3/25/16_
-<hr>
-### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
+### Footer Styles
 
-
-
-
-```css
-/* Main Styles, con't. */
-
-/* Tables */
-
-main table {
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-main th,
-main td {
-  width: 25%;
-  padding: 0.25rem 0;
-  text-align: center;
-}
-```
-
-### Tables
-If your app displays complex user or game data, you'll probably want to show it in a table. The **main table** rule sets the table to fill the main element from side to side, and adds a margin at the bottom for whitespace between the table and the next element. The other rule, for **main th** and **td**, handles individual cells in the table. It sets each cell, and therefore each column, to 25% of the width of the table, creating a four-column table; if you need more or fewer columns, just change the percentage accordingly. The cells rule also adds a bit of top and bottom padding within the cell, and centers the text within the cell.
-
-Remember that the background and border colors for tables were set in the "Colors" setion, above.
-
-## Footer Styles
-
-There's just one rule in our footer section:
+There's just one rule in our footer section.
 
 ```css
 /* FOOTER STYLES */
@@ -440,7 +410,7 @@ footer {
 }
 ```
 
-This rule is intended to style a single line of credits, something like: "Created by Jeff George for Dev Bootcamp Phase 2," or whatever. The rule centers the text, sets it to 80% of the default font size, and adds 1rem of padding to all sides of the footer. If you add **\<a>** tags to the footer text, to link to your Github or website, the stylesheet will apply the standard link color and styling to them, which should look fine if you chose your colors carefully at the top of the stylesheet.
+This rule centers all text; sets the font size of all elements to 80% of the size at which they are displayed in the \<main> element; and adds 1rem of padding to all sides of the footer. These rules will be applied to any headings (\<h1>-\<h6>), paragraphs, and other elements you include in footer, allowing a fair amount of flexibility in creating \<footer> content without needing custom styling.
 
 #### Licenses
 
@@ -449,4 +419,4 @@ The documentation in this repo is Copyright &copy; 2016 by Jeff George.
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Documentation for <b>Drop-In CSS</b></span> by
 <a href="http://webdevjeff.us">Jeff George</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-The code files in this repo, including **drop-in.css**, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The code files in this repo, including **drop-in.css**, all **drop-in.css** themes, and all view files, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
