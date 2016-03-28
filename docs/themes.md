@@ -37,6 +37,7 @@ The color scheme is built into the basic **drop-in.css** file, so no **drop-in-X
 ```
 
 ### Great Pumpkin
+_Compatible with **drop-in.css** v1.0.0_
 
 ![Great Pumpkin Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/great_pumpkin_theme.png "Great Pumpkin theme screenshot")
 
@@ -49,6 +50,7 @@ Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevje
 ```
 
 ### Old Glory
+_Compatible with **drop-in.css** v1.0.0_
 
 ![Old Glory Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/old_glory_theme.png "Old Glory theme screenshot")
 

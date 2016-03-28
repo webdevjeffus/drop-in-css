@@ -1,4 +1,4 @@
-/*! drop-in.css | MIT License | github.com/webdevjeffus/drop-in-css */
+/*! drop-in.css v1.0.0 | MIT License | github.com/webdevjeffus/drop-in-css */
 
 /* GOOGLE FONT LINK **********************************************************\
 
@@ -52,6 +52,20 @@ section:after {
   clear: both;
 }
 
+a,
+header nav input[type="submit"] {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Borders */
+
+header nav li     { border-left: 3px solid; }
+main section      { border-bottom: 2px solid; }
+main table        { border: 2px solid; }
+main th, main td  { border: 1px solid; }
+main input, main textarea, main button {  border: 1px solid; }
+
 
 /* DESIGN STYLES *************************************************************/
 
@@ -80,22 +94,16 @@ main {
 
 a:link,
 a:visited,
-header nav input[type="submit"] {
-  color: #c00;           /* darker contrasting color; inactive links */
-  font-weight: bold;
-  text-decoration: none;
-}
+header nav input[type="submit"] { color: #c00; }
+  /* darker contrasting color; inactive links */
 
 a:hover,
 a:active,
 header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active {
-  color: #f22;          /* brighter contrasting color; active links */
-}
+header nav input[type="submit"]:active { color: #f22; }
+  /* brighter contrasting color; active links */
 
-header nav li {
-  border-left: 3px solid #888;    /* this should match html background-color */
-}
+header nav li { border-color: #888; }   /* this should match html background-color */
 
 main table,
 main th,
@@ -104,12 +112,24 @@ main td { border-color: #222; }   /* this should match main font color */
 main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
 main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
 
-main section { border-bottom: 2px solid #888; }
+main section { border-color: #888; }
   /* this should match html background-color */
 
 main aside { background-color: #bbb; }
   /* this should be slightly darker than main background-color, eg: 25% gray */
 
+main input,
+main textarea,
+main button {
+  color: #222;                  /* matches main text color */
+  border-color: #222;           /* matches main text color */
+}
+
+main input[type="submit"],
+main button {
+  background-color: #bbb;       /* matches aside bg-color */
+  color: #222;                  /* matches main text color */
+}
 
 /* HEADER STYLES *************************************************************/
 
@@ -140,7 +160,7 @@ header nav li {
 
 header nav li:nth-last-of-type(1) { padding-right: 0;}
 
-header nav li:nth-of-type(1) { border-left: 0;}
+header nav li:nth-of-type(1) { border-left: none; }
 
 header nav input[type="submit"] {
   overflow: visible;
@@ -237,6 +257,7 @@ main button,
 main input[type="submit"] {
   margin: 0.5rem auto;
   width: 12rem;
+  padding-top: 0.07rem;
 }
 
 
@@ -246,14 +267,12 @@ main table {
   width: 100%;
   margin-bottom: 1rem;
   border-collapse: collapse;
-  border: 2px solid;
 }
 
 main th,
 main td {
   padding: 0.25rem 0;
   text-align: center;
-  border: 1px solid;
 }
 
 

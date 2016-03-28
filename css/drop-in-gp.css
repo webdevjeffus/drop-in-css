@@ -1,4 +1,5 @@
 /*! drop-in-gp.css | "Great Pumpkin" theme by Jeff George */
+/*! Compatible with drop-in.css v1.0.0 */
 /*! MIT License | github.com/webdevjeffus/drop-in-css */
 
 /******************** INSTALLING THIS DROP-IN THEME *********************\
@@ -57,11 +58,8 @@ main {
 
 a:link,
 a:visited,
-header nav input[type="submit"] {
-  color: #f80;    /* pumpkin orange; inactive links in header, footer */
-  font-weight: bold;
-  text-decoration: none;
-}
+header nav input[type="submit"] { color: #f80; }
+  /* pumpkin orange; inactive links in header, footer */
 
 a:hover,
 a:active,
@@ -85,23 +83,24 @@ main td { border-color: #842; }   /* orange-brown, matches main font color */
 main tr:nth-of-type(odd)  {background-color: #fe9;}  /* lighter than main bg-color */
 main tr:nth-of-type(even) {background-color: #fc7;}  /* darker than main bg-color */
 
-main section { border-bottom: 2px solid #284; }
+main section { border-color: #284; }
   /* medium green; matches html background-color */
 
 main aside { background-color: #fb6; }
   /* orange slightly darker than main background-color */
 
 main input,
+main textarea,
 main button {
-  border: 1px solid #842;   /* orange-brown, matches main text color */
   color: #842;              /* orange-brown, matches main text color */
+  border-color: #842;   /* orange-brown, matches main text color */
 }
 
 main input[type="submit"],
 main button {
   background-color: #fb6;   /* light-med orange, matches aside bg-color */
-  padding-top: 0.25rem;
   color: #842;              /* orange-brown, matches main text color */
+  padding-top: 0.25rem;     /* added for GP theme only, to balance text in button */
 }
 
 
