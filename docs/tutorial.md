@@ -73,6 +73,25 @@ section:after {
 
 This rule automatically applies a "clearfix" immediately after \<header>, \<main> and \<section> elements, since these elements are likely to contain elements that are floated left or right. It has no effect if nothing inside the element is floated, but they don't hurt anything by being there.
 
+```css
+a,
+header nav input[type="submit"] {
+  font-weight: bold;
+  text-decoration: none;
+}
+```
+
+This rule overrides the default appearance of links in an HTML document, removing the underline, but making the link text display in a bold font. (The color of links is handled in the next section.)
+
+```css
+header nav li { border-left: 3px solid; }
+main section { border-bottom: 2px solid; }
+main table { border: 2px solid; }
+main th, main td { border: 1px solid; }
+```
+
+These rules set up the style and weight of the borders used by **drop-in.css**. It is necessary to declare them in the Utility Styles section, rather than in the Header or Main Styles section, because CSS requires the style attribute for all borders to be set before color settings will be recognized.
+
 ### Design Styles
 The rules in the Design Styles section determine the look of the app. It is here that we specify the fonts and the colors for the site. These are the _only_ CSS rules that are changed to create a new **drop-in** theme; they are collected here, rather than being split up among the Header, Main and Footer Styles sections, to make it more convenient and manageable to change the appearance of the app. If you are tinkering with the styles in **drop-in.css**, and you want to change a font or a color, you _must_ make those changes inside the Design Styles section, or subsequent users won't be able to find them.
 

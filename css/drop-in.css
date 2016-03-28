@@ -62,6 +62,7 @@ header nav li     { border-left: 3px solid; }
 main section      { border-bottom: 2px solid; }
 main table        { border: 2px solid; }
 main th, main td  { border: 1px solid; }
+main input, main textarea, main button {  border: 1px solid; }
 
 
 /* DESIGN STYLES *************************************************************/
@@ -115,6 +116,18 @@ main section { border-color: #888; }
 main aside { background-color: #bbb; }
   /* this should be slightly darker than main background-color, eg: 25% gray */
 
+main input,
+main textarea,
+main button {
+  color: #222;                  /* matches main text color */
+  border-color: #222;           /* matches main text color */
+}
+
+main input[type="submit"],
+main button {
+  background-color: #bbb;       /* matches aside bg-color */
+  color: #222;                  /* matches main text color */
+}
 
 /* HEADER STYLES *************************************************************/
 
@@ -242,6 +255,7 @@ main button,
 main input[type="submit"] {
   margin: 0.5rem auto;
   width: 12rem;
+  padding-top: 0.07rem;
 }
 
 
