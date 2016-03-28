@@ -1,4 +1,4 @@
-/*! drop-in.css | MIT License | github.com/webdevjeffus/drop-in-css */
+/*! drop-in.css v1.0.0 | MIT License | github.com/webdevjeffus/drop-in-css */
 
 /* GOOGLE FONT LINK **********************************************************\
 
@@ -57,6 +57,8 @@ header nav input[type="submit"] {
   font-weight: bold;
   text-decoration: none;
 }
+
+/* Borders */
 
 header nav li     { border-left: 3px solid; }
 main section      { border-bottom: 2px solid; }
