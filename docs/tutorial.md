@@ -157,13 +157,14 @@ This rule creates the vertical bars that separate the links in the nav bar withi
 ```css
 main table,
 main th,
-main td {
-  border: 1px solid #222;     /* this should match main font color */
-  background-color: #eee;     /* this should be lighter than main background-color */
+main td { border: 1px solid #222; }   /* this should match main font color */
+
+main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
+main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
 }
 ```
 
-As you probably guess, this rule sets the background color for any tables with the \<main> element, and puts a border around all table cells in the same color as the text within the main element.
+As you probably guess, the first of these rules puts a border around all table cells in the same color as the text within the main element. The second and third rules&mdash; with "main tr:nth-of-type" selectors&mdash;set the background of table rows to alternate between slightly lighter than the \<main> element background, and slightly darker.
 
 ```css
 main section { border-bottom: 2px solid #888; }
@@ -367,6 +368,32 @@ main input[type="submit"] {
 ```
 
 This final rule in the Main Styes/Forms subsection sets the width of all buttons, such as form-submit buttons, and centers them from right to left within their parent element.
+
+#### Tables
+
+The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the color for table borders in the Colors subsection of Design Styles.
+
+```css
+/* Tables */
+
+main table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  border: 2px solid;
+}
+
+main th,
+main td {
+  padding: 0.25rem 0;
+  text-align: center;
+  border: 1px solid;
+}
+```
+
+The first rule, for "main table", tells the browser to make tables the full width of the available space, with 1rem of whitespace beneath them. It also collapses the CSS's default double border for tables to more modern single lines, with a two pixel border around the outside edge of the table.
+
+The rule for table cells (\<th> and \<td> elements) puts just a bit of top and bottom padding in each cell, center-aligns the text within each cell, and sets the borders within the table, between cells, to just 1 pixel.
 
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
