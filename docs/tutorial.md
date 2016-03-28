@@ -1,7 +1,3 @@
-# _WORK IN PROGRESS - 3/25/19_
-The content on this page is incomplete and under revision; links may be temporarily broken. Pardon the mess - I'll have it cleaned up soon. &mdash;_Jeff_
-<hr>
-
 # _Drop-in.css_, line by line
 
 This document goes under the hood to explore the function of each section and rule in the **drop-in.css** stylesheet. It's aimed at front-end devs who want to deconstruct the **drop-in.css** file, to customize it or create their own version. You don't need to read it in order to use **drop-in.css** in your project.
@@ -54,6 +50,20 @@ body {
 The body rule includes a margin declaration that causes the body of the app (which includes all the visible content) to be centered left-to-right in the browser window. The min- and max-widths are good values for an app in development; you'll want to override them with media queries when you're ready to make your site fully responsive to screens of all sizes.
 
 ```css
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.2rem; }
+h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
+```
+
+These rules set the font-size for all heading elements. \<h1>-\<h4> are styled as the display font in the Design Styles/Fonts subsection, below, while \<h5> and \<h6> will appear in the general font. Since \<h6> headings have the same font-size as the text in \<p> and other, similar elements, \<h6> headings will display as italic text, to make them more visually distinct.
+
+```css
 h1, h2, h3, h4, h5, h6, p { margin: 0 0 0.5rem; }
 
 p:last-child { margin-bottom: 0rem; }
@@ -71,7 +81,7 @@ section:after {
 }
 ```
 
-This rule automatically applies a "clearfix" immediately after \<header>, \<main> and \<section> elements, since these elements are likely to contain elements that are floated left or right. It has no effect if nothing inside the element is floated, but they don't hurt anything by being there.
+This rule automatically applies a "clearfix" immediately after \<header>, \<main> and \<section> elements, since these elements are likely to contain elements that are floated left or right. A clearfix has no effect if nothing inside the element is floated, but it also doesn't hurt anything by being there.
 
 ```css
 a,
@@ -83,14 +93,19 @@ header nav input[type="submit"] {
 
 This rule overrides the default appearance of links in an HTML document, removing the underline, but making the link text display in a bold font. (The color of links is handled in the next section.)
 
+#### Borders
+
 ```css
+/* Borders */
+
 header nav li { border-left: 3px solid; }
 main section { border-bottom: 2px solid; }
 main table { border: 2px solid; }
 main th, main td { border: 1px solid; }
+main input, main textarea, main button {  border: 1px solid; }
 ```
 
-These rules set up the style and weight of the borders used by **drop-in.css**. It is necessary to declare them in the Utility Styles section, rather than in the Header or Main Styles section, because CSS requires the style attribute for all borders to be set before color settings will be recognized.
+These rules set up the style and weight of the borders used by **drop-in.css**. It is necessary to declare them in the Utility Styles section, rather than in the Header or Main Styles section, because CSS requires the style attribute for all borders to be set before border-color declarations in the [Design Styles/Colors](#colors) section will be recognized.
 
 ### Design Styles
 The rules in the Design Styles section determine the look of the app. It is here that we specify the fonts and the colors for the site. These are the _only_ CSS rules that are changed to create a new **drop-in** theme; they are collected here, rather than being split up among the Header, Main and Footer Styles sections, to make it more convenient and manageable to change the appearance of the app. If you are tinkering with the styles in **drop-in.css**, and you want to change a font or a color, you _must_ make those changes inside the Design Styles section, or subsequent users won't be able to find them.
@@ -149,8 +164,6 @@ a:link,
 a:visited,
 header nav input[type="submit"] {
   color: #c00;           /* darker contrasting color; inactive links */
-  font-weight: bold;
-  text-decoration: none;
 }
 
 a:hover,
@@ -161,40 +174,54 @@ header nav input[type="submit"]:active {
 }
 ```
 
-The next two rules, which start with "a:link" and "a:hover", set the colors for the links. The first rule sets the appearance of inactive links; in the default theme, they appear as bold type, without any underline ("text-decoration: none"), in a brick-red color. The second rule changes the color of the link text to a bright, fire-engine red when the mouse passes over them and when they are clicked. The "input[type='submit']" selectors are included to make the text on the Logout button behave like regular link text, another part of styling it to _not_ look like a button.
+The next two rules, which start with "a:link" and "a:hover", set the colors for the links. The first rule sets the color of inactive links to a brick-red color. The second rule changes the color of the link text to a bright, fire-engine red when the mouse passes over them and when they are clicked. The "input[type='submit']" selectors are included to make the text on the Logout button behave like regular link text, part of styling it to _not_ look like a button.
 
 If the theme requires different colors for links in the \<main> element than elsewhere on the page, you will have to add separate rules (eg., "main a:link", "main a:hover") for \<a> tags in the \<main> element. Look at the Design Styles section of the stylesheet for the [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css) theme for an example.
 
 ```css
-header nav li {
-  border-left: 3px solid #888;    /* this should match html background-color */
-}
+header nav li { border-color: #888; }   /* this should match html background-color */
 ```
 
-This rule creates the vertical bars that separate the links in the nav bar within the \<header> element.
+This rule declares the color of the vertical bars that separate the links in the nav bar within the \<header> element. The width and style of this border was declared in the [Utility Styles](#utility-styles) section, above.
 
 ```css
 main table,
 main th,
-main td { border: 1px solid #222; }   /* this should match main font color */
+main td { border-color: #222; }   /* this should match main font color */
 
 main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
 main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
 }
 ```
 
-As you probably guess, the first of these rules puts a border around all table cells in the same color as the text within the main element. The second and third rules&mdash; with "main tr:nth-of-type" selectors&mdash;set the background of table rows to alternate between slightly lighter than the \<main> element background, and slightly darker.
+The first of these rules sets the color of all borders in and around tables, with the width and style having been previously established in the [Utility Styles](#utility-styles). The second and third rules&mdash;with "main tr:nth-of-type" selectors&mdash;set the background of table rows to alternate between slightly lighter than the \<main> element background, and slightly darker.
 
 ```css
-main section { border-bottom: 2px solid #888; }
+main section { border-color: #888; }
   /* this should match html background-color */
 
 main aside { background-color: #bbb; }
   /* this should be slightly darker than main background-color, eg: 25% gray */
 ```
 
-These last two rules give visual clues to support the semantic organization of the content in your \<main> element. The first adds a border to the bottom edge of each \<section> element, and the second puts a contrasting background behind the text in any sidebars (coded in HTML as \<aside> elements). Some **drop-in.css** themes, like [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css), add a border around \<aside> elements as well.
+These rules use color to provide visual clues that support the semantic organization of the content in your \<main> element. The first adds a border to the bottom edge of each \<section> element, and the second puts a contrasting background behind the text in any sidebars (coded in HTML as \<aside> elements). Some **drop-in.css** themes, like [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css), add a border around \<aside> elements as well. Remember that rules setting the establish the width and style of any borders must be listed in the [Utility Styles](#utility-styles) section.
 
+```css
+main input,
+main textarea,
+main button {
+  color: #222;                  /* matches main text color */
+  border-color: #222;           /* matches main text color */
+}
+
+main input[type="submit"],
+main button {
+  background-color: #bbb;       /* matches aside bg-color */
+  color: #222;                  /* matches main text color */
+}
+```
+
+These rules declare the colors for form inputs appearing in the \<main> element. Again, border styles and widths must be set in the [Utility Styles](#utility-styles) section before the color declarations here will have any effect.
 
 
 ### Header Styles
@@ -242,7 +269,7 @@ The next three rules set up the nav links. The "header nav" rule applies a right
 ```css
 header nav li:nth-last-of-type(1) { padding-right: 0;}
 
-header nav li:nth-of-type(1) { border-left: 0;}
+header nav li:nth-of-type(1) { border-left: none;}
 
 header nav input[type="submit"] {
   overflow: visible;
@@ -252,7 +279,7 @@ header nav input[type="submit"] {
 }
 ```
 
-The next two rules handle the edge-cases in the nav-link list: the first of these removes the right padding from the last list item, so it's not double-spaced from the right edge of the header, and the second turns _off_ the left border we applied to the nav links in the Design Styles section, so that the borders only appear _between_ links.
+The next two rules handle the edge-cases in the nav-link list: the first of these removes the right padding from the last list item, so it's not double-spaced from the right edge of the header, and the second turns _off_ the left border we applied to the nav links in the [Utility Styles/Borders](#borders) section, so that the borders only appear _between_ links.
 
 The final rule in the Header Styles section, applied to "header nav input[type='submit']", finishes the job of styling the Logout button to look like any other link, which we started in the Design Section. Altogether, to make a button look like a link, we need to set the background-color and font color the same as the links we're matching (we did this in the Colors subsection of the Design Styles section); set the overflow to visible and center-align the text; set the width to auto, so it conforms to the length of the text in the button-link, and get rid of the button border.
 
@@ -291,10 +318,10 @@ main article {
 }
 
 main aside {
-  padding: 1rem;
-  font-size: 0.8rem;
   width: 30%;
   float: right;
+  padding: 1rem;
+  font-size: 0.8rem;
 }
 ```
 
@@ -383,14 +410,15 @@ main button,
 main input[type="submit"] {
   margin: 0.5rem auto;
   width: 12rem;
+  padding-top: 0.07rem;
 }
 ```
 
-This final rule in the Main Styes/Forms subsection sets the width of all buttons, such as form-submit buttons, and centers them from right to left within their parent element.
+This final rule in the Main Styes/Forms subsection sets the width of all buttons, such as form-submit buttons, and centers them from right to left within their parent element. It also adds a tiny bit of headroom in the form of padding, to help center text vertically within a button.
 
 #### Tables
 
-The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the colors for table borders and backgrounds in the [Colors](#colors) subsection of Design Styles, above.
+The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the width and style for all table borders in the [Utility Styles/Borders](#borders) section, and the colors for table borders and backgrounds in the [Colors](#colors) subsection of Design Styles, above.
 
 ```css
 /* Tables */
@@ -399,25 +427,21 @@ main table {
   width: 100%;
   margin-bottom: 1rem;
   border-collapse: collapse;
-  border: 2px solid;
 }
 
 main th,
 main td {
   padding: 0.25rem 0;
   text-align: center;
-  border: 1px solid;
 }
 ```
 
-The first rule, for "main table", tells the browser to make tables the full width of the available space, with 1rem of whitespace beneath them. It also collapses the CSS's default double border for tables to more modern single lines, with a two pixel border around the outside edge of the table.
-
-The rule for table cells (\<th> and \<td> elements) puts just a bit of top and bottom padding in each cell, center-aligns the text within each cell, and sets the borders within the table, between cells, to just 1 pixel.
+The first rule, for "main table", tells the browser to make tables the full width of the available space, with 1rem of whitespace beneath them. It also collapses the CSS's default double border for tables to more modern single lines. The rule for table cells (\<th> and \<td> elements) puts just a bit of top and bottom padding in each cell, and center-aligns the text within each cell.
 
 
 ### Footer Styles
 
-There's just one rule in our footer section.
+There's just one rule in for **drop-in**'s \<footer> element.
 
 ```css
 /* FOOTER STYLES */
@@ -430,6 +454,8 @@ footer {
 ```
 
 This rule centers all text; sets the font size of all elements to 80% of the size at which they are displayed in the \<main> element; and adds 1rem of padding to all sides of the footer. These rules will be applied to any headings (\<h1>-\<h6>), paragraphs, and other elements you include in footer, allowing a fair amount of flexibility in creating \<footer> content without needing custom styling.
+
+<hr>
 
 #### Licenses
 
