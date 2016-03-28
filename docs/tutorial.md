@@ -282,42 +282,27 @@ The next two rules in the Main Styles section style the \<article> and \<aside> 
 
 The last two declarations in the "main aside" rule put 1rem of padding on all sides of the sidebar, and reduce the font-size by 20%, to make it more visually distinct from the text in the article. Also, remember that we gave \<aside> elements a contrasting background color in the Design Styles/Colors subsection.
 
+```css
+/* Lists */
+
+main ul {
+  margin: 0 1rem 1rem;
+  list-style: none;
+}
+
+main ol { margin: 0 1rem 1rem 2rem; }
+
+main li { margin: 0.5rem 0; }
+
+```
+
+The rules for lists put a bit of extra whitespace in and around both ordered (numbered) and unordered lists, to enhance readability and to make them stand out from ordinary \<p> elements. The "main ul" rule also removes the bullets that appear next to each list item in an unordered list by default.
 
 
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
-
-Again, I'll show you the basic CSS code first, then break it down rule by rule.
-
-```css
-/* MAIN STYLES - Yield Block */
-
-main {
-  padding: 1rem;
-  clear: both;
-}
-
-/* Lists */
-
-main ul { margin: 0 auto 1.5rem; }
-
-main ul li {
-  list-style: none;
-  margin: 0.5rem 0 1rem;
-  font-size: 1.25rem;
-}
-```
-
-#### main
-The padding in the **main** rule just pushes the text in from the edges of the **main** element a little bit; we use rems instead of pixels here so that the width of the padding scales automatically with the fonts. The **clear: both** property is necessary to clear out the floats we used in the header; again, this isn't how we'd do it in the production version of our app, but it works fine for this quick-and-dirty, drop-in stylesheet.
-
-Headers, paragraphs and links in the **main** element use the defaults set in the "Resets" and "Design Styles," so we generally don't need to add anything for them here. If you decide to increase the size of your headers from the default&mdash;and you very well might&mdash;do that in the Resets section of the **drop-in.css** stylesheet.
-
-#### Lists: main ul and main ul li
-
-Almost every index view in a Sinatra or Rails app is going to display some sort of list of objects from the data base, but the default presentation of unordered lists is very 1994. To bring our stylesheet into the current century, we'll set **list-style** to **none**, to eliminate the bullets. The **margin** properties are necessary to get the list back into the right spot once we've taken out the bullets. I like to set the font-size for list items to 1.25rem, because these lists tend to be pretty important in our Sinatra apps, and we want them to be prominent.
 
 ```css
 /* Main Styles, con't. */
