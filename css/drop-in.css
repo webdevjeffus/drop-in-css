@@ -183,12 +183,15 @@ main aside {
 
 /* Lists */
 
-main ul { margin: 0 1rem 1.25rem; }
-
-main ul li {
+main ul {
+  margin: 0 1rem 1rem;
   list-style: none;
-  margin: 0.5rem 0;
 }
+
+main ol { margin: 0 1rem 1rem 2rem; }
+
+main li { margin: 0.5rem 0; }
+
 
 /* Forms */
 
