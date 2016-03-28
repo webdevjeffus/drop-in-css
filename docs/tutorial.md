@@ -157,13 +157,14 @@ This rule creates the vertical bars that separate the links in the nav bar withi
 ```css
 main table,
 main th,
-main td {
-  border: 1px solid #222;     /* this should match main font color */
-  background-color: #eee;     /* this should be lighter than main background-color */
+main td { border: 1px solid #222; }   /* this should match main font color */
+
+main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
+main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
 }
 ```
 
-As you probably guess, this rule sets the background color for any tables with the \<main> element, and puts a border around all table cells in the same color as the text within the main element.
+As you probably guess, the first of these rules puts a border around all table cells in the same color as the text within the main element. The second and third rules&mdash; with "main tr:nth-of-type" selectors&mdash;set the background of table rows to alternate between slightly lighter than the \<main> element background, and slightly darker.
 
 ```css
 main section { border-bottom: 2px solid #888; }
@@ -177,169 +178,227 @@ These last two rules give visual clues to support the semantic organization of t
 
 
 
-
-
-
-
-# _Everything above this line is REVISED as of 3/25/16_
-<hr>
-### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
-
-
 ### Header Styles
-In this section, we'll set up the rules for the elements in our **\<header>** section. It is here that we see the flexibility of our type-based CSS selectors coming into play.
+The rules in the Header Styles section style a simple header that should appear on every page of the app. The styles are designed to create a large app title or logo in the display font at the left-hand end of the \<header> element, with an optional line of copy beneath it. Site navigation is handled by a horizontal row of nav links at the right-hand edge of the \<header>.
 
 ```css
+/* HEADER STYLES *************************************************************/
+
 header { padding: 1rem; }
 
+header>h1,
+header div { float: left; }
+
 header h1 {
-  font-size: 3rem;
-  float: left;
+  line-height: 1;
+  font-size: 4rem;
 }
 
+header p {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 0;
+}
+```
+
+The first rule just sets a 1rem padding on all sides of the \<header>, to keep the type from bumping against the margins.
+
+The second rule applies the left float that puts the app title at the left edge of the \<header>. The float needs to be applied either to the logo, which is coded as an \<h1> that is a direct child of the \<header> element ("header h1"), or to a \<div> that holds both the \<h1> _and_ the \<p> that holds the site's motto or slogan ("header div"). As mentioned in the instructions on the README page, if you don't have a \<p> element beneath your \<h1> logo, you don't need to wrap the \<h1> in a \<div>.
+
+The "header h1" and "header p" rules just describe the appearance of the font in the logo and slogan. If you change the fonts, you may need to tweak these values to make the header look the way you want.
+
+```css
 header nav { float: right; }
 
 header nav ul { list-style: none; }
 
 header nav li {
   display: inline-block;
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
+```
 
-header nav li:first-child { border-left: 0;}
+The next three rules set up the nav links. The "header nav" rule applies a right float to the entire \<nav> element, so that it is displayed at the right end of the \<header>, opposite the flush-left logo. The "header nav ul" rule removes the bullets that browsers apply to unordered lists by default. The "header nav li" rule sets the list items&mdash;which will be the links in the nav bar&mdash;to inline-block, which makes them display on a horizontal line, instead of stacked up vertically. It also applies 1 rem of padding to the right and left sides of the list items, to spread them out a bit, without adding any padding to their top or bottom.
+
+```css
+header nav li:nth-last-of-type(1) { padding-right: 0;}
+
+header nav li:nth-of-type(1) { border-left: 0;}
 
 header nav input[type="submit"] {
   overflow: visible;
   text-align: center;
-  font-weight: bold;
   width: auto;
   border: none;
 }
 ```
 
-#### header
-The general **header** rule just puts 1rem of padding around all four sides of the header, to keep the text from banging against the edges. I prefer rems ("root ems") for most CSS measurements because they scale smoothly if you make the site responsive. By default, 1rem = 16 pixels; if you want to change that value, just set a **font-size** property to some value other than 16 pixels in the style for the root element, **\<html>**. If you later change the root em value, then every font-size or element dimension that is sized in rems will scale with the root em.
+The next two rules handle the edge-cases in the nav-link list: the first of these removes the right padding from the last list item, so it's not double-spaced from the right edge of the header, and the second turns _off_ the left border we applied to the nav links in the Design Styles section, so that the borders only appear _between_ links.
 
-#### header h1
-In the **header h1** rule, we specify that any and all **\<h1>** elements in the **\<header>** should be rendered at a size of 3rems. Our CSS selector for the rule, "header h1", won't touch **\<h1>**s in any other element of the app&mdash;for example, an **\<h1>** in the **\<main>** element will be displayed at its default size, not at the 3rems specified in this rule. We also set the **header h1** to **float: left**, so that it displays against the left margin of the header section.
-
-#### header nav
-The rest of the styles in the "Header Styles" section deal with the components of the header's **\<nav>** element. To be sure that we don't affect list or nav elements elsewhere in the app, we begin each selector with a mention of both the **\<header>** and the **\<nav>** types. The **header nav** rule, which specifies **float: right**, pushes the nav links to the right-hand margin of the header. The **header nav ul** rule eliminates the bullet points that appear by default on unordered lists.
-
-In the **header nav li** rule, **display: inline-block;** changes the links in the nav bar to appear as a horizontal row, instead of a vertical list. The **border-left** property establishes a vertical border between each pair of links, and the **header nav li:first-child** rule _turns off_ that border for the first link on the nav bar.
-
-#### header nav input[type="submit"]
-The last rule in this section, which styles **header nav input[type="submit"]** elements, is necessary because HTML and Sinatra all but _require_ the "logout" link to be created as a button. Since ending the current session requires a POST route with a hidden input to carry the "delete" action, it is usually created as a single-button form, rather than as a simple link. This rule removes the border and background from the button, so that it looks and behaves like the other links in the nav bar; recall that we set the colors for this input in the "Colors" section, above.
-
-**Performance Note:** A selector like this one, that depends on the value of an attribute of an html tag, is just about the slowest possible CSS selector. We use it here because we are deliberately trying _not_ to have to add classes to our html file; in the deployed version of an app, you'd be better off to use a class as a selector, even if it's only used that once.
+The final rule in the Header Styles section, applied to "header nav input[type='submit']", finishes the job of styling the Logout button to look like any other link, which we started in the Design Section. Altogether, to make a button look like a link, we need to set the background-color and font color the same as the links we're matching (we did this in the Colors subsection of the Design Styles section); set the overflow to visible and center-align the text; set the width to auto, so it conforms to the length of the text in the button-link, and get rid of the button border.
 
 ### Main Styles
-In **main** styles section, we see our type-based selectors really pay off: they let us write an unlimited number of pages, partials, and forms which look decent (maybe not great, but certainly decent) with absolutely zero time spent on styling. Again, I'll show you the basic CSS code first, then break it down rule by rule.
+In the Main Styles section, **drop-in**'s type-based selectors really pay off: they let you (or your web dev framework) create an unlimited number of pages, partials, and forms which look decent (maybe not great, but certainly decent) with absolutely zero time spent on styling. The Main Styles section handles \<section>, \<article>, and \<aside> elements first, then deals with lists, forms, and tables in separate subsections.
 
 ```css
-/* MAIN STYLES - Yield Block */
+/* MAIN STYLES ***************************************************************/
 
 main {
   padding: 1rem;
-  clear: both;
 }
 
+main section {
+  padding: 1rem 0;
+}
+
+main section:nth-of-type(1) {
+  padding-top: 0;
+}
+
+main section:nth-last-of-type(1) {
+  padding-bottom: 0;
+  border: none;
+}
+```
+
+As in the Header Styles section, the first rule simply puts 1rem of padding around the \<main> element, to keep the text and other elements off of the margins.
+
+The next three rules style the \<section> elements. The "main section" rule adds 1rem of padding to the top and bottom of each \<section>, but none to the sides, since we don't want it doubling up with the right- and left-padding on the \<main> element. The second "main section" rule, with the ":nth-of-type(1)" selector, removes the top padding from the first \<section> element, to avoid doubling the top padding inside the \<main> element. The ":nth-last-of-type" rule selects the _last_ \<section> within the \<main>, and does two things: first, it removes the bottom padding, again to avoid double-padding at the bottom of the \<main>; and second, it removes the border we assigned in the Design Styles/Colors subsection, that appears at the bottom of each \<section>.
+
+```css
+main article {
+  width: 65%;
+  float: left;
+}
+
+main aside {
+  padding: 1rem;
+  font-size: 0.8rem;
+  width: 30%;
+  float: right;
+}
+```
+
+The next two rules in the Main Styles section style the \<article> and \<aside> elements. Articles form the main column of a main-column/sidebar layout, floated to the left and occupying 65% of the available width. Asides form the sidebar; they are floated to the right, and occupy 30% of the available width. This leaves 5% of the available width as a margin between the \<article> and its \<aside>.
+
+The last two declarations in the "main aside" rule put 1rem of padding on all sides of the sidebar, and reduce the font-size by 20%, to make it more visually distinct from the text in the article. Also, remember that we gave \<aside> elements a contrasting background color in the Design Styles/Colors subsection.
+
+#### Lists
+
+```css
 /* Lists */
 
-main ul { margin: 0 auto 1.5rem; }
-
-main ul li {
+main ul {
+  margin: 0 1rem 1rem;
   list-style: none;
-  margin: 0.5rem 0 1rem;
-  font-size: 1.25rem;
+}
+
+main ol { margin: 0 1rem 1rem 2rem; }
+
+main li { margin: 0.5rem 0; }
+
+```
+
+The rules for lists put a bit of extra whitespace in and around both ordered (numbered) and unordered lists, to enhance readability and to make them stand out from ordinary \<p> elements. The "main ul" rule also removes the bullets that appear next to each list item in an unordered list by default.
+
+#### Forms
+
+The **drop-in** stylesheet has several rules that style form components, but each rule is fairly straightforward. Forms are one of the areas most likely to require additional, custom styling for each app, but the rules in **drop-in.css** will at least make your forms easily readable during development.
+
+Note that the selectors for form elements don't actually include the "form" element in their selector. **Drop-in.css** finds them with the "main" selector instead, plus their specific tag, to avoid accidentally grabbing a button, search field, or other input in your header or footer.
+
+```css
+main label { font-weight: bold; }
+
+main input,
+main textarea {
+  margin-bottom: 0.75rem;
+  display: block;
+  width: 100%;
 }
 ```
 
-#### main
-The padding in the **main** rule just pushes the text in from the edges of the **main** element a little bit; we use rems instead of pixels here so that the width of the padding scales automatically with the fonts. The **clear: both** property is necessary to clear out the floats we used in the header; again, this isn't how we'd do it in the production version of our app, but it works fine for this quick-and-dirty, drop-in stylesheet.
-
-Headers, paragraphs and links in the **main** element use the defaults set in the "Resets" and "Design Styles," so we generally don't need to add anything for them here. If you decide to increase the size of your headers from the default&mdash;and you very well might&mdash;do that in the Resets section of the **drop-in.css** stylesheet.
-
-#### Lists: main ul and main ul li
-
-Almost every index view in a Sinatra or Rails app is going to display some sort of list of objects from the data base, but the default presentation of unordered lists is very 1994. To bring our stylesheet into the current century, we'll set **list-style** to **none**, to eliminate the bullets. The **margin** properties are necessary to get the list back into the right spot once we've taken out the bullets. I like to set the font-size for list items to 1.25rem, because these lists tend to be pretty important in our Sinatra apps, and we want them to be prominent.
+The first two rules for form elements set things up so that most label-input pairs appear on together, label above input, with a bit of extra margin beneath to separate them from the next input in the form. The lable is set to be bold, to make it pop. Inputs are set to be "display: block" and "width: 100%" to render a wide text box, with room to accept several words of text before overflowing&mdash;a bit long for username and passwords, but a more readable default for text fields that need to accept several words, like streed addresses or URLs. Plan to add some more specific styling rules with classes before deploying the app.
 
 ```css
-/* Main Styles, con't. */
-
-/* Forms */
-
-main input {
-  display: block;
-  margin-bottom: 0.75rem;
-  width: 100%;
-}
-
-main input[type="text"],
+main input[type="date"],
+main input[type="datetime"],
+main input[type="datetime-local"],
+main input[type="email"],
+main input[type="month"],
+main input[type="number"],
 main input[type="password"],
-main input[type="email"] {
-  padding: 0 0.5rem;
-}
+main input[type="search"],
+main input[type="tel"],
+main input[type="text"],
+main input[type="time"],
+main input[type="week"],
+main textarea { padding: 0 0.5rem; }
 
-main textarea {
-  width: 100%;
-  height: 5rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-}
+main textarea { height: 4.5rem; }
+```
 
-main input[type="radio"],
-main input[type="checkbox"] {
+These first of these two rules puts a tiny bit of right and left padding inside input boxes, to keep the text from bumping the borders of the fields. The second sets the height of textareas; for most fonts, 4.5rem is enough vertical space to display three lines of text without scrolling.
+
+```css
+main input[type="checkbox"],
+main input[type="radio"] {
   display: inline;
   width: 1.5rem;
+  margin-right: 1.5rem;
 }
 
-main input[type="submit"] { width: 12rem; }
+main input[type="range"] {
+  display: inline;
+  width: 16rem;
+  margin-left: 1rem;
+}
 ```
 
-#### Forms: main input and main textarea
+These two rules handle oddball input fields&mdash;checkboxes, inputs and ranges&mdash;setting them to "display: inline" so they appear on the same line with their labels. The width declaration in each of these rules overrides the "width: 100%" we set for all input elements earlier in this section, and the margins handle horizontal spacing between the label and the input, and between lable-input pairs appearing on the same line.
 
-Forms are also very common in Sinatra and Rails apps, but again, the default styling for them is generally pretty ugly and unfriendly. We'll handle this mostly by styling the form input elements.
-
-First, we'll set the **display** property of **main input** elements to **block**, so each one appears on its own line on the page. If you add a label for an input, it will default to **display: inline**, so labels will show up to the left of the text box they identify. If you prefer labels on the line above, you can add the following style rule to your CSS file to put them there:
+By **drop-in** default, if you put several radio buttons, checkboxes, and/or ranges into your HTML in a row, they will all display on the same line, not wrapping to the next line until the first line is filled all the way across. If you want them to be arranged vertically, wrap each input element in its own \<div>. See the form section of [demo.html](https://github.com/webdevjeffus/drop-in-css/blob/master/views/demo.html) for working examples.
 
 ```css
-main label { display: block; }
+main button,
+main input[type="submit"] {
+  margin: 0.5rem auto;
+  width: 12rem;
+}
 ```
 
-The margins and padding we set for **input** and **textarea** elements add a bit of whitespace to the form, while setting the **width** of each to **100%** makes each field wide enough to display most input data without annoying sideways scrolling. Remember that **\<input>** elements display only a single line of text. For this reason, you'll want to use a **\<textarea>** form element for any field where users will be entering more than a few words, such as a blog post or comment.
+This final rule in the Main Styes/Forms subsection sets the width of all buttons, such as form-submit buttons, and centers them from right to left within their parent element.
 
-To make sure that radio buttons and checkboxes appear with their labels, we need to add a special rule for those inputs of those types. We'll set them to **display: inline**, with **width: 1.5rem**. (These lines essentially _undo_ for radio buttons and checkboxes the styling we applied to input elements in general a few lines above.)
+#### Tables
 
-The **main input[type="submit"]** rule sets **Submit** buttons to 12rem wide, which is wide enough to display the full text on the button in most cases. If you need more space, just up the rem value in this rule. Also, note that since we styled these buttons using **main** along with **input**, this rule does not effect the Submit button that we used to log out the user in the **header nav** element.
-
+The last two rules in the Main Styles section of **drop-in.css** style tables within the \<main> element. Recall that we set the colors for table borders and backgrounds in the [Colors](#colors) subsection of Design Styles, above.
 
 ```css
-/* Main Styles, con't. */
-
 /* Tables */
 
 main table {
-  margin-bottom: 1rem;
   width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  border: 2px solid;
 }
 
 main th,
 main td {
-  width: 25%;
   padding: 0.25rem 0;
   text-align: center;
+  border: 1px solid;
 }
 ```
 
-### Tables
-If your app displays complex user or game data, you'll probably want to show it in a table. The **main table** rule sets the table to fill the main element from side to side, and adds a margin at the bottom for whitespace between the table and the next element. The other rule, for **main th** and **td**, handles individual cells in the table. It sets each cell, and therefore each column, to 25% of the width of the table, creating a four-column table; if you need more or fewer columns, just change the percentage accordingly. The cells rule also adds a bit of top and bottom padding within the cell, and centers the text within the cell.
+The first rule, for "main table", tells the browser to make tables the full width of the available space, with 1rem of whitespace beneath them. It also collapses the CSS's default double border for tables to more modern single lines, with a two pixel border around the outside edge of the table.
 
-Remember that the background and border colors for tables were set in the "Colors" setion, above.
+The rule for table cells (\<th> and \<td> elements) puts just a bit of top and bottom padding in each cell, center-aligns the text within each cell, and sets the borders within the table, between cells, to just 1 pixel.
 
-## Footer Styles
 
-There's just one rule in our footer section:
+### Footer Styles
+
+There's just one rule in our footer section.
 
 ```css
 /* FOOTER STYLES */
@@ -351,7 +410,7 @@ footer {
 }
 ```
 
-This rule is intended to style a single line of credits, something like: "Created by Jeff George for Dev Bootcamp Phase 2," or whatever. The rule centers the text, sets it to 80% of the default font size, and adds 1rem of padding to all sides of the footer. If you add **\<a>** tags to the footer text, to link to your Github or website, the stylesheet will apply the standard link color and styling to them, which should look fine if you chose your colors carefully at the top of the stylesheet.
+This rule centers all text; sets the font size of all elements to 80% of the size at which they are displayed in the \<main> element; and adds 1rem of padding to all sides of the footer. These rules will be applied to any headings (\<h1>-\<h6>), paragraphs, and other elements you include in footer, allowing a fair amount of flexibility in creating \<footer> content without needing custom styling.
 
 #### Licenses
 
@@ -360,4 +419,4 @@ The documentation in this repo is Copyright &copy; 2016 by Jeff George.
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Documentation for <b>Drop-In CSS</b></span> by
 <a href="http://webdevjeff.us">Jeff George</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-The code files in this repo, including **drop-in.css**, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The code files in this repo, including **drop-in.css**, all **drop-in.css** themes, and all view files, may be used under the terms of the [MIT License](https://opensource.org/licenses/MIT).

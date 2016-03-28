@@ -80,10 +80,10 @@ main a:active { color: #2a6; }    /* brighter green; active links in main */
 
 main table,
 main th,
-main td {
-  border: 1px solid #842;     /* orange-brown, matches main font color */
-  background-color: #feb;     /* very light orange, lighter than main bg-color */
-}
+main td { border-color: #842; }   /* orange-brown, matches main font color */
+
+main tr:nth-of-type(odd)  {background-color: #fe9;}  /* lighter than main bg-color */
+main tr:nth-of-type(even) {background-color: #fc7;}  /* darker than main bg-color */
 
 main section { border-bottom: 2px solid #284; }
   /* medium green; matches html background-color */
