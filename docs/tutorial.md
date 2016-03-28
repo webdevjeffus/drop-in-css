@@ -282,6 +282,8 @@ The next two rules in the Main Styles section style the \<article> and \<aside> 
 
 The last two declarations in the "main aside" rule put 1rem of padding on all sides of the sidebar, and reduce the font-size by 20%, to make it more visually distinct from the text in the article. Also, remember that we gave \<aside> elements a contrasting background color in the Design Styles/Colors subsection.
 
+#### Lists
+
 ```css
 /* Lists */
 
@@ -298,60 +300,80 @@ main li { margin: 0.5rem 0; }
 
 The rules for lists put a bit of extra whitespace in and around both ordered (numbered) and unordered lists, to enhance readability and to make them stand out from ordinary \<p> elements. The "main ul" rule also removes the bullets that appear next to each list item in an unordered list by default.
 
+#### Forms
+
+The **drop-in** stylesheet has several rules that style form components, but each rule is fairly straightforward. Forms are one of the areas most likely to require additional, custom styling for each app, but the rules in **drop-in.css** will at least make your forms easily readable during development.
+
+Note that the selectors for form elements don't actually include the "form" element in their selector. **Drop-in.css** finds them with the "main" selector instead, plus their specific tag, to avoid accidentally grabbing a button, search field, or other input in your header or footer.
+
+```css
+main label { font-weight: bold; }
+
+main input,
+main textarea {
+  margin-bottom: 0.75rem;
+  display: block;
+  width: 100%;
+}
+```
+
+The first two rules for form elements set things up so that most label-input pairs appear on together, label above input, with a bit of extra margin beneath to separate them from the next input in the form. The lable is set to be bold, to make it pop. Inputs are set to be "display: block" and "width: 100%" to render a wide text box, with room to accept several words of text before overflowing&mdash;a bit long for username and passwords, but a more readable default for text fields that need to accept several words, like streed addresses or URLs. Plan to add some more specific styling rules with classes before deploying the app.
+
+```css
+main input[type="date"],
+main input[type="datetime"],
+main input[type="datetime-local"],
+main input[type="email"],
+main input[type="month"],
+main input[type="number"],
+main input[type="password"],
+main input[type="search"],
+main input[type="tel"],
+main input[type="text"],
+main input[type="time"],
+main input[type="week"],
+main textarea { padding: 0 0.5rem; }
+
+main textarea { height: 4.5rem; }
+```
+
+These first of these two rules puts a tiny bit of right and left padding inside input boxes, to keep the text from bumping the borders of the fields. The second sets the height of textareas; for most fonts, 4.5rem is enough vertical space to display three lines of text without scrolling.
+
+```css
+main input[type="checkbox"],
+main input[type="radio"] {
+  display: inline;
+  width: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+main input[type="range"] {
+  display: inline;
+  width: 16rem;
+  margin-left: 1rem;
+}
+```
+
+These two rules handle oddball input fields&mdash;checkboxes, inputs and ranges&mdash;setting them to "display: inline" so they appear on the same line with their labels. The width declaration in each of these rules overrides the "width: 100%" we set for all input elements earlier in this section, and the margins handle horizontal spacing between the label and the input, and between lable-input pairs appearing on the same line.
+
+By **drop-in** default, if you put several radio buttons, checkboxes, and/or ranges into your HTML in a row, they will all display on the same line, not wrapping to the next line until the first line is filled all the way across. If you want them to be arranged vertically, wrap each input element in its own \<div>. See the form section of [demo.html](https://github.com/webdevjeffus/drop-in-css/blob/master/views/demo.html) for working examples.
+
+```css
+main button,
+main input[type="submit"] {
+  margin: 0.5rem auto;
+  width: 12rem;
+}
+```
+
+This final rule in the Main Styes/Forms subsection sets the width of all buttons, such as form-submit buttons, and centers them from right to left within their parent element.
 
 # _Everything above this line is REVISED as of 3/25/16_
 <hr>
 ### Everything below this line is old text, cloned from my prior repo, CSS for Sinatra.
 
 
-```css
-/* Main Styles, con't. */
 
-/* Forms */
-
-main input {
-  display: block;
-  margin-bottom: 0.75rem;
-  width: 100%;
-}
-
-main input[type="text"],
-main input[type="password"],
-main input[type="email"] {
-  padding: 0 0.5rem;
-}
-
-main textarea {
-  width: 100%;
-  height: 5rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-}
-
-main input[type="radio"],
-main input[type="checkbox"] {
-  display: inline;
-  width: 1.5rem;
-}
-
-main input[type="submit"] { width: 12rem; }
-```
-
-#### Forms: main input and main textarea
-
-Forms are also very common in Sinatra and Rails apps, but again, the default styling for them is generally pretty ugly and unfriendly. We'll handle this mostly by styling the form input elements.
-
-First, we'll set the **display** property of **main input** elements to **block**, so each one appears on its own line on the page. If you add a label for an input, it will default to **display: inline**, so labels will show up to the left of the text box they identify. If you prefer labels on the line above, you can add the following style rule to your CSS file to put them there:
-
-```css
-main label { display: block; }
-```
-
-The margins and padding we set for **input** and **textarea** elements add a bit of whitespace to the form, while setting the **width** of each to **100%** makes each field wide enough to display most input data without annoying sideways scrolling. Remember that **\<input>** elements display only a single line of text. For this reason, you'll want to use a **\<textarea>** form element for any field where users will be entering more than a few words, such as a blog post or comment.
-
-To make sure that radio buttons and checkboxes appear with their labels, we need to add a special rule for those inputs of those types. We'll set them to **display: inline**, with **width: 1.5rem**. (These lines essentially _undo_ for radio buttons and checkboxes the styling we applied to input elements in general a few lines above.)
-
-The **main input[type="submit"]** rule sets **Submit** buttons to 12rem wide, which is wide enough to display the full text on the button in most cases. If you need more space, just up the rem value in this rule. Also, note that since we styled these buttons using **main** along with **input**, this rule does not effect the Submit button that we used to log out the user in the **header nav** element.
 
 
 ```css
