@@ -64,12 +64,14 @@ h6 {
 These rules set the font-size for all heading elements. \<h1>-\<h4> are styled as the display font in the Design Styles/Fonts subsection, below, while \<h5> and \<h6> will appear in the general font. Since \<h6> headings have the same font-size as the text in \<p> and other, similar elements, \<h6> headings will display as italic text, to make them more visually distinct.
 
 ```css
-h1, h2, h3, h4, h5, h6, p { margin: 0 0 0.5rem; }
+h1, h2, h3, h4, p { margin: 0 0 0.5rem; }
+h5, h6 { margin: 0 0 0.2rem; }
 
+li:last-child,
 p:last-child { margin-bottom: 0rem; }
 ```
 
-The first of these two rules removes the top, right and left margin set for headings and paragraphs in normalize.css. It sets the bottom margin to 0.5rem, so that there's a little whitespace between elements, and especially between paragraphs. The second rule (p:last-child) removes the bottom margin from a paragraph if it's the last element within the parent element (usually the \<main> element or a \<section>), since the padding of the outer element already handles adding whitespace after the last element.
+The first two rules in this group remove the top, right and left margin set for headings and paragraphs in normalize.css. They set bottom margins that insert a bit of whitespace between elements, and especially between paragraphs. The last rule ("li:last-child" and "p:last-child") removes the bottom margin from a paragraph or list item if it's the last element within the parent element (usually the \<main> element or a \<section> for a \<p>, or a \<ul> or \<ol> for a \<li>), since padding or margin on the parent element already inserts whitespace after the last element.
 
 ```css
 header:after,
@@ -162,16 +164,14 @@ The "main" rule sets the "background-color" of the \<main> element to something 
 ```css
 a:link,
 a:visited,
-header nav input[type="submit"] {
-  color: #c00;           /* darker contrasting color; inactive links */
-}
+header nav input[type="submit"] { color: #c00; }
+  /* darker contrasting color; inactive links */
 
 a:hover,
 a:active,
 header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active {
-  color: #f22;          /* brighter contrasting color; active links */
-}
+header nav input[type="submit"]:active { color: #f22; }
+  /* brighter contrasting color; active links */
 ```
 
 The next two rules, which start with "a:link" and "a:hover", set the colors for the links. The first rule sets the color of inactive links to a brick-red color. The second rule changes the color of the link text to a bright, fire-engine red when the mouse passes over them and when they are clicked. The "input[type='submit']" selectors are included to make the text on the Logout button behave like regular link text, part of styling it to _not_ look like a button.
@@ -189,8 +189,8 @@ main table,
 main th,
 main td { border-color: #222; }   /* this should match main font color */
 
-main tr:nth-of-type(odd)  {background-color: #eee;}  /* lighter than main bg-color */
-main tr:nth-of-type(even) {background-color: #ccc;}  /* darker than main bg-color */
+main tr:nth-of-type(odd)  { background-color: #eee; }  /* lighter than main bg-color */
+main tr:nth-of-type(even) { background-color: #ccc; }  /* darker than main bg-color */
 }
 ```
 
@@ -260,11 +260,11 @@ header nav ul { list-style: none; }
 
 header nav li {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 0.8rem 0 1rem;
 }
 ```
 
-The next three rules set up the nav links. The "header nav" rule applies a right float to the entire \<nav> element, so that it is displayed at the right end of the \<header>, opposite the flush-left logo. The "header nav ul" rule removes the bullets that browsers apply to unordered lists by default. The "header nav li" rule sets the list items&mdash;which will be the links in the nav bar&mdash;to inline-block, which makes them display on a horizontal line, instead of stacked up vertically. It also applies 1 rem of padding to the right and left sides of the list items, to spread them out a bit, without adding any padding to their top or bottom.
+The next three rules set up the nav links. The "header nav" rule applies a right float to the entire \<nav> element, so that it is displayed at the right end of the \<header>, opposite the flush-left logo. The "header nav ul" rule removes the bullets that browsers apply to unordered lists by default. The "header nav li" rule sets the list items&mdash;which will be the links in the nav bar&mdash;to inline-block, which makes them display on a horizontal line, instead of stacked up vertically. It also applies padding to the right and left sides of the list items, to spread them out a bit, without adding any padding to their top or bottom. (The amount of left and right padding differs to allow for the thickness of the left border that separates the links.)
 
 ```css
 header nav li:nth-last-of-type(1) { padding-right: 0;}
@@ -294,7 +294,8 @@ main {
 }
 
 main section {
-  padding: 1rem 0;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 main section:nth-of-type(1) {
@@ -309,7 +310,7 @@ main section:nth-last-of-type(1) {
 
 As in the Header Styles section, the first rule simply puts 1rem of padding around the \<main> element, to keep the text and other elements off of the margins.
 
-The next three rules style the \<section> elements. The "main section" rule adds 1rem of padding to the top and bottom of each \<section>, but none to the sides, since we don't want it doubling up with the right- and left-padding on the \<main> element. The second "main section" rule, with the ":nth-of-type(1)" selector, removes the top padding from the first \<section> element, to avoid doubling the top padding inside the \<main> element. The ":nth-last-of-type" rule selects the _last_ \<section> within the \<main>, and does two things: first, it removes the bottom padding, again to avoid double-padding at the bottom of the \<main>; and second, it removes the border we assigned in the Design Styles/Colors subsection, that appears at the bottom of each \<section>.
+The next three rules style the \<section> elements. The "main section" rule adds 1rem of margin to the top and 1 rem of padding to the bottom of each \<section>, but none to the sides, since we don't want whitespace doubling up with the right- and left-padding on the \<main> element. The second "main section" rule, with the ":nth-of-type(1)" selector, removes the top padding from the first \<section> element, to avoid doubling the top padding inside the \<main> element. The ":nth-last-of-type" rule selects the _last_ \<section> within the \<main>, and does two things: first, it removes the bottom padding, again to avoid double-padding at the bottom of the \<main>; and second, it removes the border we assigned in the Design Styles/Colors subsection, that appears at the bottom of each \<section>.
 
 ```css
 main article {
