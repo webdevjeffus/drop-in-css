@@ -1,16 +1,12 @@
 /*! drop-in.css v1.0.0 | MIT License | github.com/webdevjeffus/drop-in-css */
 
-/* GOOGLE FONT LINK **********************************************************\
+/* IMPORT COMMANDS ***********************************************************/
 
-To serve the default fonts for drop-in.css,
-paste this link into the <head> of your HTML document:
+/* normalize.css */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css);
 
-<link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-
-If you are using a drop-in.css theme other than default, use the link in the comment
-of the drop-in-XX.css theme file instead of the link above.
-
-\*****************************************************************************/
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Alegreya:700);
 
 
 /* UTILITY STYLES ************************************************************/
