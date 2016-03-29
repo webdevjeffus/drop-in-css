@@ -1,12 +1,21 @@
-# Drop-In CSS v1.0.0
+# Drop-In CSS
 #### A drop-in CSS stylesheet to instantly style any web app MVP
 
 ![Drop-In CSS](https://github.com/webdevjeffus/drop-in-css/blob/master/img/readme_splash.png "Style your app in 60 seconds!")
 
+## Features
+- Instantly style any HTML document without classes or styles
+- Implement by inserting two links and copy-pasting a single .css file
+- Change the look by adding a drop-in theme, or easily create your own
+- No dependencies&mdash;works with vanilla HTML5/CSS3; no preprocessing required!
+
+## TLDR
+This page offers full instructions on how to use **drop-in.css** in your app; the [DIY tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md) breaks down the entire **drop-in.css** stylesheet line by line. If you are in a hurry, you can skip down to the ["Linking it all up"](#Linking-it-all-up) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
+
 ## Contents
 ### On this page...
-- [Introduction](#introduction)
 - [TLDR](#tldr)
+- [Introduction](#introduction)
 - [Basic semantic HTML5](#basic-semantic-html5)
 - [The Drop-In stylesheet](#the-drop-in-stylesheet)
 - [Linking it all up](#linking-it-all-up)
@@ -31,9 +40,6 @@ This repo can be used in two ways. Front-end developers who are so inclined can 
 
 #### Origin of the Drop-In CSS project
 This project was originally prepared as a tutorial to support a "lightning-talk" presentation on quickly styling MVP web apps, to be presented to the Phase 2 students at [Dev Bootcamp NYC](http://devbootcamp.com/). The original incarnation of this repo, which was aimed specifically at Ruby/Sinatra and Ruby/Rails apps, can still be found at my [CSS for Sinatra](https://github.com/webdevjeffus/css-for-sinatra) repo, though as of March 18, 2016, it will no longer be updated. All future development on the Drop-In project will occur in this repo.
-
-## TLDR
-This page offers full instructions on how to use **drop-in.css** in your app; the [DIY tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md) breaks down the entire **drop-in.css** stylesheet line by line. If you are in a hurry, you can skip down to the ["Linking it all up"](#Linking-it-all-up) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
 
 
 ## Basic semantic HTML5
