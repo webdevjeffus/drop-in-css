@@ -1,31 +1,71 @@
 /*! drop-in-gp.css | "Great Pumpkin" theme by Jeff George */
-/*! Compatible with drop-in.css v1.0.0 */
 /*! MIT License | github.com/webdevjeffus/drop-in-css */
 
-/******************** INSTALLING THIS DROP-IN THEME *********************\
+/* IMPORT COMMANDS ***********************************************************/
 
-STEP ONE - Delete any existing Google Font link from the HTML <head> element.
+/* normalize.css */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css);
 
-STEP TWO - Insert this Google Font link into the HTML <head> element:
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic);
 
-<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
-STEP THREE - Link this file in the HTML <head> element, IMMEDIATELY AFTER
-the core drop-in.css file:
+/* UTILITY STYLES ************************************************************/
 
-  <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/drop-in.css">
-  <link rel="stylesheet" href="../css/drop-in-gp.css">
-  <link rel="stylesheet" href="../css/application.css">
+html { box-sizing: border-box; }
 
-OPTIONAL CLEAN-UP STEPS (perform AFTER the theme is installed and working):
-  * Delete the "DESIGN STYLES" section in the core drop-in.css file;
-    this file replaces that section entirely.
-  * Delete these commented instructions.
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
 
-\***********************************************************************/
+body {
+  margin: 0 auto;
+  min-width: 600px;
+  max-width: 800px;
+}
 
-/* DESIGN STYLES */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.2rem; }
+h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+h1, h2, h3, h4, p { margin: 0 0 0.5rem; }
+h5, h6 { margin: 0 0 0.2rem; }
+
+li:last-child,
+p:last-child { margin-bottom: 0rem; }
+
+header:after,
+main:after,
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a,
+header nav input[type="submit"] {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Borders */
+
+header nav li     { border-left: 0.125rem solid; }
+main section      { border-bottom: 2px solid; }
+main table        { border: 2px solid; }
+main th, main td  { border: 1px solid; }
+main input, main textarea, main button { border: 1px solid; }
+
+
+/* DESIGN STYLES *************************************************************/
 
 /* Fonts */
 
@@ -104,3 +144,163 @@ main button {
 }
 
 
+/* HEADER STYLES *************************************************************/
+
+header { padding: 1rem; }
+
+header>h1,
+header div { float: left; }
+
+header h1 {
+  line-height: 1;
+  font-size: 4rem;
+}
+
+header p {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+header nav { float: right; }
+
+header nav ul { list-style: none; }
+
+header nav li {
+  display: inline-block;
+  padding: 0 0.875rem 0 1rem;
+}
+
+header nav li:nth-last-of-type(1) { padding-right: 0;}
+
+header nav li:nth-of-type(1) { border-left: none; }
+
+header nav input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+}
+
+
+/* MAIN STYLES ***************************************************************/
+
+main {
+  padding: 1rem;
+}
+
+main section {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+main section:nth-of-type(1) {
+  margin-top: 0;
+}
+
+main section:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+
+main article {
+  width: 65%;
+  float: left;
+}
+
+main aside {
+  width: 30%;
+  float: right;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+/* Lists */
+
+main ul {
+  margin: 0 1rem 1rem;
+  list-style: none;
+}
+
+main ol { margin: 0 1rem 1rem 2rem; }
+
+main li { margin-bottom: 0.5rem; }
+
+
+/* Forms */
+
+main label { font-weight: bold; }
+
+main input,
+main textarea {
+  margin-bottom: 0.75rem;
+  display: block;
+  width: 100%;
+}
+
+main input[type="date"],
+main input[type="datetime"],
+main input[type="datetime-local"],
+main input[type="email"],
+main input[type="month"],
+main input[type="number"],
+main input[type="password"],
+main input[type="search"],
+main input[type="tel"],
+main input[type="text"],
+main input[type="time"],
+main input[type="week"],
+main textarea { padding: 0 0.5rem; }
+
+main textarea { height: 4.5rem; }
+
+main input[type="checkbox"],
+main input[type="radio"] {
+  display: inline;
+  width: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+main input[type="range"] {
+  display: inline;
+  width: 16rem;
+  margin-left: 1rem;
+}
+
+main button,
+main input[type="submit"] {
+  margin: 0.5rem auto;
+  width: 12rem;
+  padding-top: 0.07rem;
+}
+
+main button:last-child,
+main input[type="submit"]:last-child { margin-bottom: 0; }
+
+
+/* Tables */
+
+main table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+main table:last-child {
+  margin-bottom: 0;
+}
+
+main th,
+main td {
+  padding: 0.25rem 0;
+  text-align: center;
+}
+
+
+/* FOOTER STYLES *************************************************************/
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 1rem;
+}
