@@ -39,9 +39,10 @@ h6 {
   font-style: italic;
 }
 
-h1, h2, h3, h4, p { margin: 0 0 0.5rem; }
+h1, h2, h3, h4, p { margin: 0 0 0.75rem; }
 h5, h6 { margin: 0 0 0.2rem; }
 
+li:last-child,
 p:last-child { margin-bottom: 0rem; }
 
 header:after,
@@ -131,6 +132,7 @@ main button {
   color: #222;                  /* matches main text color */
 }
 
+
 /* HEADER STYLES *************************************************************/
 
 header { padding: 1rem; }
@@ -177,14 +179,16 @@ main {
 }
 
 main section {
-  padding: 1rem 0;
+  /*padding: 1rem 0;*/
+  margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 main section:nth-of-type(1) {
-  padding-top: 0;
+  margin-top: 0;
 }
 
-main section:nth-last-of-type(1) {
+main section:last-child {
   padding-bottom: 0;
   border: none;
 }
@@ -210,7 +214,7 @@ main ul {
 
 main ol { margin: 0 1rem 1rem 2rem; }
 
-main li { margin: 0.5rem 0; }
+main li { margin-bottom: 0.5rem; }
 
 
 /* Forms */
@@ -260,6 +264,9 @@ main input[type="submit"] {
   padding-top: 0.07rem;
 }
 
+main button:last-child,
+main input[type="submit"]:last-child { margin-bottom: 0; }
+
 
 /* Tables */
 
@@ -267,6 +274,10 @@ main table {
   width: 100%;
   margin-bottom: 1rem;
   border-collapse: collapse;
+}
+
+main table:last-child {
+  margin-bottom: 0;
 }
 
 main th,
@@ -283,3 +294,4 @@ footer {
   font-size: 0.8rem;
   padding: 1rem;
 }
+
