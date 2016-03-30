@@ -1,3 +1,7 @@
+_**Note (3/29/16):** Since this document was last updated, I have changed the way that **drop-in.css** loads normalize.css and fonts from Google Fonts. Previously, these resources had to be linked separately in the \<head> of the HTML document; now, they are imported automatically by **drop-in.css**, using the CSS @import command. At the moment, the "Google Font Links" and "Design Styles" sections of this document are out of date; they will be updated to reflect the implementation of @import commands within 24 hours. Thanks for your patience. &mdash;Jeff_
+
+<hr>
+
 # _Drop-in.css_, line by line
 
 This document goes under the hood to explore the function of each section and rule in the **drop-in.css** stylesheet. It's aimed at front-end devs who want to deconstruct the **drop-in.css** file, to customize it or create their own version. You don't need to read it in order to use **drop-in.css** in your project.
