@@ -1,6 +1,6 @@
 # Themes for _drop-in.css_
 
-Because developers get tired of looking at the same design project after project, **drop-in.css** now offers themes&mdash;prepared combinations of fonts and colors that change up the look of your app without changing the layout. Essentially, a **drop-in.css** theme simply overrides the font and color choices in the Design Styles section of the **drop-in** stylesheet.
+Because developers get tired of looking at the same design project after project, **drop-in.css** now offers themes&mdash;prepared combinations of fonts and colors that change up the look of your app without changing the layout. Essentially, a **drop-in.css** theme simply replaces the font and color choices in the Design Styles section of the default **drop-in** stylesheet.
 
 ## Contents
 
@@ -10,58 +10,33 @@ Because developers get tired of looking at the same design project after project
 - [Old Glory](#old-glory)
 
 ## Installing a theme
-It's easy to install a new theme for **drop-in.css** by following these simple steps:
-
-
-1. Fully install the core **drop-in.css** files:
-    * Save copies of **normalize.css** and **drop-in.css** in the appropriate folders in your app.
-    * Insert the necessary links to Google Fonts, **normalize.css** and **drop-in.css**.
-2. Save the Drop-In theme file in your app's css folder. Theme files are named **drop-in-XX.css**, where "XX" is replaced by initials that identify the particular theme.
-3. Replace the default Google Fonts link with the Google Fonts link for the theme you've chosen.
-4. Link in the theme stylesheet (**drop-in-XX.css**) _immediately after_ the regular **drop-in.css** stylesheet in the \<head> element of your HTML file, and before your **application.css** file.
-5. Open your web page or app, and be sure the new theme is displaying properly.
-6. (Optional) Once you are sure the theme is working properly, you _can_ delete the Design Styles section of the basic **drop-in.css** file. You don't _have_ to do this&mdash;**drop-in.css** doesn't care&mdash;but you will slightly reduce the total size of your **.css** files by doing so.
+To install a **drop-in.css** theme, simply use the themed stylesheet in place of the regular **drop-in** stylesheet. The theme stylesheets are complete by themselves&mdash;you don't need to install or link to the default **drop-in.css** file to make the **drop-in** theme stylesheets work. The themes include all the **drop-in.css** style rules, not just the rules in the Design Styles session, as well as the @import commands that load **normalize.css** and the necessary fonts from Google Fonts.
 
 ## The themes
 
-### Default
+### [Default](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
 
 ![Default Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/default_theme.png "Default theme screenshot")
 
-The color scheme is built into the basic **drop-in.css** file, so no **drop-in-XX.css** file is necessary.
+Default theme stylesheet: [drop-in.css](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
 
-```html
-<!-- Google Fonts link for default theme -->
 
-<link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-```
-
-### Great Pumpkin
+### [Great Pumpkin](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
 _Compatible with **drop-in.css** v1.0.0_
 
 ![Great Pumpkin Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/great_pumpkin_theme.png "Great Pumpkin theme screenshot")
 
-Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css "Great Pumpkin theme screenshot")
+Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
 
-```html
-<!-- Google Fonts link for Great Pumpkin theme -->
 
-<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-```
-
-### Old Glory
+### [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
 _Compatible with **drop-in.css** v1.0.0_
 
 ![Old Glory Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/old_glory_theme.png "Old Glory theme screenshot")
 
-Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css "Old Glory theme screenshot")
+Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
 
-```html
-<!-- Google Fonts link for Old Glory theme -->
-
-<link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-```
-
+<hr>
 
 #### Licenses
 
