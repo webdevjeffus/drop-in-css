@@ -5,12 +5,14 @@
 
 ## Features
 - Instantly style any HTML document without classes or styles
-- Implement by inserting two links and copy-pasting a single .css file
-- Change the look by adding a drop-in theme, or easily create your own
+- Implement by inserting one link and copy-pasting one.css file
+- Automatically import [normalize.css](https://necolas.github.io/normalize.css/)
+- Automatically import web fonts from [Google Fonts](https://www.google.com/fonts)
+- Choose from a variety of drop-in themes, or easily create your own
 - No dependencies&mdash;works with vanilla HTML5/CSS3; no preprocessing required!
 
 ## TLDR
-This page offers full instructions on how to use **drop-in.css** in your app; the [DIY tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md) breaks down the entire **drop-in.css** stylesheet line by line. If you are in a hurry, you can skip down to the ["Linking it all up"](#Linking-it-all-up) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
+This page offers full instructions on how to use **drop-in.css** in your app; the [DIY tutorial](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md) breaks down the entire **drop-in.css** stylesheet line by line. If you are in a hurry, you can skip down to the ["Dropping it in"](#dropping-it-in) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
 
 ## Contents
 ### On this page...
@@ -18,7 +20,7 @@ This page offers full instructions on how to use **drop-in.css** in your app; th
 - [Introduction](#introduction)
 - [Basic semantic HTML5](#basic-semantic-html5)
 - [The Drop-In stylesheet](#the-drop-in-stylesheet)
-- [Linking it all up](#linking-it-all-up)
+- [Dropping it in](#dropping-it-in)
 - [Licenses](#licenses)
 
 ### Elsewhere in this repo...
@@ -84,7 +86,12 @@ For more information about how **drop-in.css** uses the rules and conventions of
 
 
 ## The Drop-In stylesheet
-The **drop-in.css** stylesheet is organized into five major groups of CSS rules. The first two groups&mdash;Utility Styles and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five groups, and explain generally how they display your HTML document. For a detailed, rule-by-rule breakdown of the entire **drop-in.css** file, refer to [Drop-in.css, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
+The **drop-in.css** stylesheet is organized into five major groups of CSS rules. The first two groups&mdash;Import Commands, Utility Styles and Design Styles&mdash;apply to the whole page, while the latter three&mdash;Header Styles, Main Styles, and Footer Styles&mdash;each contain the rules that apply within their related element in the DOM tree. On this page, I'll briefly introduce each of these five groups, and explain generally how they display your HTML document. For a detailed, rule-by-rule breakdown of the entire **drop-in.css** file, refer to [Drop-in.css, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md).
+
+### Import Commands
+These @import commands bring in other css resources needed by **drop-in.css**. The first loads a minimized version of normalize.css from cdnjs.com, so you don't have to store it on your app's server. Since **drop-in.css** relies upon **normalize.css**, if you remove this command, you'll need to include normalize.css from another source.
+
+The second import command loads the fonts used by **drop-in.css** from Google Fonts. You can change the fonts in your app by replacing this link with a link to another pair of Google Font faces; if you do that, you'll also need to change the "font-family" rules in the [Design Styles](#design-styles) section.
 
 ### Utility Styles
 **Drop-in.css** relies upon [**normalize.css**](https://necolas.github.io/normalize.css/) to eliminate inconsistencies in how different browsers render certain HTML elements by default, and adds a few more general-purpose rules of its own. It is recommended that you include **normalize.css** in your project along with **drop-in.css**; download the **normalize.css** file, and link it in the \<head> element of your HTML file, just before the link to **drop-in.css**.
@@ -99,7 +106,7 @@ In its Utility Styles section, **drop-in.css** includes a few style rules that s
 In its Design Styles section, **drop-in.css** collects all the rules that specify the font and colors used throughout the site. By keeping these rules together, near the top of the file, **drop-in.css** makes it easy for developers to change the look and feel of their app by making minor changes to just a few CSS rules.
 
 #### Fonts
-**Drop-in.css** relies upon [Google Fonts](https://www.google.com/fonts) to serve its fonts. It uses only two fonts&mdash;a simple, highly legible font for general text, and a fancier display font for major headers, including the app title/logo. By default, **drop-in.css** uses Open Sans as its general text font, and Alegreya as its display font. These fonts are declared in the first two rules in the Design Styles section of **drop-in.css**, and nowhere else, so they are easy to replace.
+**Drop-in.css** relies upon [Google Fonts](https://www.google.com/fonts) to serve its fonts, which are imported by the second @import command in the [Import Commands](#import-commands) section, above. **Drop-in** uses only two fonts&mdash;a simple, highly legible font for general text, and a fancier display font for major headers, including the app title/logo. By default, **drop-in.css** uses Open Sans as its general text font, and Alegreya as its display font. These fonts are declared in the first two rules in the Design Styles section of **drop-in.css**, and nowhere else, so they are easy to replace.
 
 #### Colors
 By default, **drop-in.css** uses several shades of gray for background and font colors, and two highly-contrasting red shades for inactive and active links. This color scheme was chosen for maximum contrast and readability, but it may be a bit bold for some projects. If you want to use a different set of colors, change out the colors assigned in this section, following the comments for each color declaration&mdash;or just go to the [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md) library and pick out an existing theme that strikes your fancy.
@@ -190,37 +197,43 @@ By default, tables take up 100% of the available width. That width will be divid
 ### Footer Styles
 All text in the footer will be centered, and displayed at 80% of the size it would appear in the \<main> element. You can use heading elements (\<h1>, \<h2>, etc.) as well as paragraphs; they will be scaled down to 80% of their regular size as well.
 
-## Linking it all up
-Just like any stylesheet, you'll need to \<link> to **drop-in.css** in the \<head> of your HTML file in order for the browser to apply the stylesheet when displaying your app. You'll also need to include the link to Google Fonts **drop-in** needs to serve its fonts.
+## Dropping it in
+To apply the **drop-in** stylesheet to your web app or site, just save a copy of the **drop-in.css** file in the proper folder, and link to it in the \<head> element of your HTML document. Which folder is the "proper folder" will depend upon how you've organized the resources that make up your website. Here's a very simple example:
 
-### Folder organization
-The HTML templates provided with **drop-in.css** expect assets to be stored in folders within the root directory, sorted by type (html, css, js, img, etc.). This is almost certainly _not_ the way you will need or want to organize the assets in your app repository. You'll need to adjust the paths described in the links to find the appropriate files within your folder structure.
+```
+SAMPLE FOLDER ORGANIZATION
 
-### Font link
-If you are satisfied with fonts **drop-in.css** uses by default, just copy the following link into the \<head> of your HTML file:
-
-```html
-<link href='https://fonts.googleapis.com/css?family=Alegreya:700|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+appmazing
+  |
+  +-- css/
+  |     |
+  |     +-- drop-in.css
+  |     |
+  |     +-- application.css (or main.css, or styles.css, or whatever...)
+  |
+  +-- img/
+  |
+  +-- js/
+  |
+  +-- index.html
 ```
 
-If you want to change the fonts in your app, navigate to [Google Fonts](https://www.google.com/fonts) and follow the instructions there to create the link to copy-paste into your app. You'll need to pick two fonts&mdash;an easy-to-read font as a default font, which will be used for paragraphs, buttons, links, and minor headings, and a display font, which will be used for major headings, including the app logo in the header. The best combination for clarity and readability is usually a sans-serif font for general text, and a complimentary display or serif font for major headings. Be sure to include normal, bold, italic and bold italic versions of the general font, but you'll only need one version of the display font (usually bold, if the font comes in different weights). Adding more versions will only slow down your load times, and they are not needed by **drop-in.css**.
-
-Since the **drop-in.css** stylesheet refers to the fonts in the link to Google Fonts, be sure to put the Google Font link _before_ the **drop-in** link in the \<head> of your HTML document.
-
-### Stylesheet links
-You'll need to include three stylesheet links in your document's \<head>, in this order: **normalize.css**, **drop-in.css**, and **application.css** (or whatever you've named the file that holds your custom styles for the app). The links will look _something_ like this, although you will probably need to change the paths to suit your folder structure:
+In this sample app, the css files are stored in a css/ folder, which is in the root directory for the app, along with index.html. In this case, the link you'd need to load the **drop-in.css** stylesheet would be:
 
 ```html
-<link rel="stylesheet" href="../css/normalize.css">
-<link rel="stylesheet" href="../css/drop-in.css">
-<link rel="stylesheet" href="../css/application.css">
+<link rel="stylesheet" href="css/drop-in.css">
 ```
 
-**drop-in.css** will not display properly without **normalize.css** (which you should be using anyway, even without **drop-in**). The **css/** folder in this repo includes a copy of normalize.css v4.0.0, which is the latest version available as of March, 2016. For the very latest verstion, go to [**normalize.css**](https://necolas.github.io/normalize.css/).
+If or when you begin to add custom style rules to your app using classes and id's, you'll want to put those rules in a separate stylesheet. You can call this stylesheet anything you like&mdash;application.css, main.css, and styles.css are all common choices. But whatever you call it, be sure to put the link to your custom stylesheet _after_ the link to **drop-in.css**, to help ensure that your custom rules override the rules in **drop-in**. (There is a lot more on this topic in [CSS Specificity and **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md).) Together, the links would look like this:
 
-Try not to make changes to **drop-in.css**, and if you must, try to use HTML tags as CSS selectors. If you've found a problem or a bug in **drop-in.css** please make a pull request to this repo, so that it can be fixed for all users. Changes to **drop-in.css** that require classes or id's as selectors will be rejected.
+```html
+<head>
+  <link rel="stylesheet" href="css/drop-in.css">
+  <link rel="stylesheet" href="css/application.css">
+    ...
 
-If you need to add or change CSS styling to meet specific needs in your app, make the changes by adding CSS rules to the custom **application.css** file for the project. If you use class- or id-based selectors in the CSS rules in your application stylesheet, you can be confident that they will override the tag-selected rules in **drop-in.css** and **normalize.css**.
+</head>
+```
 
 <hr>
 
