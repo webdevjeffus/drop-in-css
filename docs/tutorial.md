@@ -10,7 +10,7 @@ This document goes under the hood to explore the function of each section and ru
 
 The default _drop-in.css_ is organized into six sections:
 
-- [**Google Font Link:**](#google-font-link) a commented-out copy of the link to the fonts used by **drop-in.css**, served by **googleapis.com**, to be copy-pasted into the \<head> of the HTML document for the app.
+- [**Import Commands:**](#import-commands) CSS @import commands to load **normalize.css** and web fonts from Google Fonts.
 - [**Utility Styles:**](#utility-styles) a catch-all category for rules that apply throughout the document.
 - [**Design Styles:**](#design-styles) all the rules pertaining to fonts and colors are collected here.
 - [**Header Styles:**](#header-styles) rules that style the header for the page, including the logo and nav links.
@@ -19,10 +19,10 @@ The default _drop-in.css_ is organized into six sections:
 
 We'll go through each section rule-by-rule.
 
-### Google Font Link
-The first section of the **drop-in.css** file contains a commented-out copy of the link to the fonts used by the stylesheet. The link is created by the Google Fonts website when you select a set of fonts for use in a website; this copy is saved here for convenience, to keep it handy when linking the **drop-in.css** stylesheet into a project. This entire section can be deleted from the CSS file without affecting the functionality of the stylesheet, once you're sure the font link is working properly.
+### Import Commands
+The first section of the **drop-in.css** file contains commands that load resources used by the stylesheet. The first @import command loads a minified version of **normalize.css** from cdnjs.cloudflare.com, so you won't need to store and serve that file from your own server. The second @import command loads the fonts used in **drop-in.css**, which are provided for free by [Google Fonts](https://www.google.com/fonts).
 
-Instructions for choosing fonts for use with **drop-in.css** are included in the [Design Styles](#design-styles) section of this document, below.
+Instructions for [replacing the fonts](#replacing-the-fonts) used by **drop-in.css** are included in the Design Styles section of this document, below.
 
 ### Utility Styles
 This section includes an assortment of rules that **drop-in.css** applies throughout your app to display it properly. For the most part, they use single-tag selectors; apart from that, they don't have anything to do with one another.
@@ -129,9 +129,16 @@ html { font-family: 'Open Sans', sans-serif; }
 h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
 ```
 
-The first rule here, with the selector "html", declares the font that will be used by default through out the site&mdash;in the default **drop-in** theme, I've chosen Open Sans, an easy-to-read font that was designed for screen viewing. The second rule declares the display font to be used for larger headings, including the \<h1> in the \<header> element that serves as the site logo. A carefully-selected display font goes a long way in establishing the "attitude" of the app, so you can afford to sacrifice a little bit of legibility for the sake of coolness.
+The first rule here, with the selector "html", declares the font that will be used by default throughout the site. In the default **drop-in** theme, I've chosen Open Sans, an easy-to-read font that was designed for screen viewing. The second rule declares the display font to be used for larger headings, including the \<h1> in the \<header> element that serves as the site logo. A carefully-selected display font goes a long way in establishing the "attitude" of the app, so you can afford to sacrifice a little bit of legibility for the sake of coolness.
 
-It's not difficult to change the fonts used by **drop-in.css**. Just go to Google Fonts and pick two fonts that look good together. The general font should be an easily-read serif or sans-serif font; the display font can be a bit fancier. When choosing the font package for your site, select the normal, bold, italic, and bold italic versions of the general font, and the bold version of the display font. (Some display fonts are only available in a single version, which they call "normal"; if that's the case, use that version.) Once you have chosen your fonts, click the "Use" button at the lower right hand corner of the Google Fonts page, and the site will automagically generate the link you need to include in the head of your HTML document, as well as the proper "font-family" information to put into the font rules in the Design Styles section of **drop-in.css**.
+##### Replacing the fonts
+It's not difficult to change the fonts used by **drop-in.css**. Just go to [Google Fonts](https://www.google.com/fonts) and pick two fonts that look good together. The general font should be an easily-read serif or sans-serif font; the display font can be a bit fancier. When choosing the font package for your site, select the normal, bold, italic, and bold italic versions of the general font, and the bold version of the display font. (Some display fonts are only available in a single version, which they call "normal"; if that's the case, use that version.)
+
+Once you have chosen your fonts, click the "Use" button at the lower right hand corner of the Google Fonts page, which will take you to a page where you finalize your font choices. In section 1 of that page, be sure you've checked the styles **drop-in** needs: normal, italic, bold, and bold italic styles of the general font, and a bold style of the display font. You can skip section 2, Character Sets, unless your app requires an alphabet other than the default Latin.
+
+In section 3, "Add this code to your website," click the **@import** tab to have Google Fonts generate the @import command that loads your chosen fonts. Copy and paste this line of code into the [Import Commands](#import-commands) section **drop-in.css** file in place of the command that loads the default fonts.
+
+Section 4 of the Google Fonts "Use" page gives you CSS font-family declarations that you will paste into the two rules in the [Design Styles/Fonts](#fonts) section of the **drop-in.css** stylesheet. Insert the general font into the "html" font-family rule there, and insert the display font into the "h1, h2, h3, h4" font-family rule.
 
 #### Colors
 The Colors sub-section of the Design Styles section is the _only_ place where colors are declared in **drop-in.css**. If you want to use a different color scheme and can't find an existing theme in the [**drop-in.css** themes](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md) collection, you can replace the color specifications in this section line by line; the comments in the code will help you figure out what each line does, and what kind of color to use.
