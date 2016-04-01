@@ -6,6 +6,7 @@
 ## Features
 - Instantly style any HTML document without classes or styles
 - Implement by inserting one link and copy-pasting one.css file
+- All **drop-in.css** stylesheets are validated as CSS3 using the [WC3 CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 - Automatically import [normalize.css](https://necolas.github.io/normalize.css/)
 - Automatically import web fonts from [Google Fonts](https://www.google.com/fonts)
 - Choose from a variety of drop-in themes, or easily create your own
