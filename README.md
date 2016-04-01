@@ -10,6 +10,11 @@
 - Automatically import web fonts from [Google Fonts](https://www.google.com/fonts)
 - Choose from a variety of drop-in themes, or easily create your own
 - No dependencies&mdash;works with vanilla HTML5/CSS3; no preprocessing required!
+- All **drop-in.css** stylesheets are validated as CSS3 using the [WC3 CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+<p><img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+</p>
 
 ## TLDR
 This page offers full instructions on how to use **drop-in.css** in your app; the [**Drop-in.css**, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md), not surprisingly, breaks down the entire **drop-in.css** stylesheet rule by rule and declaration by declaration. If you are in a hurry, you can skip down to the ["Dropping it in"](#dropping-it-in) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
