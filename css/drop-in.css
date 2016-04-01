@@ -76,12 +76,12 @@ h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
 
 html {
   background-color: #888;   /* medium background color, eg: 50% gray */
-  color: #ddd;              /* light font color, eg: 15% gray */
 }
 
 body,
 header nav input[type="submit"] {
   background-color: #222;    /* dark background color, eg: 85% gray */
+  color: #ddd;              /* light font color, eg: 15% gray */
 }
 
 main {
@@ -256,7 +256,6 @@ main button,
 main input[type="submit"] {
   margin: 0.5rem auto;
   width: 12rem;
-  padding-top: 0.07rem;
 }
 
 main button:last-child,

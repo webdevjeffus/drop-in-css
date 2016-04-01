@@ -85,12 +85,12 @@ h1, h2, h3, h4 {
 
 html {
   background-color: rgb(216,217,193);   /* almond */
-  color: rgb(216,217,193);              /* almond */
 }
 
 body,
 header nav input[type="submit"] {
   background-color: rgb(2,35,64);    /* dark blue */
+  color: rgb(216,217,193);              /* almond */
 }
 
 main {
@@ -275,7 +275,6 @@ main button,
 main input[type="submit"] {
   margin: 0.5rem auto;
   width: 12rem;
-  padding-top: 0.07rem;
 }
 
 main button:last-child,
