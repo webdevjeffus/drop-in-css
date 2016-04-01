@@ -21,11 +21,9 @@ To install a **drop-in.css** theme, simply use the themed stylesheet in place of
 Default theme stylesheet: [drop-in.css](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
 
 <p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
+  <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss"
+        alt="Valid CSS!" />
 </p>
 
 
@@ -37,11 +35,9 @@ _Compatible with **drop-in.css** v1.0.0_
 Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
 
 <p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
+  <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss"
+        alt="Valid CSS!" />
 </p>
 
 
@@ -53,11 +49,9 @@ _Compatible with **drop-in.css** v1.0.0_
 Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
 
 <p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
+  <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss"
+        alt="Valid CSS!" />
 </p>
 
 <hr>
