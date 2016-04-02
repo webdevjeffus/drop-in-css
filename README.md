@@ -4,17 +4,17 @@
 ![Drop-In CSS](https://github.com/webdevjeffus/drop-in-css/blob/master/img/readme_splash.png "Style your app in 60 seconds!")
 
 ## Features
-- Instantly style any HTML document without classes or styles
-- Implement by inserting one link and copy-pasting one.css file
-- Automatically import [normalize.css](https://necolas.github.io/normalize.css/)
-- Automatically import web fonts from [Google Fonts](https://www.google.com/fonts)
-- Choose from a variety of drop-in themes, or easily create your own
-- No dependencies&mdash;works with vanilla HTML5/CSS3; no preprocessing required!
+- **Drop-in.css** instantly styles any semantic HTML5 document, without the addition of classes or styles
+    - Apply **drop-in.css** by inserting one link to the remotely-hosted stylesheet
+    - Or serve the stylesheet as part of your own site by copy-pasting one CSS file
+- **Drop-in.css** automatically imports the resources it needs, including:
+    - [normalize.css](https://necolas.github.io/normalize.css/)
+    - Web fonts from [Google Fonts](https://www.google.com/fonts)
+- Choose from a variety of [**drop-in** themes](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md), or easily create your own
+- No dependencies! **drop-in.css** works with vanilla HTML5/CSS3&mdash;no preprocessing required!
 - All **drop-in.css** stylesheets are validated as CSS3 using the [WC3 CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-<p><img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-</p>
+<br />
+<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" />
 
 ## TLDR
 This page offers full instructions on how to use **drop-in.css** in your app; the [**Drop-in.css**, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md), not surprisingly, breaks down the entire **drop-in.css** stylesheet rule by rule and declaration by declaration. If you are in a hurry, you can skip down to the ["Dropping it in"](#dropping-it-in) section and follow the instructions there to link **drop-in.css** into your app in just a few minutes. If your HTML code is clean and follows best practices for semantic HTML5, the pre-generated files will work fine. If you have any trouble, refer back to the instructions on this page to troubleshoot.
@@ -30,9 +30,9 @@ This page offers full instructions on how to use **drop-in.css** in your app; th
 
 ### Elsewhere in this repo...
 - [CSS Specificity and **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/specificity.md)
-* [**Drop-in.css**, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
-* [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
-* Contribute to the Drop-In CSS project&mdash;coming soon.
+- [**Drop-in.css**, line by line](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/tutorial.md)
+- [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md)
+- Contribute to the Drop-In CSS project&mdash;coming soon.
 
 ## Introduction
 The **drop-in.css** project offers web developers a ready-made CSS stylesheet that can be dropped in on any web app at the beginning of the development process, instantly applying a "good-enough" set of styling rules that make the app easier to look at and use, without adding any classes, ids, divs, or other non-semantic elements. For some development projects, **drop-in.css** may be all the styling you ever need; for others, you may ultimately add to it or replace it with custom stylesheets. But in either case, the **drop-in.css** stylesheet will carry the project through the early phases of development, while the basic features and functionality of the app are being implemented.
@@ -203,7 +203,19 @@ By default, tables take up 100% of the available width. That width will be divid
 All text in the footer will be centered, and displayed at 80% of the size it would appear in the \<main> element. You can use heading elements (\<h1>, \<h2>, etc.) as well as paragraphs; they will be scaled down to 80% of their regular size as well.
 
 ## Dropping it in
-To apply the **drop-in** stylesheet to your web app or site, just save a copy of the **drop-in.css** file in the proper folder, and link to it in the \<head> element of your HTML document. Which folder is the "proper folder" will depend upon how you've organized the resources that make up your website. Here's a very simple example:
+There are two ways to apply the **drop-in.css** stylesheet to your web app&mdash;you can link to the minified stylesheet hosted online, or you can save a copy of the stylesheet to your app's repo, and serve it as part of your own site. The first method is easier&mdash;you only need to add one link to your HTML file&mdash;but some devs may feel that copying and hosting the file themselves is safer or more flexible.
+
+### Linking to the minified stylesheet
+To apply the **drop-in.css** stylesheet with a single link, simply copy and paste the link below into the \<head> element of your HTML file, _before_ the link to any custom stylesheets you've created for the app. The minified stylesheet still loads **normalize.css** and the necessary fonts from Google automatically.
+
+```html
+<link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in.min.css">
+```
+
+If you prefer the look of one of the **drop-in** themes to the default **drop-in** styling, you'll find direct links for minified stylesheets for all available themes on the [Themes for **drop-in.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/docs/themes.md) page in this repo.
+
+### Serving the stylesheet yourself
+To host your own copy of the **drop-in** stylesheet and serve it along with your web app or site, just save a copy of the **drop-in.css** file in the proper folder in your app's folder structure, and link to it in the \<head> element of your HTML document. Which folder is the "proper folder" will depend upon how you've organized the resources that make up your website. Here's a very simple example:
 
 ```
 SAMPLE FOLDER ORGANIZATION
@@ -223,7 +235,7 @@ appmazing
   +-- index.html
 ```
 
-In this sample app, the css files are stored in a css/ folder, which is in the root directory for the app, along with index.html. In this case, the link you'd need to load the **drop-in.css** stylesheet would be:
+In this sample app, the css files are stored in a **css/** folder, which is in the root directory for the app, along with **index.html**. In this case, the link you'd need to load the **drop-in.css** stylesheet would be:
 
 ```html
 <link rel="stylesheet" href="css/drop-in.css">
