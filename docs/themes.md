@@ -16,43 +16,60 @@ To install a **drop-in.css** theme, simply use the themed stylesheet in place of
 
 ### [Default](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
 
-![Default Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/default_theme.png "Default theme screenshot")
-
-Default theme stylesheet: [drop-in.css](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
-
 <p>
   <img style="border:0;width:88px;height:31px"
         src="http://jigsaw.w3.org/css-validator/images/vcss"
         alt="Valid CSS!" />
 </p>
 
+![Default Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/default_theme.png "Default theme screenshot")
+
+Default theme stylesheet: [drop-in.css](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
+
+Or you can link directly to a minimized version of the default theme hosted online by including this link the \<head> of your HTML document:
+```html
+  <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in.min.css">
+```
+
+<hr>
 
 ### [Great Pumpkin](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
 _Compatible with **drop-in.css** v1.0.0_
+
+<p>
+  <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss"
+        alt="Valid CSS!" />
+</p>
 
 ![Great Pumpkin Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/great_pumpkin_theme.png "Great Pumpkin theme screenshot")
 
 Great Pumpkin theme stylesheet: [**drop-in-gp.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
 
+Or you can link directly to a minimized version of the Great Pumpkin theme hosted online by including this link the \<head> of your HTML document:
+```html
+  <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in-gp.min.css">
+```
+
+<hr>
+
+### [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
+_Compatible with **drop-in.css** v1.0.0_
+
 <p>
   <img style="border:0;width:88px;height:31px"
         src="http://jigsaw.w3.org/css-validator/images/vcss"
         alt="Valid CSS!" />
 </p>
-
-
-### [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
-_Compatible with **drop-in.css** v1.0.0_
 
 ![Old Glory Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/old_glory_theme.png "Old Glory theme screenshot")
 
 Old Glory theme stylesheet: [**drop-in-og.css**](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
 
-<p>
-  <img style="border:0;width:88px;height:31px"
-        src="http://jigsaw.w3.org/css-validator/images/vcss"
-        alt="Valid CSS!" />
-</p>
+Or you can link directly to a minimized version of the Old Glory theme hosted online by including this link the \<head> of your HTML document:
+```html
+  <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in-og.min.css">
+```
 
 <hr>
 
