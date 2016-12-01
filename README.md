@@ -3,6 +3,28 @@
 
 ![Drop-In CSS](https://github.com/webdevjeffus/drop-in-css/blob/master/img/readme_splash.png "Style your app in 60 seconds!")
 
+## UPDATE - DECEMBER 1, 2016 - v2.0 AVAILABLE!
+
+A new version of **drop-in.css** is now available from this repository. This 2.0 version refines and improves **drop-in** over v1.0, and is intended to be fully-compatible with that version. Testing will be conducted in the next few days to confirm that the new version doesn't break pages designed with the previous version, which remains available in the CSS folder in this repo, as **drop-in-1-0.css**.
+
+#### Drop-in.css v2.0 offers the following features:
+- Greater consistency and efficiency of CSS rule-sets throughout the stylesheet
+- Upgrade linked **normalize.css** to current version, 5.0.0.
+- Add styling for nav list in footer
+- Add new theme "Whiteboard" as css/drop-in-wb.css (previews images and documentation to come)
+
+#### Still to come
+- Docs in this repo have not been updated for v2.0 yet, though the use and functionality of **drop-in.css** has not changed
+- The "Old Glory" and "Great Pumpkin" themes have not been updated to v2.0 yet.
+- **Drop-in.css v2.0** remains to be validated with the WC3 Validation Service, but it is functioning properly
+
+### GRIDDY compatibility in progress!
+The main factor driving this overhaul of **drop-in.css** to make it fully compatible with my lightweight, responsive grid stylesheet, **griddy.css**. As the two projects originated separately from one another, there was some overlap in their functionality, leading to redundant and occasionally conflicting styling. This revision project moves all the visual styling in both stylesheets into **drop-in.css**, while devoting **griddy.css** exclusively to providing the responsive grid system.
+
+Because the two stylesheets apply their styles differently&mdash;**drop-in** uses HTML tags as selectors; **griddy** uses classes&mdash;it should be possible to make the two stylesheets fully compatible, while also providing devs with the option to safely use either stylesheet without the other. A dev will still be able to use **drop-in.css** to instantly style a page or an app, including elements such as headers and footers, navigation, main content and sidebars, section dividers, and even forms and tables, without adding **_any_** styles to their HTML. **Griddy**, on the other hand, provides a lightweight, 12-column responsive grid system that a dev can implement using a simple, logically-named set of classes applied to the project's existing semantic HTML, rarely requiring non-semantic divs to be added.
+
+The revisions to **drop-in.css** should be complete, pending a little more testing; **griddy.css** will be overhauled in the very near future. Once both stylesheets are working properly separately and together, I will update the docs on both repos.
+
 ## Features
 - **Drop-in.css** instantly styles any semantic HTML5 document, without the addition of classes or styles
     - Apply **drop-in.css** by inserting one link to the remotely-hosted stylesheet
