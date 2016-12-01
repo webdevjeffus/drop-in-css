@@ -1,12 +1,14 @@
-/*! drop-in.css v2.0 | MIT License | github.com/webdevjeffus/drop-in-css */
+/*! drop-in-wb.css | "Whiteboard" theme by Jeff George */
+/*! Based on drop-in.css v2.0 */
+/*! MIT License | github.com/webdevjeffus/drop-in-css */
 
-/* IMPORT COMMANDS ***********************************************************/
+/* IMPORT COMMANDS ***************************************************/
 
 /* normalize.css */
-@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css);
+ @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css);
 
-/* Google Fonts - Replace to change fonts in theme */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Alegreya:700);
+/* Google Fonts for WHITEBOARD theme */
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic);
 
 
 /* RESET CLASSES *****************************************************\
@@ -84,6 +86,7 @@ body {
   max-width: 800px;   /* Disable if using with griddy.css */
 }
 
+/* Default sizes for core drop-in.css; commented out for Whiteboard theme
 h1 { font-size: 2.25rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.4rem; }
@@ -93,6 +96,7 @@ h6 {
   font-size: 1rem;
   font-style: italic;
 }
+*/
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -105,6 +109,8 @@ label {
   margin: 0;
   padding: 0.6rem 0;
 }
+
+p:first-of-type { padding-top: 0;}
 
 li {
   margin: 0;
@@ -151,71 +157,134 @@ main input, main textarea, main button { border: 1px solid; }
 /* END UTILITY STYLES ************************************************/
 
 
-/* DESIGN STYLES - DEFAULT THEME *************************************\
-\* EDIT THIS SECTION when altering drop-in.css themes ****************/
+/* DESIGN STYLES - WHITEBOARD THEME **********************************/
+/* EDIT THIS SECTION when altering drop-in.css themes ****************/
 
 /* Fonts */
 
 html { font-family: 'Open Sans', sans-serif; }
 
-h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
+h1, h2 {
+  font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
+  letter-spacing: 0.1rem;
+  line-height: 0.9;
+  padding-bottom: 0.9rem;
+}
+
+h3, h4, h5, h6,
+header p { font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif; }
+
+/* Heading sizes revised for Whiteboard theme fonts */
+h1 { font-size: 2.7rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.5rem; }
+h6 {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+aside h1 { font-size: 2.4rem; }
+aside h2 { font-size: 2.1rem; }
+aside h3 { font-size: 1.5rem; }
+aside h4 { font-size: 1.2rem; }
+aside h5 { font-size: 1.2rem; }
+aside h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
 
 /* Colors */
 
-html { background-color: #888; }  /* medium background color, eg: 50% gray */
+/* Color Palette for Whiteboard Theme ********\
+White   High: rgb(255,255,255); /* Hi Wht *
+        Med:  rgb(247,247,247); /* Md Wht *
+        Low:  rgb(204,204,204); /* Lo Wht *
+Black   High: rgb( 64, 64, 64); /* Hi Blk *
+        Med:  rgb( 18, 18, 18); /* Md Blk *
+        Low:  rgb(  0,  0,  0); /* Lo Blk *
+Red     High: rgb(255, 63, 71); /* Hi Red *
+        Med:  rgb(173, 43, 48); /* Md Red *
+        Low:  rgb(127, 32, 35); /* Lo Red *
+Blue    High: rgb( 81, 94,255); /* Hi Blu *
+        Med:  rgb( 52, 60,163); /* Md Blu *
+        Low:  rgb( 41, 47,127); /* Lo Blu *
+Green   High: rgb( 32,204,124); /* Hi Grn *
+        Med:  rgb( 18,115, 70); /* Md Grn *
+        Low:  rgb( 10, 64, 39); /* Lo Grn *
+\* End Whiteboard Color Palette **************/
+
+html {
+  background-color: rgb(204,204,204); /* Lo Wht */
+}
 
 body,
 header nav input[type="submit"] {
-  background-color: #222;    /* dark background color, eg: 85% gray */
-  color: #ddd;              /* light font color, eg: 15% gray */
+  background-color: rgb( 18, 18, 18); /* Md Blk */
+  color: rgb( 81, 94,255); /* Hi Blu */
 }
 
 main {
-  background-color: #ddd;   /* light backround color, eg: 15% gray */
-  color: #222;              /* dark font color, eg: 85% gray */
+  background-color: rgb(247,247,247); /* Md Wht */
+  color: rgb( 64, 64, 64);  /* Hi Blk */
 }
+
+footer { color: #888; }
 
 a:link,
 a:visited,
-header nav input[type="submit"] { color: #c00; }
-  /* darker contrasting color; inactive links */
+header nav input[type="submit"] { color: rgb( 18,115, 70); } /* Md Grn */
 
 a:hover,
 a:active,
 header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active { color: #f22; }
-  /* brighter contrasting color; active links */
+header nav input[type="submit"]:active { color: rgb( 32,204,124); } /* Hi Grn */
 
 header nav li,
-footer nav li { border-color: #888; }   /* this should match html background-color */
+footer nav li { border-color: rgb( 64, 64, 64); } /* Lo Wht */
+
+header h1 a:link,
+header h1 a:visited { color: rgb(173, 43, 48); }   /* Md Red */
+
+header h1 a:hover,
+header h1 a:active { color: rgb(255, 63, 71); }   /* Hi Red */
+
+main h1,
+main h2,
+main h3,
+main h4 { color: rgb( 52, 60,163); }   /* Md Blu */
+
+main aside h1,
+main aside h2,
+main aside h3,
+main aside h4 { color: rgb( 64, 64, 64); }   /* Hi Blk */
 
 main table,
 main th,
-main td { border-color: #222; }   /* this should match main font color */
+main td { border-color: rgb( 64, 64, 64); }   /* Hi Blk */
 
-main tr:nth-of-type(odd)  { background-color: #eee; }  /* lighter than main bg-color */
-main tr:nth-of-type(even) { background-color: #ccc; }  /* darker than main bg-color */
+main tr:nth-of-type(odd)  { background-color: rgb(255,255,255); }  /* Hi Wht */
+main tr:nth-of-type(even) { background-color: rgb(204,204,204); }  /* Lo Wht */
 
-main section { border-color: #888; }
-  /* this should match html background-color */
+main section { border-color: rgb( 64, 64, 64); }   /* Hi Blk */
 
-main aside { background-color: #bbb; }
-  /* this should be slightly darker than main background-color, eg: 25% gray */
+main aside { background-color: rgb(204,204,204); }   /* Lo Wht */
 
 main input,
 main textarea,
 main button {
-  color: #222;                  /* matches main text color */
-  border-color: #222;           /* matches main text color */
+  color: rgb( 64, 64, 64);   /* Hi Blk */
+  border-color: rgb( 64, 64, 64);   /* Hi Blk */
 }
 
 main input[type="submit"],
 main button {
-  background-color: #bbb;       /* matches aside bg-color */
-  color: #222;                  /* matches main text color */
+  background-color: rgb(204,204,204);   /* Lo Wht */
+  color: rgb( 64, 64, 64);   /* Hi Blk */
 }
 
-/* END DESIGN STYLES *************************************************/
+/* END DESIGN STYLES - WHITEBOARD THEME ******************************/
 
 
 /* HEADER STYLES *****************************************************\
@@ -227,13 +296,13 @@ header>h1,
 header div { float: left; }
 
 header h1 {
-  font-size: 4rem;
-  line-height: .8;
+  font-size: 3.3rem;
+  line-height: .7;
 }
 
 header p {
-  font-size: 1.25rem;
-  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 header nav { float: right; }
@@ -285,6 +354,22 @@ main aside {
   font-size: 0.8rem;
 }
 
+/*main header { padding: 0; }
+
+main header h1,
+main header h2,
+main header h3,
+main header h4 { padding-bottom: 0.25rem; }
+
+main header p {
+  font-size: 1.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+main header p:last-child { padding-bottom: 0.6rem;}* TEST/
+
+
 /* Forms - use of em instead of rem is deliberate in this section */
 
 main label { font-weight: bold; }
@@ -319,6 +404,7 @@ main input[type="submit"] {
   width: 12rem;
 }
 
+
 /* Tables */
 
 main table {
@@ -329,7 +415,7 @@ main table {
 
 main th,
 main td {
-  padding: 0.3em 0;   /* em used deliberately */
+  padding: 0.3em 0;    /* em used deliberately */
   text-align: center;
 }
 
