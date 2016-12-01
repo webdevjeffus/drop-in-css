@@ -1,5 +1,5 @@
 /*! drop-in-wb.css | "Whiteboard" theme by Jeff George */
-/*! Based on drop-in.css v1.0 */
+/*! Based on drop-in.css v2.0 */
 /*! MIT License | github.com/webdevjeffus/drop-in-css */
 
 /* IMPORT COMMANDS ***************************************************/
@@ -11,16 +11,12 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic);
 
 
-/* RESET CLASSES *****************************************************/
-/* Do not edit when creating themes **********************************/
+/* RESET CLASSES *****************************************************\
+\* Do not edit when creating themes **********************************/
 
 /* Reset from http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
 
 /* Resets from HTML5Boilerplate */
@@ -49,9 +45,7 @@ canvas,
 iframe,
 img,
 svg,
-video {
-  vertical-align: middle;
-}
+video { vertical-align: middle; }
 
 fieldset {
   border: 0;
@@ -59,9 +53,7 @@ fieldset {
   padding: 0;
 }
 
-textarea {
-  resize: vertical;
-}
+textarea { resize: vertical; }
 
 
 /* Reset: drop-in resets */
@@ -73,34 +65,14 @@ aside,
 header,
 main,
 footer,
-nav {
-  padding: 0;
-}
+nav { padding: 0; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0.6rem 0 0;
-}
-
-p,
-img {
-  margin: 0;
-  padding: 0.6rem 0;
-}
-
-img { width: 100%; }
-
-h1, h2, h3, h4, h5, h6, ul {
+h1, h2, h3, h4, h5, h6, ol, ul {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
 
-ul { -webkit-padding-start: 0; }
+ol, ul { -webkit-padding-start: 0; }
 
 /* END RESETS ********************************************************/
 
@@ -108,11 +80,10 @@ ul { -webkit-padding-start: 0; }
 /* DROP-IN.CSS UTILITY STYLES ****************************************\
 \* Do not edit when altering themes **********************************/
 
-/* Comment out widths if using with griddy.css */
 body {
   margin: 0 auto;
-  max-width: 800px;
-  min-width: 600px;
+  min-width: 600px;   /* Disable if using with griddy.css */
+  max-width: 800px;   /* Disable if using with griddy.css */
 }
 
 /* Default sizes for core drop-in.css; commented out for Whiteboard theme
@@ -127,9 +98,37 @@ h6 {
 }
 */
 
-li p { padding-bottom: 0.6rem;}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0.6rem 0 0;
+}
 
-li:last-child { padding-bottom: 0rem; }
+p,
+label {
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.6rem 0;
+}
+
+p:first-of-type { padding-top: 0;}
+
+li {
+  margin: 0;
+  padding: 0.6rem 0 0;
+}
+
+li:last-of-type { margin-bottom: 0.6rem; }
+
+ul { list-style: none; }
+ol { padding-left: 1.5em;}
+  /* Use of em instead of rem for left padding is deliberate,
+     so indent will scale with font */
+
+img {
+  width: 100%;
+  margin: 0;
+  padding: 0.6rem 0;
+}
 
 /* Clearfix - Clears floats at end of section */
 header:after,
@@ -148,10 +147,8 @@ header nav input[type="submit"] {
 }
 
 /* Borders */
-
 header nav li,
 footer nav li     { border-left: 0.125rem solid; }
-
 main section      { border-bottom: 2px solid; }
 main table        { border: 2px solid; }
 main th, main td  { border: 1px solid; }
@@ -170,6 +167,8 @@ html { font-family: 'Open Sans', sans-serif; }
 h1, h2 {
   font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
   letter-spacing: 0.1rem;
+  line-height: 0.9;
+  padding-bottom: 0.9rem;
 }
 
 h3, h4, h5, h6,
@@ -195,10 +194,6 @@ aside h6 {
   font-size: 1rem;
   font-style: italic;
 }
-
-p { line-height: 1.4; }
-  /* Adjust this to optimize readability of chosen paragraph font */
-
 
 /* Colors */
 
@@ -312,19 +307,15 @@ header p {
 
 header nav { float: right; }
 
-header nav ul {
-  list-style: none;
-  padding: 0.6rem 0;
-}
+header nav ul { padding: 0.6rem 0; }
 
 header nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-header nav li:last-of-type { padding-right: 0;}
-
 header nav li:first-of-type { border-left: none; }
+header nav li:last-of-type { padding-right: 0;}
 
 header nav input[type="submit"] {
   overflow: visible;
@@ -333,21 +324,19 @@ header nav input[type="submit"] {
   border: none;
 }
 
+/* END HEADER STYLES *************************************************/
 
-/* MAIN STYLES ***************************************************************/
 
-main {
-  padding: 0.6rem 1.2rem;
-}
+/* MAIN STYLES *******************************************************\
+\* Do not edit when altering themes **********************************/
 
-main section {
-  margin-top: 0.6rem;
-  padding-bottom: 0.6rem;
-}
+main { padding: 0.6rem 1.2rem; }
 
-main section:first-of-type { margin-top: 0; }
+main section { padding: 0.6rem 0; }
 
-main section:last-child {
+main section:first-of-type { padding-top: 0; }
+
+main section:last-of-type {
   padding-bottom: 0;
   border: none;
 }
@@ -360,11 +349,12 @@ main article {
 main aside {
   width: 30%;
   float: right;
-  padding: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0.6rem 0;
   font-size: 0.8rem;
 }
 
-main header { padding: 0; }
+/*main header { padding: 0; }
 
 main header h1,
 main header h2,
@@ -377,100 +367,73 @@ main header p {
   padding-bottom: 0.3rem;
 }
 
-main header p:last-child { padding-bottom: 0.6rem;}
-
-/* Lists */
-
-main ul,
-main ol { margin: 0 1.2rem 1.2rem; }
-
-main ul { list-style: none; }
-
-main li { margin-bottom: 0.6rem; }
+main header p:last-child { padding-bottom: 0.6rem;}* TEST/
 
 
-/* Forms */
+/* Forms - use of em instead of rem is deliberate in this section */
 
 main label { font-weight: bold; }
 
 main input,
 main textarea {
-  margin-bottom: 0.9rem;
+  margin: 0.6rem 0;
   display: block;
   width: 100%;
+  padding: 0.3em 0.6em;
 }
 
-main input[type="date"],
-main input[type="datetime"],
-main input[type="datetime-local"],
-main input[type="email"],
-main input[type="month"],
-main input[type="number"],
-main input[type="password"],
-main input[type="search"],
-main input[type="tel"],
-main input[type="text"],
-main input[type="time"],
-main input[type="week"],
-main textarea { padding: 0 0.6rem; }
-
-main textarea { height: 4.5rem; }
+main textarea { height: 4.5em; }
 
 main input[type="checkbox"],
 main input[type="radio"] {
   display: inline;
-  width: 1.8rem;
-  margin-right: 1.8rem;
+  width: 1em;
+  margin-left: 1.2em;
 }
 
 main input[type="range"] {
   display: inline;
-  width: 16rem;
-  margin-left: 1.2rem;
+  width: 16em;
+  margin-left: 1.2em;
 }
 
 main button,
 main input[type="submit"] {
   margin: 0.6rem auto;
+  padding: 0.3em 0.6em;
   width: 12rem;
 }
-
-main button:last-child,
-main input[type="submit"]:last-child { margin-bottom: 0; }
 
 
 /* Tables */
 
 main table {
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin: 0.6rem 0;
   border-collapse: collapse;
-}
-
-main table:last-child {
-  margin-bottom: 0;
 }
 
 main th,
 main td {
-  padding: 0.3rem 0;
+  padding: 0.3em 0;    /* em used deliberately */
   text-align: center;
 }
 
+/* END MAIN STYLES ***************************************************/
 
-/* FOOTER STYLES *************************************************************/
+
+/* FOOTER STYLES *****************************************************\
+\* Do not edit when altering themes **********************************/
 
 footer {
   text-align: center;
   font-size: 0.8rem;
-  padding: 1.2rem;
+  padding: 1rem;
 }
-
-/*footer p { margin: 0.6rem 0; }*/
 
 footer nav ul {
   list-style: none;
-  padding: 0 0 0.6rem;
+  padding: 0.6rem 0;
 }
 
 footer nav li {
@@ -478,4 +441,13 @@ footer nav li {
   padding: 0 0.875rem 0 1rem;
 }
 
-footer nav li:first-of-type { border: none; }
+footer nav li:first-of-type { border-left: none; }
+
+footer nav input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+}
+
+/* END FOOTER STYLES *************************************************/
