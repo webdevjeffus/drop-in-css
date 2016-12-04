@@ -354,7 +354,7 @@ main aside {
   font-size: 0.8rem;
 }
 
-/*main header { padding: 0; }
+/* main header { padding: 0; }
 
 main header h1,
 main header h2,
@@ -367,7 +367,7 @@ main header p {
   padding-bottom: 0.3rem;
 }
 
-main header p:last-child { padding-bottom: 0.6rem;}* TEST/
+main header p:last-child { padding-bottom: 0.6rem;} TEST */
 
 
 /* Forms - use of em instead of rem is deliberate in this section */
