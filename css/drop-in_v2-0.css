@@ -1,10 +1,6 @@
-/*! drop-in.css v2.1 | MIT License | github.com/webdevjeffus/drop-in-css */
+/*! drop-in.css v2.0 | MIT License | github.com/webdevjeffus/drop-in-css */
 
-/* drop-in.css v2.0+ is compatible with griddy.css v1.0+ */
-/* griddy.css - a lightweight, responsive 12-column grid system */
-/* github/webdevjeffus/griddy */
-
-/* IMPORT COMMANDS ***************************************************/
+/* IMPORT COMMANDS ***********************************************************/
 
 /* normalize.css */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css);
@@ -14,7 +10,7 @@
 
 
 /* RESET CLASSES *****************************************************\
-\* Do not edit when customizing themes *******************************/
+\* Do not edit when creating themes **********************************/
 
 /* Reset from http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html { box-sizing: border-box; }
@@ -37,7 +33,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid;
+  border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
 }
@@ -80,7 +76,7 @@ ol, ul { -webkit-padding-start: 0; }
 
 
 /* DROP-IN.CSS UTILITY STYLES ****************************************\
-\* Do not edit when customizing themes *******************************/
+\* Do not edit when altering themes **********************************/
 
 body {
   margin: 0 auto;
@@ -98,23 +94,35 @@ h6 {
   font-style: italic;
 }
 
-h1, h2, h3, h4, h5, h6, p, label, li, img {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0.6rem 0 0;
 }
 
 p,
-li:last-of-type { margin-bottom: 0.6rem; }
+label {
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.6rem 0;
+}
 
-p,
-label { line-height: 1.4; }
+li {
+  margin: 0;
+  padding: 0.6rem 0 0;
+}
+
+li:last-of-type { margin-bottom: 0.6rem; }
 
 ul { list-style: none; }
 ol { padding-left: 1.5em;}
   /* Use of em instead of rem for left padding is deliberate,
      so indent will scale with font */
 
-img { width: 100%; }
+img {
+  width: 100%;
+  margin: 0;
+  padding: 0.6rem 0;
+}
 
 /* Clearfix - Clears floats at end of section */
 header:after,
@@ -133,9 +141,8 @@ header nav input[type="submit"] {
 }
 
 /* Borders */
-body>header nav li,
-body>footer nav li { border-left: 0.125rem solid; }
-
+header nav li,
+footer nav li     { border-left: 0.125rem solid; }
 main section      { border-bottom: 2px solid; }
 main table        { border: 2px solid; }
 main th, main td  { border: 1px solid; }
@@ -145,7 +152,7 @@ main input, main textarea, main button { border: 1px solid; }
 
 
 /* DESIGN STYLES - DEFAULT THEME *************************************\
-\* EDIT THIS SECTION when customizing drop-in.css themes *************/
+\* EDIT THIS SECTION when altering drop-in.css themes ****************/
 
 /* Fonts */
 
@@ -179,6 +186,9 @@ header nav input[type="submit"]:hover,
 header nav input[type="submit"]:active { color: #f22; }
   /* brighter contrasting color; active links */
 
+header nav li,
+footer nav li { border-color: #888; }   /* this should match html background-color */
+
 main table,
 main th,
 main td { border-color: #222; }   /* this should match main font color */
@@ -186,9 +196,6 @@ main td { border-color: #222; }   /* this should match main font color */
 main tr:nth-of-type(odd)  { background-color: #eee; }  /* lighter than main bg-color */
 main tr:nth-of-type(even) { background-color: #ccc; }  /* darker than main bg-color */
 
-hr,
-body>header nav li,
-body>footer nav li,
 main section { border-color: #888; }
   /* this should match html background-color */
 
@@ -212,36 +219,36 @@ main button {
 
 
 /* HEADER STYLES *****************************************************\
-\* Do not edit when customizing themes *******************************/
+\* Do not edit when altering themes **********************************/
 
-body>header { padding: 0.6rem 1.2rem; }
+header { padding: 0.6rem 1.2rem; }
 
-body>header>h1,
-body>header div { float: left; }
+header>h1,
+header div { float: left; }
 
-body>header h1 {
+header h1 {
   font-size: 4rem;
-  padding-top: 0;
+  line-height: .8;
 }
 
-body>header p {
+header p {
   font-size: 1.25rem;
   font-style: italic;
 }
 
-body>header nav { float: right; }
+header nav { float: right; }
 
-body>header nav ul { padding: 0.6rem 0; }
+header nav ul { padding: 0.6rem 0; }
 
-body>header nav li {
+header nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-body>header nav li:first-of-type { border-left: none; }
-body>header nav li:last-of-type { padding-right: 0;}
+header nav li:first-of-type { border-left: none; }
+header nav li:last-of-type { padding-right: 0;}
 
-body>header nav input[type="submit"] {
+header nav input[type="submit"] {
   overflow: visible;
   text-align: center;
   width: auto;
@@ -252,7 +259,7 @@ body>header nav input[type="submit"] {
 
 
 /* MAIN STYLES *******************************************************\
-\* Do not edit when customizing themes *******************************/
+\* Do not edit when altering themes **********************************/
 
 main { padding: 0.6rem 1.2rem; }
 
@@ -330,27 +337,27 @@ main td {
 
 
 /* FOOTER STYLES *****************************************************\
-\* Do not edit when customizing themes *******************************/
+\* Do not edit when altering themes **********************************/
 
-body>footer {
+footer {
   text-align: center;
   font-size: 0.8rem;
   padding: 1rem;
 }
 
-body>footer nav ul {
+footer nav ul {
   list-style: none;
   padding: 0.6rem 0;
 }
 
-body>footer nav li {
+footer nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-body>footer nav li:first-of-type { border-left: none; }
+footer nav li:first-of-type { border-left: none; }
 
-body>footer nav input[type="submit"] {
+footer nav input[type="submit"] {
   overflow: visible;
   text-align: center;
   width: auto;
@@ -358,16 +365,3 @@ body>footer nav input[type="submit"] {
 }
 
 /* END FOOTER STYLES *************************************************/
-
-
-/* BROWSER UPGRADE WARNING STYLES from HTML5 Boilerplate *************\
-\* Do not edit when customizing themes *******************************/
-
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* END BROWSER UPGRADE WARNING STYLES ********************************/
