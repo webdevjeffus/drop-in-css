@@ -1,6 +1,10 @@
 /*! drop-in-wb.css | "Whiteboard" theme by Jeff George */
-/*! Based on drop-in.css v2.0 */
+/*! Based on drop-in.css v2.1 */
 /*! MIT License | github.com/webdevjeffus/drop-in-css */
+
+/* drop-in.css v2.0+ is compatible with griddy.css v1.0+ */
+/* griddy.css - a lightweight, responsive 12-column grid system */
+/* github/webdevjeffus/griddy */
 
 /* IMPORT COMMANDS ***************************************************/
 
@@ -86,49 +90,26 @@ body {
   max-width: 800px;   /* Disable if using with griddy.css */
 }
 
-/* Default sizes for core drop-in.css; commented out for Whiteboard theme
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.4rem; }
-h4 { font-size: 1.2rem; }
-h5 { font-size: 1.2rem; }
-h6 {
-  font-size: 1rem;
-  font-style: italic;
-}
-*/
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, label, li, img {
   margin: 0;
   padding: 0.6rem 0 0;
-}
-
-p,
-label {
-  line-height: 1.4;
-  margin: 0;
-  padding: 0.6rem 0;
 }
 
 p:first-of-type { padding-top: 0;}
+  /* Improves spacing because header fonts in WB lack descenders */
 
-li {
-  margin: 0;
-  padding: 0.6rem 0 0;
-}
-
+p,
 li:last-of-type { margin-bottom: 0.6rem; }
+
+p,
+label { line-height: 1.4; }
 
 ul { list-style: none; }
 ol { padding-left: 1.5em;}
   /* Use of em instead of rem for left padding is deliberate,
      so indent will scale with font */
 
-img {
-  width: 100%;
-  margin: 0;
-  padding: 0.6rem 0;
-}
+img { width: 100%; }
 
 /* Clearfix - Clears floats at end of section */
 header:after,
@@ -147,8 +128,9 @@ header nav input[type="submit"] {
 }
 
 /* Borders */
-header nav li,
-footer nav li     { border-left: 0.125rem solid; }
+body>header nav li,
+body>footer nav li { border-left: 0.125rem solid; }
+
 main section      { border-bottom: 2px solid; }
 main table        { border: 2px solid; }
 main th, main td  { border: 1px solid; }
@@ -166,13 +148,13 @@ html { font-family: 'Open Sans', sans-serif; }
 
 h1, h2 {
   font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.02em;
   line-height: 0.9;
-  padding-bottom: 0.9rem;
+  padding-bottom: 0.35em;
 }
 
 h3, h4, h5, h6,
-header p { font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif; }
+body>header p { font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif; }
 
 /* Heading sizes revised for Whiteboard theme fonts */
 h1 { font-size: 2.7rem; }
@@ -215,12 +197,10 @@ Green   High: rgb( 32,204,124); /* Hi Grn *
         Low:  rgb( 10, 64, 39); /* Lo Grn *
 \* End Whiteboard Color Palette **************/
 
-html {
-  background-color: rgb(204,204,204); /* Lo Wht */
-}
+html { background-color: rgb(204,204,204); } /* Lo Wht */
 
 body,
-header nav input[type="submit"] {
+body>header nav input[type="submit"] {
   background-color: rgb( 18, 18, 18); /* Md Blk */
   color: rgb( 81, 94,255); /* Hi Blu */
 }
@@ -230,25 +210,29 @@ main {
   color: rgb( 64, 64, 64);  /* Hi Blk */
 }
 
-footer { color: #888; }
+body>header,
+body>footer { color: #888; }
+
+body>header p { color: rgb( 81, 94,255); }
 
 a:link,
 a:visited,
-header nav input[type="submit"] { color: rgb( 18,115, 70); } /* Md Grn */
+body>header nav input[type="submit"] {
+  color: rgb( 18,115, 70);
+}                    /* Md Grn */
 
 a:hover,
 a:active,
-header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active { color: rgb( 32,204,124); } /* Hi Grn */
+body>header nav input[type="submit"]:hover,
+body>header nav input[type="submit"]:active {
+  color: rgb( 32,204,124);
+}                    /* Hi Grn */
 
-header nav li,
-footer nav li { border-color: rgb( 64, 64, 64); } /* Lo Wht */
+body>header h1 a:link,
+body>header h1 a:visited { color: rgb(173, 43, 48); }   /* Md Red */
 
-header h1 a:link,
-header h1 a:visited { color: rgb(173, 43, 48); }   /* Md Red */
-
-header h1 a:hover,
-header h1 a:active { color: rgb(255, 63, 71); }   /* Hi Red */
+body>header h1 a:hover,
+body>header h1 a:active { color: rgb(255, 63, 71); }   /* Hi Red */
 
 main h1,
 main h2,
@@ -290,34 +274,34 @@ main button {
 /* HEADER STYLES *****************************************************\
 \* Do not edit when altering themes **********************************/
 
-header { padding: 0.6rem 1.2rem; }
+body>header { padding: 0.6rem 1.2rem; }
 
-header>h1,
-header div { float: left; }
+body>header>h1,
+body>header div { float: left; }
 
-header h1 {
+body>header h1 {
   font-size: 3.3rem;
   line-height: .7;
 }
 
-header p {
+body>header p {
   font-size: 1.5rem;
   line-height: 1;
 }
 
-header nav { float: right; }
+body>header nav { float: right; }
 
-header nav ul { padding: 0.6rem 0; }
+body>header nav ul { padding: 0.6rem 0; }
 
-header nav li {
+body>header nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-header nav li:first-of-type { border-left: none; }
-header nav li:last-of-type { padding-right: 0;}
+body>header nav li:first-of-type { border-left: none; }
+body>header nav li:last-of-type { padding-right: 0;}
 
-header nav input[type="submit"] {
+body>header nav input[type="submit"] {
   overflow: visible;
   text-align: center;
   width: auto;
@@ -352,19 +336,6 @@ main aside {
   padding: 0.6rem 1.2rem;
   margin: 0.6rem 0;
   font-size: 0.8rem;
-}
-
-/* main header { padding: 0; }
-
-main header h1,
-main header h2,
-main header h3,
-main header h4 { padding-bottom: 0.25rem; }
-
-main header p {
-  font-size: 1.2rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 main header p:last-child { padding-bottom: 0.6rem;} TEST */
@@ -425,25 +396,25 @@ main td {
 /* FOOTER STYLES *****************************************************\
 \* Do not edit when altering themes **********************************/
 
-footer {
+body>footer {
   text-align: center;
   font-size: 0.8rem;
   padding: 1rem;
 }
 
-footer nav ul {
+body>footer nav ul {
   list-style: none;
   padding: 0.6rem 0;
 }
 
-footer nav li {
+body>footer nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-footer nav li:first-of-type { border-left: none; }
+body>footer nav li:first-of-type { border-left: none; }
 
-footer nav input[type="submit"] {
+body>footer nav input[type="submit"] {
   overflow: visible;
   text-align: center;
   width: auto;
@@ -451,3 +422,16 @@ footer nav input[type="submit"] {
 }
 
 /* END FOOTER STYLES *************************************************/
+
+
+/* BROWSER UPGRADE WARNING STYLES from HTML5 Boilerplate *************\
+\* Do not edit when customizing themes *******************************/
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* END BROWSER UPGRADE WARNING STYLES ********************************/
