@@ -338,7 +338,7 @@ main aside {
   font-size: 0.8rem;
 }
 
-main header p:last-child { padding-bottom: 0.6rem;} TEST */
+main header p:last-child { padding-bottom: 0.6rem;}
 
 
 /* Forms - use of em instead of rem is deliberate in this section */

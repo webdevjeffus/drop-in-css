@@ -8,6 +8,7 @@ Because developers get tired of looking at the same design project after project
 - [Default theme](#default)
 - [Great Pumpkin](#great-pumpkin)
 - [Old Glory](#old-glory)
+- [Whiteboard](#whiteboard)
 
 ## Installing a theme
 To install a **drop-in.css** theme, simply use the themed stylesheet in place of the regular **drop-in** stylesheet. The theme stylesheets are complete by themselves&mdash;you don't need to install or link to the default **drop-in.css** file to make the **drop-in** theme stylesheets work. The themes include all the **drop-in.css** style rules, not just the rules in the Design Styles session, as well as the @import commands that load **normalize.css** and the necessary fonts from Google Fonts.
@@ -15,6 +16,7 @@ To install a **drop-in.css** theme, simply use the themed stylesheet in place of
 ## The themes
 
 ### [Default](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in.css)
+_**drop-in.css v2.1**_
 
 <p>
   <img style="border:0;width:88px;height:31px"
@@ -30,11 +32,13 @@ Or you can link directly to a minimized version of the default theme hosted onli
 ```html
   <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in.min.css">
 ```
+_**NOTE:** Linked, minified stylesheets have not been updated since version 1.0_
+
 
 <hr>
 
 ### [Great Pumpkin](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-gp.css)
-_Compatible with **drop-in.css** v1.0.0_
+_Based on **drop-in.css** v2.1_
 
 <p>
   <img style="border:0;width:88px;height:31px"
@@ -50,11 +54,12 @@ Or you can link directly to a minimized version of the Great Pumpkin theme hoste
 ```html
   <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in-gp.min.css">
 ```
+_**NOTE:** Linked, minified stylesheets have not been updated since version 1.0_
 
 <hr>
 
 ### [Old Glory](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-og.css)
-_Compatible with **drop-in.css** v1.0.0_
+_Based on **drop-in.css** v2.1_
 
 <p>
   <img style="border:0;width:88px;height:31px"
@@ -70,6 +75,24 @@ Or you can link directly to a minimized version of the Old Glory theme hosted on
 ```html
   <link rel="stylesheet" href="http://www.webdevjeffus.com/drop-in-css/drop-in-og.min.css">
 ```
+_**NOTE:** Linked, minified stylesheets have not been updated since version 1.0_
+
+<hr>
+
+### [Whiteboard](https://github.com/webdevjeffus/drop-in-css/blob/master/css/drop-in-wb.css)
+_Based on **drop-in.css** v2.1_
+
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+
+![Whiteboard Theme](https://github.com/webdevjeffus/drop-in-css/blob/master/img/whiteboard_theme.png "Whiteboard theme screenshot")
+
+Link to minified file hosted online will be added soon.
 
 <hr>
 
