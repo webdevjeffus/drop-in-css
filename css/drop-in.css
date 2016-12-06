@@ -158,7 +158,7 @@ h1, h2, h3, h4 { font-family: 'Alegreya', serif; }
 html { background-color: #888; }  /* medium background color, eg: 50% gray */
 
 body,
-header nav input[type="submit"] {
+body>header nav input[type="submit"] {
   background-color: #222;    /* dark background color, eg: 85% gray */
   color: #ddd;              /* light font color, eg: 15% gray */
 }
@@ -170,13 +170,13 @@ main {
 
 a:link,
 a:visited,
-header nav input[type="submit"] { color: #c00; }
+body>header nav input[type="submit"] { color: #c00; }
   /* darker contrasting color; inactive links */
 
 a:hover,
 a:active,
-header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active { color: #f22; }
+body>header nav input[type="submit"]:hover,
+body>header nav input[type="submit"]:active { color: #f22; }
   /* brighter contrasting color; active links */
 
 main table,
