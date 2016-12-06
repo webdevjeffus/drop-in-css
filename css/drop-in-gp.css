@@ -1,30 +1,93 @@
 /*! drop-in-gp.css | "Great Pumpkin" theme by Jeff George */
-/*! Based on drop-in.css v1.0 */
+/*! Based on drop-in.css v2.1 */
 /*! MIT License | github.com/webdevjeffus/drop-in-css */
 
-/* IMPORT COMMANDS ***********************************************************/
+/* drop-in.css v2.0+ is compatible with griddy.css v1.0+ */
+/* griddy.css - a lightweight, responsive 12-column grid system */
+/* github/webdevjeffus/griddy */
+
+/* IMPORT COMMANDS ***************************************************/
 
 /* normalize.css */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css);
 
-/* Google Fonts */
+/* Google Fonts for GREAT PUMPKIN theme */
 @import url(https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans:400,400italic,700,700italic);
 
 
-/* UTILITY STYLES ************************************************************/
+/* RESET STYLES* *****************************************************\
+\* Do not edit when customizing themes *******************************/
 
+/* Reset from http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+
+/* Resets from HTML5Boilerplate */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video { vertical-align: middle; }
+
+fieldset {
+  border: 0;
   margin: 0;
   padding: 0;
 }
 
+textarea { resize: vertical; }
+
+
+/* Reset: drop-in resets */
+
+body,
+section,
+article,
+aside,
+header,
+main,
+footer,
+nav { padding: 0; }
+
+h1, h2, h3, h4, h5, h6, ol, ul {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+ol, ul { -webkit-padding-start: 0; }
+
+/* END RESETS ********************************************************/
+
+
+/* DROP-IN.CSS UTILITY STYLES ****************************************\
+\* Do not edit when customizing themes *******************************/
+
 body {
   margin: 0 auto;
-  min-width: 600px;
-  max-width: 800px;
+  min-width: 600px;   /* Disable if using with griddy.css */
+  max-width: 800px;   /* Disable if using with griddy.css */
 }
 
 h1 { font-size: 2.25rem; }
@@ -37,12 +100,25 @@ h6 {
   font-style: italic;
 }
 
-h1, h2, h3, h4, p { margin: 0 0 0.5rem; }
-h5, h6 { margin: 0 0 0.2rem; }
+h1, h2, h3, h4, h5, h6, p, label, li, img {
+  margin: 0;
+  padding: 0.6rem 0 0;
+}
 
-li:last-child,
-p:last-child { margin-bottom: 0rem; }
+p,
+li:last-of-type { margin-bottom: 0.6rem; }
 
+p,
+label { line-height: 1.4; }
+
+ul { list-style: none; }
+ol { padding-left: 1.5em;}
+  /* Use of em instead of rem for left padding is deliberate,
+     so indent will scale with font */
+
+img { width: 100%; }
+
+/* Clearfix - Clears floats at end of section */
 header:after,
 main:after,
 section:after {
@@ -51,6 +127,7 @@ section:after {
   clear: both;
 }
 
+/* Link styles */
 a,
 header nav input[type="submit"] {
   font-weight: bold;
@@ -58,15 +135,19 @@ header nav input[type="submit"] {
 }
 
 /* Borders */
+body>header nav li,
+body>footer nav li { border-left: 0.125rem solid; }
 
-header nav li     { border-left: 0.125rem solid; }
 main section      { border-bottom: 2px solid; }
 main table        { border: 2px solid; }
 main th, main td  { border: 1px solid; }
 main input, main textarea, main button { border: 1px solid; }
 
+/* END UTILITY STYLES ************************************************/
 
-/* DESIGN STYLES *************************************************************/
+
+/* DESIGN STYLES - DEFAULT THEME *************************************\
+\* EDIT THIS SECTION when customizing drop-in.css themes *************/
 
 /* Fonts */
 
@@ -82,12 +163,10 @@ h1, h2, h3, h4 {
 
 /* Colors */
 
-html {
-  background-color: #284;   /* medium green */
-}
+html { background-color: #284; }   /* medium green */
 
 body,
-header nav input[type="submit"] {
+body>header nav input[type="submit"] {
   background-color: #142;    /* dark green */
   color: #2b6;              /* brighter green */
 }
@@ -99,17 +178,14 @@ main {
 
 a:link,
 a:visited,
-header nav input[type="submit"] { color: #f80; }
+body>header nav input[type="submit"] { color: #f80; }
   /* pumpkin orange; inactive links in header, footer */
 
 a:hover,
 a:active,
-header nav input[type="submit"]:hover,
-header nav input[type="submit"]:active { color: #fb2; }
+body>header nav input[type="submit"]:hover,
+body>header nav input[type="submit"]:active { color: #fb2; }
   /* brighter orange; active links in header, footer */
-
-header nav li { border-left: 3px solid #284; }
-  /* md green, matches html background-color */
 
 main a:link,
 main a:visited { color: #142; }   /* dark green; inactive links in main */
@@ -124,6 +200,7 @@ main td { border-color: #842; }   /* orange-brown, matches main font color */
 main tr:nth-of-type(odd)  {background-color: #fe9;}  /* lighter than main bg-color */
 main tr:nth-of-type(even) {background-color: #fc7;}  /* darker than main bg-color */
 
+hr,
 main section { border-color: #284; }
   /* medium green; matches html background-color */
 
@@ -144,62 +221,60 @@ main button {
   padding-top: 0.3rem;      /* added for GP theme only; adjusts for line-height of font */
 }
 
+/* END DESIGN STYLES *************************************************/
 
-/* HEADER STYLES *************************************************************/
 
-header { padding: 1rem; }
+/* HEADER STYLES *****************************************************\
+\* Do not edit when customizing themes *******************************/
 
-header>h1,
-header div { float: left; }
+body>header { padding: 0.6rem 1.2rem; }
 
-header h1 {
+body>header>h1,
+body>header div { float: left; }
+
+body>header h1 {
   line-height: 1;
   font-size: 4rem;
 }
 
-header p {
+body>header p {
   font-size: 1.25rem;
   font-style: italic;
   margin-bottom: 0;
 }
 
-header nav { float: right; }
+body>header nav { float: right; }
 
-header nav ul { list-style: none; }
+body>header nav ul { padding: 0.6rem 0; }
 
-header nav li {
+body>header nav li {
   display: inline-block;
   padding: 0 0.875rem 0 1rem;
 }
 
-header nav li:nth-last-of-type(1) { padding-right: 0;}
+body>header nav li:first-of-type { border-left: none; }
+body>header nav li:last-of-type { padding-right: 0;}
 
-header nav li:nth-of-type(1) { border-left: none; }
-
-header nav input[type="submit"] {
+body>header nav input[type="submit"] {
   overflow: visible;
   text-align: center;
   width: auto;
   border: none;
 }
 
+/* END HEADER STYLES *************************************************/
 
-/* MAIN STYLES ***************************************************************/
 
-main {
-  padding: 1rem;
-}
+/* MAIN STYLES *******************************************************\
+\* Do not edit when customizing themes *******************************/
 
-main section {
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-}
+main { padding: 0.6rem 1.2rem; }
 
-main section:nth-of-type(1) {
-  margin-top: 0;
-}
+main section { padding: 0.6rem 0; }
 
-main section:last-child {
+main section:first-of-type { padding-top: 0; }
+
+main section:last-of-type {
   padding-bottom: 0;
   border: none;
 }
@@ -212,95 +287,102 @@ main article {
 main aside {
   width: 30%;
   float: right;
-  padding: 1rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0.6rem 0;
   font-size: 0.8rem;
 }
 
-/* Lists */
-
-main ul {
-  margin: 0 1rem 1rem;
-  list-style: none;
-}
-
-main ol { margin: 0 1rem 1rem 2rem; }
-
-main li { margin-bottom: 0.5rem; }
-
-
-/* Forms */
+/* Forms - use of em instead of rem is deliberate in this section */
 
 main label { font-weight: bold; }
 
 main input,
 main textarea {
-  margin-bottom: 0.75rem;
+  margin: 0.6rem 0;
   display: block;
   width: 100%;
+  padding: 0.3em 0.6em;
 }
 
-main input[type="date"],
-main input[type="datetime"],
-main input[type="datetime-local"],
-main input[type="email"],
-main input[type="month"],
-main input[type="number"],
-main input[type="password"],
-main input[type="search"],
-main input[type="tel"],
-main input[type="text"],
-main input[type="time"],
-main input[type="week"],
-main textarea { padding: 0 0.5rem; }
-
-main textarea { height: 4.5rem; }
+main textarea { height: 4.5em; }
 
 main input[type="checkbox"],
 main input[type="radio"] {
   display: inline;
-  width: 1.5rem;
-  margin-right: 1.5rem;
+  width: 1em;
+  margin-left: 1.2em;
 }
 
 main input[type="range"] {
   display: inline;
-  width: 16rem;
-  margin-left: 1rem;
+  width: 16em;
+  margin-left: 1.2em;
 }
 
 main button,
 main input[type="submit"] {
-  margin: 0.5rem auto;
+  margin: 0.6rem auto;
+  padding: 0.3em 0.6em;
   width: 12rem;
 }
-
-main button:last-child,
-main input[type="submit"]:last-child { margin-bottom: 0; }
 
 
 /* Tables */
 
 main table {
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 0.6rem 0;
   border-collapse: collapse;
-}
-
-main table:last-child {
-  margin-bottom: 0;
 }
 
 main th,
 main td {
-  padding: 0.25rem 0;
+  padding: 0.3em 0;   /* em used deliberately */
   text-align: center;
 }
 
+/* END MAIN STYLES ***************************************************/
 
-/* FOOTER STYLES *************************************************************/
 
-footer {
+/* FOOTER STYLES *****************************************************\
+\* Do not edit when customizing themes *******************************/
+
+body>footer {
   text-align: center;
   font-size: 0.8rem;
   padding: 1rem;
 }
+
+body>footer nav ul {
+  list-style: none;
+  padding: 0.6rem 0;
+}
+
+body>footer nav li {
+  display: inline-block;
+  padding: 0 0.875rem 0 1rem;
+}
+
+body>footer nav li:first-of-type { border-left: none; }
+
+body>footer nav input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+}
+
+/* END FOOTER STYLES *************************************************/
+
+
+/* BROWSER UPGRADE WARNING STYLES from HTML5 Boilerplate *************\
+\* Do not edit when customizing themes *******************************/
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* END BROWSER UPGRADE WARNING STYLES ********************************/
